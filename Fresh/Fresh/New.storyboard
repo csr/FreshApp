@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ezK-aq-N92">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--Put search bar here-->
+        <scene sceneID="q7s-dT-bIN">
+            <objects>
+                <viewController id="esr-F2-uer" customClass="FirstViewController" customModule="Fresh" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9WQ-K8-MuZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="qdr-Kn-uNR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tna-RK-45Q">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="pin" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kJ7-D5-pBF">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <animations/>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Si-Js-YJA">
+                                <rect key="frame" x="0.0" y="570" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem image="request0" id="C9F-lb-9cT">
+                                        <connections>
+                                            <action selector="tapOnGetLocation:" destination="esr-F2-uer" id="vzS-jE-pbw"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qdr-Kn-uNR" firstAttribute="top" secondItem="kJ7-D5-pBF" secondAttribute="bottom" id="6bY-3c-5hp"/>
+                            <constraint firstAttribute="trailing" secondItem="kJ7-D5-pBF" secondAttribute="trailing" id="77i-wR-aHQ"/>
+                            <constraint firstItem="qdr-Kn-uNR" firstAttribute="top" secondItem="7Si-Js-YJA" secondAttribute="bottom" id="9oh-Sb-NTG"/>
+                            <constraint firstItem="7Si-Js-YJA" firstAttribute="leading" secondItem="Tna-RK-45Q" secondAttribute="leading" id="dId-mm-zJX"/>
+                            <constraint firstAttribute="trailing" secondItem="7Si-Js-YJA" secondAttribute="trailing" id="mfa-EM-Ms6"/>
+                            <constraint firstItem="kJ7-D5-pBF" firstAttribute="leading" secondItem="Tna-RK-45Q" secondAttribute="leading" id="tQH-E3-Wgy"/>
+                            <constraint firstItem="kJ7-D5-pBF" firstAttribute="top" secondItem="9WQ-K8-MuZ" secondAttribute="bottom" constant="-44" id="w0j-Gy-Rcn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Put search bar here" id="2FH-RS-XRr">
+                        <barButtonItem key="leftBarButtonItem" image="profile" id="wvz-fF-5Tx">
+                            <connections>
+                                <action selector="didClickProfile:" destination="esr-F2-uer" id="cEN-y5-a0i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="getLocationToolbarButton" destination="C9F-lb-9cT" id="a2M-Ca-Gft"/>
+                        <outlet property="mapView" destination="kJ7-D5-pBF" id="cQS-Kg-RFH"/>
+                        <outlet property="toolBar" destination="7Si-Js-YJA" id="sus-BL-3bH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SH7-8B-Oyt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2218" y="458"/>
+        </scene>
+        <!--Explore-->
+        <scene sceneID="fV8-F6-Kdo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ed-1y-7eN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Explore" id="m58-fg-hmX"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I1a-5c-pZw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="esr-F2-uer" kind="relationship" relationship="rootViewController" id="ZDd-X0-aZt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n8B-bw-IcV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1414" y="458"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ZaH-qX-uE4">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ezK-aq-N92" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Mym-Ts-Tmi">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="8Ed-1y-7eN" kind="relationship" relationship="viewControllers" id="ZzS-bj-svD"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aYS-DI-NBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="602" y="458"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="profile" width="22" height="21"/>
+        <image name="request0" width="22" height="22"/>
+    </resources>
+</document>
