@@ -65,7 +65,7 @@
         <scene sceneID="fV8-F6-Kdo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ed-1y-7eN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explore" id="m58-fg-hmX"/>
+                    <tabBarItem key="tabBarItem" title="Explore" image="explore" id="m58-fg-hmX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="I1a-5c-pZw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -100,6 +100,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="explore" width="27" height="27"/>
         <image name="profile" width="22" height="21"/>
         <image name="request0" width="22" height="22"/>
     </resources>
