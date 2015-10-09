@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate,UISearchBarDelegate {
+class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate {
     
     // Objects
     let locationManager: CLLocationManager = CLLocationManager() // the object that provides us the location data
@@ -19,11 +19,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var getLocationToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var profileView: UIView!
     
     var searchController:UISearchController!
     var searchResultsTableViewController:UITableViewController!
     var storePins:[CustomPin] = []
-    var profileView:UIView!
     var images:[String] = []
     var names:[String] = []
     var prices:[Int] = []
@@ -41,14 +41,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.delegate = self
         self.navigationItem.titleView = searchController.searchBar
-        searchController.searchBar.placeholder = "Search for fresh products near you..."
+        searchController.searchBar.placeholder = "Search for fresh products..."
         
         //searchResultsTableViewController.tableView.delegate = self
         //searchResultsTableViewController.tableView.dataSource = self
-        
-        profileView = ProfileView.loadNib()
-        profileView.frame = CGRectMake(0, -150, UIScreen.mainScreen().bounds.width, 200)
-        self.view.addSubview(profileView)
+        //self.view.addSubview(profileView)
         self.getUserLocation(self)
         
         print("Requesting your current location...")
