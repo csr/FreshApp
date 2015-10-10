@@ -14,8 +14,8 @@
 		1D7EFEBC1BC846E20054FD50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D7EFEBA1BC846E20054FD50 /* LaunchScreen.storyboard */; };
 		1D7EFEC71BC846E30054FD50 /* FreshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFEC61BC846E30054FD50 /* FreshTests.swift */; };
 		1D7EFED21BC846E30054FD50 /* FreshUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFED11BC846E30054FD50 /* FreshUITests.swift */; };
-		1D7EFEE11BC847640054FD50 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D7EFEE01BC847640054FD50 /* New.storyboard */; };
 		1D7EFEE31BC848610054FD50 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7EFEE21BC848610054FD50 /* MapKit.framework */; };
+		1D9898BA1BC9C84B0096DD29 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D9898B91BC9C84B0096DD29 /* New.storyboard */; settings = {ASSET_TAGS = (); }; };
 		2ED2BD4874E2C5245ABE21D5 /* Pods_Fresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FFB2CE38CC8E4164AD9AEC /* Pods_Fresh.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EB44A6E11BC98A4E00077E52 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44A6E01BC98A4E00077E52 /* TabBarController.swift */; settings = {ASSET_TAGS = (); }; };
 		EB44A6E51BC9BC4300077E52 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44A6E41BC9BC4300077E52 /* TableViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -52,8 +52,8 @@
 		1D7EFECD1BC846E30054FD50 /* FreshUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FreshUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7EFED11BC846E30054FD50 /* FreshUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreshUITests.swift; sourceTree = "<group>"; };
 		1D7EFED31BC846E30054FD50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1D7EFEE01BC847640054FD50 /* New.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = New.storyboard; sourceTree = "<group>"; };
 		1D7EFEE21BC848610054FD50 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1D9898B91BC9C84B0096DD29 /* New.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = New.storyboard; sourceTree = "<group>"; };
 		5B08BD25A03AE5E9F6B8BEF6 /* Pods-Fresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fresh/Pods-Fresh.release.xcconfig"; sourceTree = "<group>"; };
 		C8FFB2CE38CC8E4164AD9AEC /* Pods_Fresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA98F31751C21A69A6DCC0C /* Pods-Fresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fresh/Pods-Fresh.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 		1D7EFEDF1BC847370054FD50 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				1D7EFEE01BC847640054FD50 /* New.storyboard */,
+				1D9898B91BC9C84B0096DD29 /* New.storyboard */,
 				1D7EFEBA1BC846E20054FD50 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
@@ -284,7 +284,7 @@
 			files = (
 				1D7EFEBC1BC846E20054FD50 /* LaunchScreen.storyboard in Resources */,
 				1D7EFEB91BC846E20054FD50 /* Assets.xcassets in Resources */,
-				1D7EFEE11BC847640054FD50 /* New.storyboard in Resources */,
+				1D9898BA1BC9C84B0096DD29 /* New.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
