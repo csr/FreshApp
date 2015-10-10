@@ -8,12 +8,18 @@
 
 import UIKit
 import MapKit
+import Parse
+import Bolts
 
 class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
     // Objects
     let locationManager: CLLocationManager = CLLocationManager() // the object that provides us the location data
     var userLocation: CLLocation!
+    
+    // Flag variables
+    var isFarmer = false
+    var isLoggedIn = false
     
     // UI elements
     @IBOutlet weak var mapView: MKMapView!
@@ -147,7 +153,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                 font = 6
             }
             
-            
             let button = UIButton(type: UIButtonType.RoundedRect)
             button.frame = CGRectMake(0, 0, 60, 23)
             button.setTitle("Reserve", forState: UIControlState.Normal)
@@ -182,23 +187,27 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     // UIPresentationController
     @IBAction func addPopover(sender: UIBarButtonItem) {
         let profileOptions = UIAlertController()
+        var accountButton: String = ""
         
-        profileOptions.title = "Fresh ID: hi@cesare.io"
-        profileOptions.addAction(UIAlertAction(title: "View Fresh ID", style: UIAlertActionStyle.Default, handler: nil))
-        profileOptions.addAction(UIAlertAction(title: "Connect to Facebook", style: UIAlertActionStyle.Default, handler: nil))
-        profileOptions.addAction(UIAlertAction(title: "Sign out", style: UIAlertActionStyle.Default, handler: nil))
+        if (isLoggedIn) {
+            accountButton = "Sign out"
+        } else {
+            accountButton = "Log in"
+        }
+        
+        //profileOptions.title = "Fresh ID"
+        profileOptions.addAction(UIAlertAction(title: accountButton, style: UIAlertActionStyle.Default, handler: nil))
         profileOptions.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler: nil))
-        
-        // Add a cancel button, and set the button index at the same time
-        //profileOptions.cancelButtonIndex = profileOptions.addButtonWithTitle("Cancel")
-        //mapOptions.delegate = self
         
         // Display the action sheet
         profileOptions.popoverPresentationController?.barButtonItem = profileNavBarButton
         presentViewController(profileOptions, animated: true, completion: nil)
     }
 
-
+    func login() {
+        
+    }
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         //            WalmartClient.search(searchController.searchBar.text!) { (names, images , prices) -> Void in
         //                self.names = names

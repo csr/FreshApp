@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1532D39221EC0B773CECA138 /* libPods-Fresh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFA8E89374228787F0A6ADE5 /* libPods-Fresh.a */; };
 		1D7EFEB01BC846E20054FD50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFEAF1BC846E20054FD50 /* AppDelegate.swift */; };
 		1D7EFEB21BC846E20054FD50 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFEB11BC846E20054FD50 /* FirstViewController.swift */; };
 		1D7EFEB41BC846E20054FD50 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFEB31BC846E20054FD50 /* SecondViewController.swift */; };
@@ -18,7 +17,7 @@
 		1D7EFED21BC846E30054FD50 /* FreshUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFED11BC846E30054FD50 /* FreshUITests.swift */; };
 		1D7EFEE11BC847640054FD50 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D7EFEE01BC847640054FD50 /* New.storyboard */; };
 		1D7EFEE31BC848610054FD50 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7EFEE21BC848610054FD50 /* MapKit.framework */; };
-		1D7EFEE71BC849F90054FD50 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFEE61BC849F90054FD50 /* ProfileView.swift */; };
+		2ED2BD4874E2C5245ABE21D5 /* Pods_Fresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FFB2CE38CC8E4164AD9AEC /* Pods_Fresh.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +54,9 @@
 		1D7EFED31BC846E30054FD50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D7EFEE01BC847640054FD50 /* New.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = New.storyboard; sourceTree = "<group>"; };
 		1D7EFEE21BC848610054FD50 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		1D7EFEE61BC849F90054FD50 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5B08BD25A03AE5E9F6B8BEF6 /* Pods-Fresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fresh/Pods-Fresh.release.xcconfig"; sourceTree = "<group>"; };
+		C8FFB2CE38CC8E4164AD9AEC /* Pods_Fresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA98F31751C21A69A6DCC0C /* Pods-Fresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fresh/Pods-Fresh.debug.xcconfig"; sourceTree = "<group>"; };
-		DFA8E89374228787F0A6ADE5 /* libPods-Fresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fresh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +65,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D7EFEE31BC848610054FD50 /* MapKit.framework in Frameworks */,
-				1532D39221EC0B773CECA138 /* libPods-Fresh.a in Frameworks */,
+				2ED2BD4874E2C5245ABE21D5 /* Pods_Fresh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +115,6 @@
 				1D7EFEAF1BC846E20054FD50 /* AppDelegate.swift */,
 				1D7EFEB11BC846E20054FD50 /* FirstViewController.swift */,
 				1D7EFEB31BC846E20054FD50 /* SecondViewController.swift */,
-				1D7EFEE61BC849F90054FD50 /* ProfileView.swift */,
 				1D7EFEDF1BC847370054FD50 /* Storyboards */,
 				1D7EFEB81BC846E20054FD50 /* Assets.xcassets */,
 				1D7EFEBD1BC846E20054FD50 /* Info.plist */,
@@ -156,7 +153,7 @@
 		31694BF37E3269F569E7620E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DFA8E89374228787F0A6ADE5 /* libPods-Fresh.a */,
+				C8FFB2CE38CC8E4164AD9AEC /* Pods_Fresh.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -182,6 +179,7 @@
 				1D7EFEA91BC846E20054FD50 /* Frameworks */,
 				1D7EFEAA1BC846E20054FD50 /* Resources */,
 				7389057FA94221A0290A3FA2 /* Copy Pods Resources */,
+				F85613EDA09B267AC2464B0E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -335,6 +333,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		F85613EDA09B267AC2464B0E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fresh/Pods-Fresh-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -342,7 +355,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D7EFEE71BC849F90054FD50 /* ProfileView.swift in Sources */,
 				1D7EFEB41BC846E20054FD50 /* SecondViewController.swift in Sources */,
 				1D7EFEB01BC846E20054FD50 /* AppDelegate.swift in Sources */,
 				1D7EFEB21BC846E20054FD50 /* FirstViewController.swift in Sources */,
@@ -490,6 +502,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = Fresh/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -506,6 +519,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = Fresh/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
