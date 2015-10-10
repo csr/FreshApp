@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate {
+class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
     // Objects
     let locationManager: CLLocationManager = CLLocationManager() // the object that provides us the location data
@@ -19,7 +19,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var getLocationToolbarButton: UIBarButtonItem!
-    @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var profileNavBarButton: UIBarButtonItem!
     
     var searchController:UISearchController!
     var searchResultsTableViewController:UITableViewController!
@@ -57,18 +57,21 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     @IBAction func didClickProfile(sender: AnyObject) {
         
-        if self.profileView.frame.origin.y == -150
-        {
-            UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-                self.profileView.frame = CGRectMake(0, 50, UIScreen.mainScreen().bounds.width, 150)
-                
-                }, completion: nil)
-        }
-        else {
-            UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-                self.profileView.frame = CGRectMake(0, -150, UIScreen.mainScreen().bounds.width, 150)
-                }, completion: nil)
-        }
+        
+        
+        
+//        if self.profileView.frame.origin.y == -150
+//        {
+//            UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+//                self.profileView.frame = CGRectMake(0, 50, UIScreen.mainScreen().bounds.width, 150)
+//                
+//                }, completion: nil)
+//        }
+//        else {
+//            UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+//                self.profileView.frame = CGRectMake(0, -150, UIScreen.mainScreen().bounds.width, 150)
+//                }, completion: nil)
+//        }
     }
     override func didReceiveMemoryWarning()
     {
@@ -181,6 +184,26 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         return (number1,number2)
     }
     
+    // UIPresentationController
+    @IBAction func addPopover(sender: UIBarButtonItem) {
+        let profileOptions = UIAlertController()
+        
+        profileOptions.title = "Fresh ID: hi@cesare.io"
+        profileOptions.addAction(UIAlertAction(title: "View Fresh ID", style: UIAlertActionStyle.Default, handler: nil))
+        profileOptions.addAction(UIAlertAction(title: "Connect to Facebook", style: UIAlertActionStyle.Default, handler: nil))
+        profileOptions.addAction(UIAlertAction(title: "Sign out", style: UIAlertActionStyle.Default, handler: nil))
+        profileOptions.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler: nil))
+        
+        // Add a cancel button, and set the button index at the same time
+        //profileOptions.cancelButtonIndex = profileOptions.addButtonWithTitle("Cancel")
+        //mapOptions.delegate = self
+        
+        // Display the action sheet
+        profileOptions.popoverPresentationController?.barButtonItem = profileNavBarButton
+        presentViewController(profileOptions, animated: true, completion: nil)
+    }
+
+
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         //            WalmartClient.search(searchController.searchBar.text!) { (names, images , prices) -> Void in
         //                self.names = names
