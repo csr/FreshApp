@@ -7,27 +7,20 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
-        
-        
     }
     
     // Objects
     let locationManager: CLLocationManager = CLLocationManager() // the object that provides us the location qdata
     var userLocation: CLLocation!
     
-  
-    
     // Flag variables
     var isFarmer = false
-    var isLoggedIn = false
     
     // UI elements
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var getLocationButton: UIButton!
     @IBOutlet weak var profileNavBarButton: UIBarButtonItem!
     @IBOutlet weak var viewGetLocation: UIView!
-    
-    
     
     var searchController:UISearchController!
     var searchResultsTableViewController:UITableViewController!
@@ -41,7 +34,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         super.viewDidLoad()
         mapView.delegate = self
         mapView.showsUserLocation = true
-
+        
         searchResultsTableViewController = UITableViewController()
         searchResultsTableViewController.view.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(1.0)
         searchController = UISearchController(searchResultsController: searchResultsTableViewController)
@@ -54,23 +47,14 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         
         // Change Navigation Color
         navigationController!.navigationBar.barTintColor = UIColor(red: 131/255, green: 192/255, blue: 101/255, alpha: 1)
-
+        
         self.getUserLocation(self)
         print("Requesting your current location...")
         getUserLocation(self)
         
-        ///Status Bar
-        
-        
-        
         // Setting up Get Location UIView
         viewGetLocation.alpha = 0.9
         viewGetLocation.layer.cornerRadius = 5
-    }
-    
-    
-    @IBAction func didClickProfile(sender: AnyObject) {
-
     }
     
     override func didReceiveMemoryWarning()
@@ -80,15 +64,13 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     @IBAction func tapOnGetLocation(sender: AnyObject) {
-        
         UIView.animateWithDuration(0.4, animations: {
             self.getLocationButton.setImage(UIImage(named: "request1"), forState: UIControlState.Normal)
         })
         getUserLocation(self)
     }
     
-    func getUserLocation(sender: AnyObject)
-    {
+    func getUserLocation(sender: AnyObject) {
         locationManager.delegate = self // instantiate the CLLocationManager object
         
         if CLLocationManager.authorizationStatus() == .NotDetermined {
@@ -100,23 +82,20 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         // continuously send the application a stream of location data
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
-    {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let newLocation = locations.last!
         mapView.setCenterCoordinate(newLocation.coordinate, animated: true)
         let viewRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 1300, 1300)
         mapView.setRegion(viewRegion, animated: true)
         
         manager.stopUpdatingLocation()
-        
     }
     
     // Display the custom view
     var stores = ["Walmart","Target","Costco","Meijer"]
     
     // Display the custom view
-    func addStore(coordinate: CLLocationCoordinate2D, price: Int)
-    {
+    func addStore(coordinate: CLLocationCoordinate2D, price: Int) {
         print("addStore called!")
         let randomPair = randomOffset()
         print(coordinate)
@@ -141,11 +120,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             
             let label = UILabel(frame: CGRectMake(5, -5, 60, 60))
             label.text = "$\(price).99"
-            var font: CGFloat!
             if (price > 10 || price < 100) {
-                font = 8
-            } else {
-                font = 6
+                var _: CGFloat = 8
             }
             
             let button = UIButton(type: UIButtonType.RoundedRect)
@@ -182,49 +158,28 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     // UIPresentationController
     @IBAction func addPopover(sender: UIBarButtonItem) {
         let profileOptions = UIAlertController()
-        var accountButton: String = ""
         
-        if (isLoggedIn) {
-            accountButton = "Sign out"
+        var currentUser = PFUser.currentUser()
+        
+        if (currentUser == nil) {
+            profileOptions.addAction(UIAlertAction(title: "Sign up", style: UIAlertActionStyle.Default, handler: {(action: UIAlertAction!) -> Void in
+                self.signUp()
+            }))
+            
+            profileOptions.addAction(UIAlertAction(title: "Log in", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
+                self.signIn()
+            }))
         } else {
-            accountButton = "Log in"
+            profileOptions.addAction(UIAlertAction(title: "Sign out", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
+                PFUser.logOut()
+            }))
         }
         
-        //profileOptions.title = "Fresh ID"
-        profileOptions.addAction(UIAlertAction(title: accountButton, style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
-        
-            if (!self.isLoggedIn) {
-                self.signUp()
-            }
-        }))
         profileOptions.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler: nil))
         
         // Display the action sheet
         profileOptions.popoverPresentationController?.barButtonItem = profileNavBarButton
         presentViewController(profileOptions, animated: true, completion: nil)
-    }
-
-    func login() {
-        let loginSheetController: UIAlertController = UIAlertController(title: "Login to Fresh", message: "Login to your Fresh account.", preferredStyle: .Alert)
-        let loginAction: UIAlertAction = UIAlertAction(title: "Login", style: .Default) { action -> Void in } // create and add a login button
-        loginSheetController.addAction(loginAction)
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in } // create and add a cancel button
-        loginSheetController.addAction(cancelAction)
-        loginSheetController.addTextFieldWithConfigurationHandler ({(textField: UITextField!) in
-            textField.textColor = UIColor.blackColor()
-            textField.placeholder = "Username"
-            textField.secureTextEntry = false
-            //inputTextField = textField
-        })
-        
-        loginSheetController.addTextFieldWithConfigurationHandler ({(textField: UITextField!) in
-            textField.textColor = UIColor.blackColor()
-            textField.placeholder = "Password"
-            textField.secureTextEntry = true
-            //inputTextField = textField
-        })
-
-        presentViewController(loginSheetController, animated: true, completion: nil)
     }
     
     // Signup credentials
@@ -235,9 +190,58 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         var emailTextField: UITextField?
         var passwordTextField: UITextField?
         
-        let signupSheetController: UIAlertController = UIAlertController(title: "Sign up to Fresh", message: "Creating an account allows you to connect with farmers and buy great products.", preferredStyle: .Alert)
-    
+        let signupSheetController: UIAlertController = UIAlertController(title: "Sign up to Fresh", message: "Create an account to connect with farmers around the world and fill your fridge with healthy food.", preferredStyle: .Alert)
+        
         let signupAction: UIAlertAction = UIAlertAction(title: "Sign up", style: .Default) { action -> Void in
+            self.userEmail = emailTextField!.text!
+            self.userPassword = passwordTextField!.text!
+            print(self.userEmail)
+            print(self.userPassword)
+            
+            // Create the user
+            let user = PFUser()
+            self.userEmail = self.userEmail.lowercaseString
+            user.email = self.userEmail
+            user.username = self.userEmail
+            user.password = self.userPassword
+            
+            user.signUpInBackgroundWithBlock {
+                (succeeded: Bool, error: NSError?) -> Void in
+                if error == nil {
+                    print("Success!")
+                } else {
+                    print("Signing up failed.")
+                }
+            }
+        }
+        signupSheetController.addAction(signupAction)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in }
+        signupSheetController.addAction(cancelAction)
+        
+        signupSheetController.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.textColor = UIColor.blackColor()
+            textField.placeholder = "Email"
+            textField.secureTextEntry = false
+            emailTextField = textField
+        })
+        
+        signupSheetController.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.textColor = UIColor.blackColor()
+            textField.placeholder = "Password"
+            textField.secureTextEntry = true
+            passwordTextField = textField
+        })
+
+        presentViewController(signupSheetController, animated: true, completion: nil)
+    }
+    
+    func signIn() {
+        var emailTextField: UITextField?
+        var passwordTextField: UITextField?
+        
+        let signupSheetController: UIAlertController = UIAlertController(title: "Sign in to Fresh", message: "Log into your Fresh account and connect with farmers around the world.", preferredStyle: .Alert)
+        
+        let signupAction: UIAlertAction = UIAlertAction(title: "Sign in", style: .Default) { action -> Void in
             self.userEmail = emailTextField!.text!
             self.userPassword = passwordTextField!.text!
             print(self.userEmail)
@@ -261,14 +265,22 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             passwordTextField = textField
         })
         
-    
-        // Start activity indicator
-        
         // Create the user
-        var user = PFUser()
-        user.username = userEmail
+        userEmail = userEmail.lowercaseString
+        
+        let user = PFUser()
         user.email = userEmail
+        user.username = userEmail
         user.password = userPassword
+        
+        PFUser.logInWithUsernameInBackground(userEmail, password: userPassword) {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                print("Successfully logged in!")
+            } else {
+                print("Login failed!")
+            }
+        }
         
         presentViewController(signupSheetController, animated: true, completion: nil)
     }
@@ -281,7 +293,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         //                self.searchResultsTableViewController.tableView.reloadData()
     }
 }
-    
+
 //    extension FirstViewController: UISearchControllerDelegate
 //    {
 //        func willPresentSearchController(searchController: UISearchController) {
@@ -290,10 +302,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
 //            let navigationBarFrame = navigationController!.navigationBar.frame
 //            let tableViewY = navigationBarFrame.height + statusBarHeight
 //            let tableViewHeight = mapView.frame.height - navigationBarFrame.height  - toolBar.frame.height
-//            
+//
 //            searchResultsTableViewController.tableView.frame = CGRectMake(0, tableViewY, navigationBarFrame.width, tableViewHeight)
-//            
-//            
+//
+//
 //        }
 //        override func viewWillLayoutSubviews() {
 //        }
@@ -302,26 +314,26 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
 //        func didPresentSearchController(searchController: UISearchController) {
 //        }
 //    }
+
+class CustomPin: NSObject, MKAnnotation {
+    let title: String?
+    let locationName: String?
+    let discipline: String?
+    let coordinate: CLLocationCoordinate2D
     
-    class CustomPin: NSObject, MKAnnotation {
-        let title: String?
-        let locationName: String?
-        let discipline: String?
-        let coordinate: CLLocationCoordinate2D
+    init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D) {
+        self.title = title
+        self.locationName = locationName
+        self.discipline = discipline
+        self.coordinate = coordinate
         
-        init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D) {
-            self.title = title
-            self.locationName = locationName
-            self.discipline = discipline
-            self.coordinate = coordinate
-            
-            super.init()
-        }
-        
-        var subtitle: String? {
-            return locationName
-        }
+        super.init()
     }
+    
+    var subtitle: String? {
+        return locationName
+    }
+}
 //    extension FirstViewController: UITableViewDelegate,UITableViewDataSource
 //    {
 //        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
