@@ -1,11 +1,3 @@
-//
-//  FirstViewController.swift
-//  Fresh
-//
-//  Created by Cesare de Cal on 09/10/15.
-//  Copyright © 2015 Chimica. All rights reserved.
-//
-
 import UIKit
 import MapKit
 import Parse
@@ -20,7 +12,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     // Objects
-    let locationManager: CLLocationManager = CLLocationManager() // the object that provides us the location data
+    let locationManager: CLLocationManager = CLLocationManager() // the object that provides us the location qdata
     var userLocation: CLLocation!
     
   
@@ -78,20 +70,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     
     @IBAction func didClickProfile(sender: AnyObject) {
-        
-//        if self.profileView.frame.origin.y == -150
-//        {
-//            UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-//                self.profileView.frame = CGRectMake(0, 50, UIScreen.mainScreen().bounds.width, 150)
-//                
-//                }, completion: nil)
-//        }
-//        else {
-//            UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-//                self.profileView.frame = CGRectMake(0, -150, UIScreen.mainScreen().bounds.width, 150)
-//                }, completion: nil)
-//        }
+
     }
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -160,7 +141,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             
             let label = UILabel(frame: CGRectMake(5, -5, 60, 60))
             label.text = "$\(price).99"
-            var font: CGFloat = 10
+            var font: CGFloat!
             if (price > 10 || price < 100) {
                 font = 8
             } else {
@@ -210,7 +191,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
         
         //profileOptions.title = "Fresh ID"
-        profileOptions.addAction(UIAlertAction(title: accountButton, style: UIAlertActionStyle.Default, handler: nil))
+        profileOptions.addAction(UIAlertAction(title: accountButton, style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
+        
+            if (!self.isLoggedIn) {
+                self.signUp()
+            }
+        }))
         profileOptions.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler: nil))
         
         // Display the action sheet
@@ -219,7 +205,72 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
 
     func login() {
+        let loginSheetController: UIAlertController = UIAlertController(title: "Login to Fresh", message: "Login to your Fresh account.", preferredStyle: .Alert)
+        let loginAction: UIAlertAction = UIAlertAction(title: "Login", style: .Default) { action -> Void in } // create and add a login button
+        loginSheetController.addAction(loginAction)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in } // create and add a cancel button
+        loginSheetController.addAction(cancelAction)
+        loginSheetController.addTextFieldWithConfigurationHandler ({(textField: UITextField!) in
+            textField.textColor = UIColor.blackColor()
+            textField.placeholder = "Username"
+            textField.secureTextEntry = false
+            //inputTextField = textField
+        })
         
+        loginSheetController.addTextFieldWithConfigurationHandler ({(textField: UITextField!) in
+            textField.textColor = UIColor.blackColor()
+            textField.placeholder = "Password"
+            textField.secureTextEntry = true
+            //inputTextField = textField
+        })
+
+        presentViewController(loginSheetController, animated: true, completion: nil)
+    }
+    
+    // Signup credentials
+    var userEmail = ""
+    var userPassword = ""
+    
+    func signUp() {
+        var emailTextField: UITextField?
+        var passwordTextField: UITextField?
+        
+        let signupSheetController: UIAlertController = UIAlertController(title: "Sign up to Fresh", message: "Creating an account allows you to connect with farmers and buy great products.", preferredStyle: .Alert)
+    
+        let signupAction: UIAlertAction = UIAlertAction(title: "Sign up", style: .Default) { action -> Void in
+            self.userEmail = emailTextField!.text!
+            self.userPassword = passwordTextField!.text!
+            print(self.userEmail)
+            print(self.userPassword)
+        }
+        signupSheetController.addAction(signupAction)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in }
+        signupSheetController.addAction(cancelAction)
+        
+        signupSheetController.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.textColor = UIColor.blackColor()
+            textField.placeholder = "Email"
+            textField.secureTextEntry = false
+            emailTextField = textField
+        })
+        
+        signupSheetController.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.textColor = UIColor.blackColor()
+            textField.placeholder = "Password"
+            textField.secureTextEntry = true
+            passwordTextField = textField
+        })
+        
+    
+        // Start activity indicator
+        
+        // Create the user
+        var user = PFUser()
+        user.username = userEmail
+        user.email = userEmail
+        user.password = userPassword
+        
+        presentViewController(signupSheetController, animated: true, completion: nil)
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -283,7 +334,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
 //                return cell
 //            }
 //            cell.textLabel!.text =  "\(names[indexPath.item])  $\(prices[indexPath.item])"
-//            return cell
+//            return cells
 //        }
 //        func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //            currentSelection = indexPath.item
