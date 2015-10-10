@@ -214,14 +214,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="94" id="bmE-Lm-hDT">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="94" id="bmE-Lm-hDT">
                                 <rect key="frame" x="0.0" y="92" width="600" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bmE-Lm-hDT" id="XoF-AH-qrk">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="93"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="93.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="VIa Maroncelli 17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekG-uC-wQu">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIa Maroncelli 17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekG-uC-wQu">
                                             <rect key="frame" x="141" y="63" width="129" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -236,7 +236,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Mercato &quot;Colombi&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyX-iv-Enc">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mercato &quot;Colombi&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyX-iv-Enc">
                                             <rect key="frame" x="212" y="0.0" width="178" height="26"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -348,7 +348,7 @@
         <scene sceneID="jcd-6D-Jvt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W4a-ld-YVi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" image="discover" selectedImage="discover" id="2p5-ip-7li">
+                    <tabBarItem key="tabBarItem" title="Discover" image="discover0" selectedImage="discover1" id="2p5-ip-7li">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -373,7 +373,8 @@
     <resources>
         <image name="ImageBigPin" width="2592" height="1936"/>
         <image name="background" width="1028" height="341"/>
-        <image name="discover" width="27" height="27"/>
+        <image name="discover0" width="27" height="27"/>
+        <image name="discover1" width="27" height="27"/>
         <image name="explore" width="27" height="27"/>
         <image name="explore0" width="27" height="27"/>
         <image name="explore1" width="28" height="28"/>

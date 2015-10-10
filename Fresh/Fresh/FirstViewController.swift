@@ -156,8 +156,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         let number2 = (0.02 - 0) * Double(Double(arc4random()) / Double(UInt32.max))
         return (number1,number2)
     }
-    
-    // UIPresentationController
+
     @IBAction func addPopover(sender: UIBarButtonItem) {
         let profileOptions = UIAlertController()
         
@@ -174,6 +173,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         } else {
             profileOptions.addAction(UIAlertAction(title: "Sign out", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
                 PFUser.logOut()
+            }))
+            
+            profileOptions.addAction(UIAlertAction(title: "Switch to Farmer", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
+                let query = PFQuery(className: "User")
+                query
             }))
         }
         
