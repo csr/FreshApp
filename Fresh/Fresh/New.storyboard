@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Put search bar here-->
@@ -21,29 +22,46 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <animations/>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Si-Js-YJA">
-                                <rect key="frame" x="0.0" y="570" width="600" height="44"/>
-                                <animations/>
-                                <items>
-                                    <barButtonItem image="request0" id="C9F-lb-9cT">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vvU-ne-MeD">
+                                <rect key="frame" x="20" y="513" width="35" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUH-Es-ghJ">
+                                        <rect key="frame" x="4.5" y="8.5" width="23" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="j4i-TB-Jyp"/>
+                                            <constraint firstAttribute="height" constant="22" id="oBe-Cs-2Ym"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="request0"/>
                                         <connections>
-                                            <action selector="tapOnGetLocation:" destination="esr-F2-uer" id="vzS-jE-pbw"/>
+                                            <action selector="tapOnGetLocation:" destination="esr-F2-uer" eventType="touchUpInside" id="fny-rO-KBO"/>
                                         </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="GBk-w8-HWN"/>
+                                    <constraint firstAttribute="height" constant="35" id="iXt-re-plM"/>
+                                    <constraint firstItem="AUH-Es-ghJ" firstAttribute="centerX" secondItem="vvU-ne-MeD" secondAttribute="centerX" constant="-2" id="ito-GQ-zjj"/>
+                                    <constraint firstItem="AUH-Es-ghJ" firstAttribute="centerY" secondItem="vvU-ne-MeD" secondAttribute="centerY" constant="2" id="xPH-tx-Qf9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qdr-Kn-uNR" firstAttribute="top" secondItem="kJ7-D5-pBF" secondAttribute="bottom" id="6bY-3c-5hp"/>
                             <constraint firstAttribute="trailing" secondItem="kJ7-D5-pBF" secondAttribute="trailing" id="77i-wR-aHQ"/>
-                            <constraint firstItem="qdr-Kn-uNR" firstAttribute="top" secondItem="7Si-Js-YJA" secondAttribute="bottom" id="9oh-Sb-NTG"/>
-                            <constraint firstItem="7Si-Js-YJA" firstAttribute="leading" secondItem="Tna-RK-45Q" secondAttribute="leading" id="dId-mm-zJX"/>
-                            <constraint firstAttribute="trailing" secondItem="7Si-Js-YJA" secondAttribute="trailing" id="mfa-EM-Ms6"/>
+                            <constraint firstItem="qdr-Kn-uNR" firstAttribute="top" secondItem="vvU-ne-MeD" secondAttribute="bottom" constant="10" id="RDi-j0-Pv1"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="vvU-ne-MeD" secondAttribute="leading" id="Rvx-xG-HxG"/>
                             <constraint firstItem="kJ7-D5-pBF" firstAttribute="leading" secondItem="Tna-RK-45Q" secondAttribute="leading" id="tQH-E3-Wgy"/>
                             <constraint firstItem="kJ7-D5-pBF" firstAttribute="top" secondItem="9WQ-K8-MuZ" secondAttribute="bottom" constant="-44" id="w0j-Gy-Rcn"/>
+                            <constraint firstItem="vvU-ne-MeD" firstAttribute="leading" secondItem="Tna-RK-45Q" secondAttribute="leading" constant="10" id="xpB-OC-2em"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Rvx-xG-HxG"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Put search bar here" id="2FH-RS-XRr">
                         <barButtonItem key="leftBarButtonItem" image="profile" id="wvz-fF-5Tx">
@@ -53,10 +71,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="getLocationToolbarButton" destination="C9F-lb-9cT" id="a2M-Ca-Gft"/>
+                        <outlet property="getLocationButton" destination="AUH-Es-ghJ" id="T5w-kQ-Q5w"/>
                         <outlet property="mapView" destination="kJ7-D5-pBF" id="cQS-Kg-RFH"/>
                         <outlet property="profileNavBarButton" destination="wvz-fF-5Tx" id="pJi-A1-nmd"/>
-                        <outlet property="toolBar" destination="7Si-Js-YJA" id="sus-BL-3bH"/>
+                        <outlet property="viewGetLocation" destination="vvU-ne-MeD" id="4p2-P8-erQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SH7-8B-Oyt" userLabel="First Responder" sceneMemberID="firstResponder"/>

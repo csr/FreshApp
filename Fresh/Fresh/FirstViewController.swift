@@ -16,10 +16,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     var userLocation: CLLocation!
     
     // UI elements
-    @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var getLocationToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var getLocationButton: UIButton!
     @IBOutlet weak var profileNavBarButton: UIBarButtonItem!
+    @IBOutlet weak var viewGetLocation: UIView!
     
     var searchController:UISearchController!
     var searchResultsTableViewController:UITableViewController!
@@ -33,8 +33,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         super.viewDidLoad()
         mapView.delegate = self
         mapView.showsUserLocation = true
-        //mapView.
-        
+
         searchResultsTableViewController = UITableViewController()
         searchResultsTableViewController.view.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(1.0)
         searchController = UISearchController(searchResultsController: searchResultsTableViewController)
@@ -52,14 +51,13 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         print("Requesting your current location...")
         getUserLocation(self)
         
-        view.insertSubview(toolBar, atIndex: 1)
+        // Setting up Get Location UIView
+        viewGetLocation.alpha = 0.9
+        viewGetLocation.layer.cornerRadius = 5
     }
     
     
     @IBAction func didClickProfile(sender: AnyObject) {
-        
-        
-        
         
 //        if self.profileView.frame.origin.y == -150
 //        {
@@ -83,7 +81,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     @IBAction func tapOnGetLocation(sender: AnyObject) {
         
         UIView.animateWithDuration(0.4, animations: {
-            self.getLocationToolbarButton.image = UIImage(named: "request1")
+            self.getLocationButton.setImage(UIImage(named: "request1"), forState: UIControlState.Normal)
         })
         getUserLocation(self)
     }
@@ -105,7 +103,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     {
         let newLocation = locations.last!
         mapView.setCenterCoordinate(newLocation.coordinate, animated: true)
-        let viewRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 500, 500)
+        let viewRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 1300, 1300)
         mapView.setRegion(viewRegion, animated: true)
         
         manager.stopUpdatingLocation()
@@ -122,13 +120,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         let randomPair = randomOffset()
         print(coordinate)
         let newCoordinate = CLLocationCoordinate2D(latitude: coordinate.latitude + Double(randomPair.0), longitude: coordinate.longitude   +  Double(randomPair.1))
-        
         print(newCoordinate)
-        
         let storeTitle = stores[ Int(arc4random_uniform(UInt32(stores.count - 1)))  ]
-        
         let storePin = CustomPin(title: storeTitle , locationName: "", discipline: "", coordinate: newCoordinate)
-        
         storePins.append(storePin)
         mapView.addAnnotation(storePin)
     }

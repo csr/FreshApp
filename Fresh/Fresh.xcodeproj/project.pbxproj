@@ -17,7 +17,6 @@
 		1D7EFED21BC846E30054FD50 /* FreshUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFED11BC846E30054FD50 /* FreshUITests.swift */; };
 		1D7EFEE11BC847640054FD50 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D7EFEE01BC847640054FD50 /* New.storyboard */; settings = {ASSET_TAGS = (); }; };
 		1D7EFEE31BC848610054FD50 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7EFEE21BC848610054FD50 /* MapKit.framework */; };
-		1D7EFEE51BC849890054FD50 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7EFEE41BC849890054FD50 /* ProfileView.xib */; settings = {ASSET_TAGS = (); }; };
 		1D7EFEE71BC849F90054FD50 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFEE61BC849F90054FD50 /* ProfileView.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -55,7 +54,6 @@
 		1D7EFED31BC846E30054FD50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D7EFEE01BC847640054FD50 /* New.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = New.storyboard; sourceTree = "<group>"; };
 		1D7EFEE21BC848610054FD50 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		1D7EFEE41BC849890054FD50 /* ProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
 		1D7EFEE61BC849F90054FD50 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,7 +142,6 @@
 				1D7EFEE01BC847640054FD50 /* New.storyboard */,
 				1D7EFEB51BC846E20054FD50 /* Main.storyboard */,
 				1D7EFEBA1BC846E20054FD50 /* LaunchScreen.storyboard */,
-				1D7EFEE41BC849890054FD50 /* ProfileView.xib */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -259,7 +256,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D7EFEBC1BC846E20054FD50 /* LaunchScreen.storyboard in Resources */,
-				1D7EFEE51BC849890054FD50 /* ProfileView.xib in Resources */,
 				1D7EFEB91BC846E20054FD50 /* Assets.xcassets in Resources */,
 				1D7EFEB71BC846E20054FD50 /* Main.storyboard in Resources */,
 				1D7EFEE11BC847640054FD50 /* New.storyboard in Resources */,
