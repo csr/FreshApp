@@ -13,9 +13,17 @@ import Bolts
 
 class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+        
+        
+    }
+    
     // Objects
     let locationManager: CLLocationManager = CLLocationManager() // the object that provides us the location data
     var userLocation: CLLocation!
+    
+  
     
     // Flag variables
     var isFarmer = false
@@ -26,6 +34,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     @IBOutlet weak var getLocationButton: UIButton!
     @IBOutlet weak var profileNavBarButton: UIBarButtonItem!
     @IBOutlet weak var viewGetLocation: UIView!
+    
+    
     
     var searchController:UISearchController!
     var searchResultsTableViewController:UITableViewController!
@@ -49,13 +59,17 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.navigationItem.titleView = searchController.searchBar
         searchController.searchBar.placeholder = "Search for fresh products..."
         
-        //searchResultsTableViewController.tableView.delegate = self
-        //searchResultsTableViewController.tableView.dataSource = self
-        //self.view.addSubview(profileView)
-        self.getUserLocation(self)
         
+        // Change Navigation Color
+        navigationController!.navigationBar.barTintColor = UIColor(red: 131/255, green: 192/255, blue: 101/255, alpha: 1)
+
+        self.getUserLocation(self)
         print("Requesting your current location...")
         getUserLocation(self)
+        
+        ///Status Bar
+        
+        
         
         // Setting up Get Location UIView
         viewGetLocation.alpha = 0.9

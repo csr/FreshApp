@@ -36,6 +36,11 @@
                                             <constraint firstAttribute="height" constant="22" id="oBe-Cs-2Ym"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="request0"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="keyPath">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="tapOnGetLocation:" destination="esr-F2-uer" eventType="touchUpInside" id="fny-rO-KBO"/>
                                         </connections>
@@ -49,9 +54,8 @@
                                     <constraint firstItem="AUH-Es-ghJ" firstAttribute="centerY" secondItem="vvU-ne-MeD" secondAttribute="centerY" constant="2" id="xPH-tx-Qf9"/>
                                 </constraints>
                             </view>
-<<<<<<< HEAD
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nfO-oz-f2g">
-                                <rect key="frame" x="150" y="189" width="300" height="137"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfO-oz-f2g">
+                                <rect key="frame" x="150" y="189" width="300" height="134"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mela Verde" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDe-lw-3LM">
                                         <rect key="frame" x="163" y="37" width="86" height="21"/>
@@ -97,8 +101,6 @@
                                     </mask>
                                 </variation>
                             </view>
-=======
->>>>>>> origin/master
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -125,11 +127,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="Put search bar here" id="2FH-RS-XRr">
                         <barButtonItem key="leftBarButtonItem" image="profile" id="wvz-fF-5Tx">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="addPopover:" destination="esr-F2-uer" id="oGN-By-HzN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="getLocationButton" destination="AUH-Es-ghJ" id="T5w-kQ-Q5w"/>
                         <outlet property="mapView" destination="kJ7-D5-pBF" id="cQS-Kg-RFH"/>
@@ -145,8 +153,15 @@
         <scene sceneID="fV8-F6-Kdo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ed-1y-7eN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explore" image="explore" id="m58-fg-hmX"/>
+                    <tabBarItem key="tabBarItem" title="Explore" image="explore" id="m58-fg-hmX">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="I1a-5c-pZw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -164,8 +179,9 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ZaH-qX-uE4">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ezK-aq-N92" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ezK-aq-N92" customClass="TabBarController" customModule="Fresh" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Mym-Ts-Tmi">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
