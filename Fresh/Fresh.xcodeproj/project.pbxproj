@@ -18,6 +18,7 @@
 		1D7EFEE31BC848610054FD50 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7EFEE21BC848610054FD50 /* MapKit.framework */; };
 		2ED2BD4874E2C5245ABE21D5 /* Pods_Fresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FFB2CE38CC8E4164AD9AEC /* Pods_Fresh.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EB44A6E11BC98A4E00077E52 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44A6E01BC98A4E00077E52 /* TabBarController.swift */; settings = {ASSET_TAGS = (); }; };
+		EB44A6E51BC9BC4300077E52 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44A6E41BC9BC4300077E52 /* TableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		C8FFB2CE38CC8E4164AD9AEC /* Pods_Fresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA98F31751C21A69A6DCC0C /* Pods-Fresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fresh/Pods-Fresh.debug.xcconfig"; sourceTree = "<group>"; };
 		EB44A6E01BC98A4E00077E52 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		EB44A6E41BC9BC4300077E52 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				1D7EFEB11BC846E20054FD50 /* FirstViewController.swift */,
 				1D7EFEB31BC846E20054FD50 /* SecondViewController.swift */,
 				EB44A6E01BC98A4E00077E52 /* TabBarController.swift */,
+				EB44A6E41BC9BC4300077E52 /* TableViewController.swift */,
 				1D7EFEDF1BC847370054FD50 /* Storyboards */,
 				1D7EFEB81BC846E20054FD50 /* Assets.xcassets */,
 				1D7EFEBD1BC846E20054FD50 /* Info.plist */,
@@ -357,6 +360,7 @@
 				1D7EFEB41BC846E20054FD50 /* SecondViewController.swift in Sources */,
 				EB44A6E11BC98A4E00077E52 /* TabBarController.swift in Sources */,
 				1D7EFEB01BC846E20054FD50 /* AppDelegate.swift in Sources */,
+				EB44A6E51BC9BC4300077E52 /* TableViewController.swift in Sources */,
 				1D7EFEB21BC846E20054FD50 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
