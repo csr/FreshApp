@@ -205,7 +205,7 @@
             </objects>
             <point key="canvasLocation" x="2218" y="458"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Discover-->
         <scene sceneID="tar-Uc-oyX">
             <objects>
                 <tableViewController id="kd0-kC-Uqz" customClass="TableViewController" customModule="Fresh" customModuleProvider="target" sceneMemberID="viewController">
@@ -218,11 +218,11 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bmE-Lm-hDT" id="XoF-AH-qrk">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="93.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="93"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIa Maroncelli 17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekG-uC-wQu">
-                                            <rect key="frame" x="140.5" y="62.5" width="128.5" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="VIa Maroncelli 17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekG-uC-wQu">
+                                            <rect key="frame" x="141" y="63" width="129" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -236,14 +236,14 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mercato &quot;Colombi&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyX-iv-Enc">
-                                            <rect key="frame" x="211.5" y="0.0" width="177.5" height="25.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Mercato &quot;Colombi&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyX-iv-Enc">
+                                            <rect key="frame" x="212" y="0.0" width="178" height="26"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You'll find: eggs, milk, cakes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoK-fp-2lc">
-                                            <rect key="frame" x="138" y="36" width="214.5" height="20.5"/>
+                                            <rect key="frame" x="138" y="36" width="215" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -278,12 +278,21 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="kd0-kC-Uqz" id="m0g-y7-b1k"/>
                             <outlet property="delegate" destination="kd0-kC-Uqz" id="8Nx-9n-Oce"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="h2s-KK-Ehb"/>
+                    <navigationItem key="navigationItem" title="Discover" id="h2s-KK-Ehb">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                <color key="value" red="0.51372549019607838" green="0.75294117647058822" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJq-rX-2GG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -293,7 +302,7 @@
         <scene sceneID="fV8-F6-Kdo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ed-1y-7eN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explore" image="explore" id="m58-fg-hmX">
+                    <tabBarItem key="tabBarItem" title="Explore" image="explore0" selectedImage="explore1" id="m58-fg-hmX">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -366,6 +375,8 @@
         <image name="background" width="1028" height="341"/>
         <image name="discover" width="27" height="27"/>
         <image name="explore" width="27" height="27"/>
+        <image name="explore0" width="27" height="27"/>
+        <image name="explore1" width="28" height="28"/>
         <image name="profile" width="22" height="21"/>
         <image name="request0" width="22" height="22"/>
     </resources>

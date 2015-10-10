@@ -10,6 +10,11 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationController!.navigationBar.barTintColor = UIColor(red: 131/255, green: 192/255, blue: 101/255, alpha: 1)
+    }
+    
     override func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
         return 5

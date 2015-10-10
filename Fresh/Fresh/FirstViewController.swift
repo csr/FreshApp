@@ -47,6 +47,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         
         // Change Navigation Color
         navigationController!.navigationBar.barTintColor = UIColor(red: 131/255, green: 192/255, blue: 101/255, alpha: 1)
+        // Change color Navigation Bar
+        
         
         self.getUserLocation(self)
         print("Requesting your current location...")
