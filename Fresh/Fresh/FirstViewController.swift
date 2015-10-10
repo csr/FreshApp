@@ -33,6 +33,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         super.viewDidLoad()
         mapView.delegate = self
         mapView.showsUserLocation = true
+        //mapView.
         
         searchResultsTableViewController = UITableViewController()
         searchResultsTableViewController.view.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(1.0)
