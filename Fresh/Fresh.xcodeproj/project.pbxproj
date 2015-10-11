@@ -119,9 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				1D7EFEAF1BC846E20054FD50 /* AppDelegate.swift */,
-				1D9898C61BC9FEDC0096DD29 /* FloatLabelTextField */,
 				1D9898BB1BC9DA130096DD29 /* Controllers */,
 				1D7EFEDF1BC847370054FD50 /* Storyboards */,
+				1D9898C61BC9FEDC0096DD29 /* FloatLabelTextField */,
 				1D7EFEB81BC846E20054FD50 /* Assets.xcassets */,
 				1D7EFEBD1BC846E20054FD50 /* Info.plist */,
 			);
@@ -524,7 +524,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = Fresh/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chimica.Fresh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -541,7 +541,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = Fresh/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chimica.Fresh;
 				PRODUCT_NAME = "$(TARGET_NAME)";

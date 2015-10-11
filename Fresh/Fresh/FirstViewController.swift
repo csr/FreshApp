@@ -5,14 +5,9 @@ import Bolts
 
 class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
-    
-    // Objects
-    let locationManager: CLLocationManager = CLLocationManager() // the object that provides us the location qdata
+    // Location Objects
+    let locationManager: CLLocationManager = CLLocationManager()
     var userLocation: CLLocation!
-    var objectID: String!
     
     // Flag variables
     var isFarmer = 0
@@ -23,56 +18,44 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     @IBOutlet weak var profileNavBarButton: UIBarButtonItem!
     @IBOutlet weak var viewGetLocation: UIView!
     @IBOutlet weak var viewSmallPin: UIView!
-    
     @IBOutlet weak var labelSmallPinTitle: UILabel!
     @IBOutlet weak var labelSmallPinPrice: UILabel!
     
     var searchController:UISearchController!
     var searchResultsTableViewController:UITableViewController!
     var storePins:[CustomPin] = []
-    var images:[String] = []
-    var names:[String] = []
-    var prices:[Int] = []
     var currentSelection:Int!
     
-    // Products
+    // Parse columns
     var titles = [String]()
+    var descriptions = [String]()
+    var prices = [String]()
+    var latitudes = [Float]()
+    var longitudes = [Float]()
+    var objectID: String! // ??
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Change NavigationBar color
+        navigationController!.navigationBar.barTintColor = UIColor(red: 131/255, green: 192/255, blue: 101/255, alpha: 1)
+        
+        // Location
         mapView.delegate = self
         mapView.showsUserLocation = true
-        signIn()
-        print("Object ID: \(objectID)")
+        self.getUserLocation(self)
+        viewGetLocation.alpha = 0.9
+        viewGetLocation.layer.cornerRadius = 5
         
         searchResultsTableViewController = UITableViewController()
-        searchResultsTableViewController.view.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(1.0)
+        searchResultsTableViewController.view.backgroundColor = UIColor.whiteColor()
         searchController = UISearchController(searchResultsController: searchResultsTableViewController)
-        //searchController.delegate = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.delegate = self
         self.navigationItem.titleView = searchController.searchBar
         searchController.searchBar.placeholder = "Search for fresh products..."
         
-        
-        // Change Navigation Color
-        navigationController!.navigationBar.barTintColor = UIColor(red: 131/255, green: 192/255, blue: 101/255, alpha: 1)
-        // Change color Navigation Bar
-        
-        
-        self.getUserLocation(self)
-        print("Requesting your current location...")
-        getUserLocation(self)
-        
-        // Setting up Get Location UIView
-        viewGetLocation.alpha = 0.9
-        viewGetLocation.layer.cornerRadius = 5
-    }
-    
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        signIn() // Try to authenticate the user
     }
     
     @IBAction func tapOnGetLocation(sender: AnyObject) {
@@ -106,68 +89,71 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     // Display the custom view
     func addStore(coordinate: CLLocationCoordinate2D) {
         print("addStore called!")
-        
-        for _ in allObjects {
-        let query = PFQuery(className: "Products")
-            query.getObjectInBackgroundWithId(inserimentoObjectID) {
-                (products: PFObject?, error: NSError?) -> Void in
-                if error == nil && products != nil {
-                    self.titles.append(products?.objectForKey("Title") as! String)
-                    print(self)
-                } else {
-                    print("Something is not working with retrieving the product status.")
-                    print(error)
-                }
-            }
+
+        var i = 0
+        for title in titles {
+            let storePin = CustomPin(title: title, descr: "", price: "", coordinate: coordinate)
+            storePins.append(storePin)
+            mapView.addAnnotation(storePin)
         }
-        
-        //let newCoordinate = CLLocationCoordinate2D(latitude: coordinate.latitude + Double(randomPair.0), longitude: coordinate.longitude   +  Double(randomPair.1))
-        //print(newCoordinate)
-        
-        var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 51, longitude: 0)
-        let storePin = CustomPin(title: titles[0], descr: "", price: "", coordinate: coordinate)
-        storePins.append(storePin)
-        mapView.addAnnotation(storePin)
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation {
-            return mapView.dequeueReusableAnnotationViewWithIdentifier("")
-        } else {
-            let annotationView = MKAnnotationView   (frame: CGRectMake(0, 0, 186, 40))
-            annotationView.addSubview(viewSmallPin)
-            annotationView.canShowCallout = true
-            view.addSubview(annotationView)
-            
-//            let myPinImage = UIImageView(image: UIImage(named: "pin"))
-//            myPinImage.frame = CGRectMake(0, 0, 70, 70)
-//            annotationView.addSubview(myPinImage)
-//            let price = priceRandomizer(prices[currentSelection])
-//            
-//            let label = UILabel(frame: CGRectMake(5, -5, 60, 60))
-//            label.text = "$\(price).99"
-//            if (price > 10 || price < 100) {
-//                var _: CGFloat = 8
-//            }
-//            
-//            let button = UIButton(type: UIButtonType.RoundedRect)
-//            button.frame = CGRectMake(0, 0, 60, 23)
-//            button.setTitle("Reserve", forState: UIControlState.Normal)
-//            annotationView.rightCalloutAccessoryView = button
-//            
-//            let leftButton = UIButton(type: UIButtonType.DetailDisclosure)
-//            leftButton.frame = CGRectMake(0, 0, 23, 23)
-//            annotationView.leftCalloutAccessoryView = leftButton
-//            
-//            annotationView.canShowCallout = true
-//            
-//            label.textColor = UIColor.whiteColor()
-//            
-//            annotationView.addSubview(label)
-//            return annotationView
-            print("Added one pin!")
-            return annotationView
+        let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 186, 40))
+        labelSmallPinPrice.text = "4.44/Kg"
+        
+        for title in titles {
+            labelSmallPinTitle.text = title
         }
+        
+        for price in prices {
+            labelSmallPinPrice.text = price
+        }
+        
+        annotationView.addSubview(viewSmallPin)
+        annotationView.canShowCallout = true
+        annotationView.backgroundColor = UIColor.whiteColor()
+        annotationView.layer.cornerRadius = 7
+        
+        //            let myPinImage = UIImageView(image: UIImage(named: "pin"))
+        //            myPinImage.frame = CGRectMake(0, 0, 70, 70)
+        //            annotationView.addSubview(myPinImage)
+        //            let price = priceRandomizer(prices[currentSelection])
+        //
+        //            let label = UILabel(frame: CGRectMake(5, -5, 60, 60))
+        //            label.text = "$\(price).99"
+        //            if (price > 10 || price < 100) {
+        //                var _: CGFloat = 8
+        //            }
+        //
+        //            let button = UIButton(type: UIButtonType.RoundedRect)
+        //            button.frame = CGRectMake(0, 0, 60, 23)
+        //            button.setTitle("Reserve", forState: UIControlState.Normal)
+        //            annotationView.rightCalloutAccessoryView = button
+        //
+        //            let leftButton = UIButton(type: UIButtonType.DetailDisclosure)
+        //            leftButton.frame = CGRectMake(0, 0, 23, 23)
+        //            annotationView.leftCalloutAccessoryView = leftButton
+        //
+        //            annotationView.canShowCallout = true
+        //
+        //            label.textColor = UIColor.whiteColor()
+        //
+        //            annotationView.addSubview(label)
+        //            return annotationView
+        
+        var i = 0
+        for _ in titles {
+            var latitude: CLLocationDegrees!
+            var longitude: CLLocationDegrees!
+            latitude = CLLocationDegrees(latitudes[i])
+            longitude = CLLocationDegrees(longitudes[i])
+            var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            addStore(coordinate)
+            i++
+        }
+        print("Added one pin!")
+        return annotationView
     }
     
     func priceRandomizer(price:Int) -> Int {
@@ -177,11 +163,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         return Int(priceUInt +   arc4random_uniform(rangeUInt) - rangeUInt/2 )
     }
     
-//    func randomOffset() ->(Double,Double) {
-//        let number1 = (0.02 - 0) * Double(Double(arc4random()) / Double(UInt32.max))
-//        let number2 = (0.02 - 0) * Double(Double(arc4random()) / Double(UInt32.max))
-//        return (number1,number2)
-//    }
+    //    func randomOffset() ->(Double,Double) {
+    //        let number1 = (0.02 - 0) * Double(Double(arc4random()) / Double(UInt32.max))
+    //        let number2 = (0.02 - 0) * Double(Double(arc4random()) / Double(UInt32.max))
+    //        return (number1,number2)
+    //    }
     
     @IBAction func addPopover(sender: UIBarButtonItem) {
         let profileOptions = UIAlertController()
@@ -363,30 +349,16 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         let navigationController = UINavigationController(rootViewController: vc)
         
         self.presentViewController(navigationController, animated: true, completion: nil)
-
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 }
-
-//    extension FirstViewController: UISearchControllerDelegate
-//    {
-//        func willPresentSearchController(searchController: UISearchController) {
-//            //caculate frame here
-//            let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
-//            let navigationBarFrame = navigationController!.navigationBar.frame
-//            let tableViewY = navigationBarFrame.height + statusBarHeight
-//            let tableViewHeight = mapView.frame.height - navigationBarFrame.height  - toolBar.frame.height
-//
-//            searchResultsTableViewController.tableView.frame = CGRectMake(0, tableViewY, navigationBarFrame.width, tableViewHeight)
-//
-//
-//        }
-//        override func viewWillLayoutSubviews() {
-//        }
-//        func presentSearchController(searchController: UISearchController) {
-//        }
-//        func didPresentSearchController(searchController: UISearchController) {
-//        }
-//    }
 
 class CustomPin: NSObject, MKAnnotation {
     let title: String?
@@ -401,31 +373,4 @@ class CustomPin: NSObject, MKAnnotation {
         self.coordinate = coordinate
         super.init()
     }
-
-//    var subtitle: String? {
-//        return locationName
-//    }
 }
-//    extension FirstViewController: UITableViewDelegate,UITableViewDataSource
-//    {
-//        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//            return names.count
-//        }
-//        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//            let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
-//            if names.count == 0
-//            {
-//                return cell
-//            }
-//            cell.textLabel!.text =  "\(names[indexPath.item])  $\(prices[indexPath.item])"
-//            return cells
-//        }
-//        func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//            currentSelection = indexPath.item
-//            for i in 0...10
-//            {
-//                addStore(mapView.userLocation.coordinate, price: prices[currentSelection])
-//            }
-//            searchController.active = false
-//        }
-//}

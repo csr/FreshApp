@@ -32,8 +32,8 @@ class ProductsTableViewController: UITableViewController {
         inserimento["Title"] = textFieldTitle.text
         inserimento["Description"] = textFieldDescription.text
         inserimento["Price"] = textFieldPrice.text
-        inserimento["Latitude"] = 44.00
-        inserimento["Longitude"] = 44.00
+        inserimento["Latitude"] = 45.439171
+        inserimento["Longitude"] = 9.258177
         inserimento.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
