@@ -19,13 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="pin" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kJ7-D5-pBF">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="kJ7-D5-pBF" secondAttribute="height" multiplier="30:29" id="qzk-B7-AWA"/>
-                                </constraints>
-                            </mapView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vvU-ne-MeD">
                                 <rect key="frame" x="20" y="513" width="35" height="35"/>
                                 <subviews>
@@ -54,28 +47,19 @@
                                     <constraint firstItem="AUH-Es-ghJ" firstAttribute="centerY" secondItem="vvU-ne-MeD" secondAttribute="centerY" constant="2" id="xPH-tx-Qf9"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfO-oz-f2g">
-                                <rect key="frame" x="150" y="189" width="300" height="134"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfO-oz-f2g">
+                                <rect key="frame" x="156" y="236" width="186" height="40"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ka-4E-kNs">
-                                        <rect key="frame" x="157" y="8" width="0.0" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Mela Verde" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDe-lw-3LM">
+                                        <rect key="frame" x="8" y="10" width="86" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ImageBigPin" translatesAutoresizingMaskIntoConstraints="NO" id="6Rn-RG-Q2R">
-                                        <rect key="frame" x="25" y="24" width="106" height="90"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1€ al Kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNP-mV-Cee">
-                                        <rect key="frame" x="163" y="73" width="60" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1€ al Kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNP-mV-Cee">
+                                        <rect key="frame" x="115" y="9" width="60" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mela Verde" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDe-lw-3LM">
-                                        <rect key="frame" x="163" y="37" width="86" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.57062815659999999" green="0.57062815659999999" blue="0.57062815659999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -83,21 +67,19 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="3jo-6O-U5K"/>
                                     <constraint firstAttribute="height" constant="137" id="5Wf-9J-ptF"/>
-                                    <constraint firstAttribute="bottom" secondItem="6Rn-RG-Q2R" secondAttribute="bottom" constant="23" id="FXh-Nc-dAK"/>
+                                    <constraint firstItem="HDe-lw-3LM" firstAttribute="top" secondItem="nfO-oz-f2g" secondAttribute="top" constant="10" id="Af9-76-uZx"/>
                                     <constraint firstItem="XNP-mV-Cee" firstAttribute="top" secondItem="HDe-lw-3LM" secondAttribute="bottom" constant="15" id="J1y-7b-Ldv"/>
                                     <constraint firstAttribute="height" constant="137" id="RUi-hW-eUi"/>
+                                    <constraint firstItem="HDe-lw-3LM" firstAttribute="leading" secondItem="nfO-oz-f2g" secondAttribute="leading" constant="8" id="feb-vo-u1M"/>
                                     <constraint firstAttribute="width" constant="300" id="gXW-00-1o3"/>
-                                    <constraint firstAttribute="trailing" secondItem="HDe-lw-3LM" secondAttribute="trailing" constant="51" id="h4y-iC-W8z"/>
-                                    <constraint firstItem="6Rn-RG-Q2R" firstAttribute="leading" secondItem="nfO-oz-f2g" secondAttribute="leading" constant="16" id="hE9-BA-xqU"/>
-                                    <constraint firstItem="6Rn-RG-Q2R" firstAttribute="top" secondItem="nfO-oz-f2g" secondAttribute="top" constant="24" id="iV7-eT-XC1"/>
-                                    <constraint firstAttribute="trailing" secondItem="6Rn-RG-Q2R" secondAttribute="trailing" constant="178" id="iwI-cq-nYy"/>
-                                    <constraint firstAttribute="trailing" secondItem="XNP-mV-Cee" secondAttribute="trailing" constant="77" id="ndl-qh-qht"/>
-                                    <constraint firstItem="HDe-lw-3LM" firstAttribute="top" secondItem="nfO-oz-f2g" secondAttribute="top" constant="37" id="z5S-Z7-Ff2"/>
+                                    <constraint firstItem="XNP-mV-Cee" firstAttribute="top" secondItem="nfO-oz-f2g" secondAttribute="top" constant="9" id="llm-Jg-VgZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="XNP-mV-Cee" secondAttribute="trailing" constant="9" id="ndl-qh-qht"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="3jo-6O-U5K"/>
                                         <exclude reference="RUi-hW-eUi"/>
+                                        <exclude reference="J1y-7b-Ldv"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -133,7 +115,7 @@
                                         <color key="backgroundColor" red="0.51372549020000002" green="0.75294117650000003" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carlo Rossi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLz-JW-tPC">
-                                        <rect key="frame" x="35" y="107" width="86" height="21"/>
+                                        <rect key="frame" x="35" y="107" width="86" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -153,6 +135,13 @@
                                     <constraint firstAttribute="width" constant="394" id="u2G-Fp-yIK"/>
                                 </constraints>
                             </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="pin" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kJ7-D5-pBF">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kJ7-D5-pBF" secondAttribute="height" multiplier="30:29" id="qzk-B7-AWA"/>
+                                </constraints>
+                            </mapView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -168,12 +157,12 @@
                             <constraint firstItem="nfO-oz-f2g" firstAttribute="centerX" secondItem="Tna-RK-45Q" secondAttribute="centerX" id="qHB-gJ-LP0"/>
                             <constraint firstItem="kJ7-D5-pBF" firstAttribute="leading" secondItem="Tna-RK-45Q" secondAttribute="leading" id="tQH-E3-Wgy"/>
                             <constraint firstItem="kJ7-D5-pBF" firstAttribute="top" secondItem="9WQ-K8-MuZ" secondAttribute="bottom" constant="-44" id="w0j-Gy-Rcn"/>
-                            <constraint firstItem="nfO-oz-f2g" firstAttribute="top" secondItem="9WQ-K8-MuZ" secondAttribute="bottom" constant="125" id="xcF-lu-3hw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nfO-oz-f2g" secondAttribute="trailing" constant="130" id="xgO-VF-dTt"/>
                             <constraint firstItem="vvU-ne-MeD" firstAttribute="leading" secondItem="Tna-RK-45Q" secondAttribute="leading" constant="10" id="xpB-OC-2em"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="5eL-d5-Udg"/>
                                 <exclude reference="qHB-gJ-LP0"/>
                                 <exclude reference="xgO-VF-dTt"/>
                                 <exclude reference="1WU-KH-op2"/>
@@ -196,9 +185,12 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="getLocationButton" destination="AUH-Es-ghJ" id="T5w-kQ-Q5w"/>
+                        <outlet property="labelSmallPinPrice" destination="XNP-mV-Cee" id="auu-eD-m63"/>
+                        <outlet property="labelSmallPinTitle" destination="HDe-lw-3LM" id="OQQ-K4-fFu"/>
                         <outlet property="mapView" destination="kJ7-D5-pBF" id="cQS-Kg-RFH"/>
                         <outlet property="profileNavBarButton" destination="wvz-fF-5Tx" id="pJi-A1-nmd"/>
                         <outlet property="viewGetLocation" destination="vvU-ne-MeD" id="4p2-P8-erQ"/>
+                        <outlet property="viewSmallPin" destination="nfO-oz-f2g" id="081-lG-mMd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SH7-8B-Oyt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -381,7 +373,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of the product" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRC-Ta-3zd" customClass="FloatLabelTextField" customModule="Fresh" customModuleProvider="target">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price (1Kg/1L)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRC-Ta-3zd" customClass="FloatLabelTextField" customModule="Fresh" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="-1" width="600" height="50.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -462,6 +454,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="buttonDone" destination="xgX-tH-A55" id="KRw-QA-JC5"/>
+                        <outlet property="textFieldDescription" destination="bUq-cx-b1r" id="nzL-Be-rUa"/>
+                        <outlet property="textFieldLocation" destination="Epg-tE-U7r" id="ADd-Da-BYx"/>
+                        <outlet property="textFieldPrice" destination="kRC-Ta-3zd" id="XSk-4T-NKh"/>
+                        <outlet property="textFieldTitle" destination="3si-RZ-dcP" id="Zau-Eo-WXW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6q-Ty-gOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -559,7 +555,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ImageBigPin" width="2592" height="1936"/>
         <image name="background" width="1028" height="341"/>
         <image name="discover0" width="27" height="27"/>
         <image name="discover1" width="27" height="27"/>

@@ -22,6 +22,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     @IBOutlet weak var getLocationButton: UIButton!
     @IBOutlet weak var profileNavBarButton: UIBarButtonItem!
     @IBOutlet weak var viewGetLocation: UIView!
+    @IBOutlet weak var viewSmallPin: UIView!
+    
+    @IBOutlet weak var labelSmallPinTitle: UILabel!
+    @IBOutlet weak var labelSmallPinPrice: UILabel!
     
     var searchController:UISearchController!
     var searchResultsTableViewController:UITableViewController!
@@ -30,6 +34,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     var names:[String] = []
     var prices:[Int] = []
     var currentSelection:Int!
+    
+    // Products
+    var titles = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,17 +104,28 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     // Display the custom view
-    var stores = ["Walmart","Target","Costco","Meijer"]
-    
-    // Display the custom view
-    func addStore(coordinate: CLLocationCoordinate2D, price: Int) {
+    func addStore(coordinate: CLLocationCoordinate2D) {
         print("addStore called!")
-        let randomPair = randomOffset()
-        print(coordinate)
-        let newCoordinate = CLLocationCoordinate2D(latitude: coordinate.latitude + Double(randomPair.0), longitude: coordinate.longitude   +  Double(randomPair.1))
-        print(newCoordinate)
-        let storeTitle = stores[ Int(arc4random_uniform(UInt32(stores.count - 1)))  ]
-        let storePin = CustomPin(title: storeTitle , locationName: "", discipline: "", coordinate: newCoordinate)
+        
+        for _ in allObjects {
+        let query = PFQuery(className: "Products")
+            query.getObjectInBackgroundWithId(inserimentoObjectID) {
+                (products: PFObject?, error: NSError?) -> Void in
+                if error == nil && products != nil {
+                    self.titles.append(products?.objectForKey("Title") as! String)
+                    print(self)
+                } else {
+                    print("Something is not working with retrieving the product status.")
+                    print(error)
+                }
+            }
+        }
+        
+        //let newCoordinate = CLLocationCoordinate2D(latitude: coordinate.latitude + Double(randomPair.0), longitude: coordinate.longitude   +  Double(randomPair.1))
+        //print(newCoordinate)
+        
+        var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 51, longitude: 0)
+        let storePin = CustomPin(title: titles[0], descr: "", price: "", coordinate: coordinate)
         storePins.append(storePin)
         mapView.addAnnotation(storePin)
     }
@@ -116,33 +134,38 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         if annotation is MKUserLocation {
             return mapView.dequeueReusableAnnotationViewWithIdentifier("")
         } else {
-            let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 70, 70))
-            //view.backgroundColor = UIColor.whiteColor()
-            let myPinImage = UIImageView(image: UIImage(named: "pin"))
-            myPinImage.frame = CGRectMake(0, 0, 70, 70)
-            annotationView.addSubview(myPinImage)
-            let price = priceRandomizer(prices[currentSelection])
-            
-            let label = UILabel(frame: CGRectMake(5, -5, 60, 60))
-            label.text = "$\(price).99"
-            if (price > 10 || price < 100) {
-                var _: CGFloat = 8
-            }
-            
-            let button = UIButton(type: UIButtonType.RoundedRect)
-            button.frame = CGRectMake(0, 0, 60, 23)
-            button.setTitle("Reserve", forState: UIControlState.Normal)
-            annotationView.rightCalloutAccessoryView = button
-            
-            let leftButton = UIButton(type: UIButtonType.DetailDisclosure)
-            leftButton.frame = CGRectMake(0, 0, 23, 23)
-            annotationView.leftCalloutAccessoryView = leftButton
-            
+            let annotationView = MKAnnotationView   (frame: CGRectMake(0, 0, 186, 40))
+            annotationView.addSubview(viewSmallPin)
             annotationView.canShowCallout = true
+            view.addSubview(annotationView)
             
-            label.textColor = UIColor.whiteColor()
-            
-            annotationView.addSubview(label)
+//            let myPinImage = UIImageView(image: UIImage(named: "pin"))
+//            myPinImage.frame = CGRectMake(0, 0, 70, 70)
+//            annotationView.addSubview(myPinImage)
+//            let price = priceRandomizer(prices[currentSelection])
+//            
+//            let label = UILabel(frame: CGRectMake(5, -5, 60, 60))
+//            label.text = "$\(price).99"
+//            if (price > 10 || price < 100) {
+//                var _: CGFloat = 8
+//            }
+//            
+//            let button = UIButton(type: UIButtonType.RoundedRect)
+//            button.frame = CGRectMake(0, 0, 60, 23)
+//            button.setTitle("Reserve", forState: UIControlState.Normal)
+//            annotationView.rightCalloutAccessoryView = button
+//            
+//            let leftButton = UIButton(type: UIButtonType.DetailDisclosure)
+//            leftButton.frame = CGRectMake(0, 0, 23, 23)
+//            annotationView.leftCalloutAccessoryView = leftButton
+//            
+//            annotationView.canShowCallout = true
+//            
+//            label.textColor = UIColor.whiteColor()
+//            
+//            annotationView.addSubview(label)
+//            return annotationView
+            print("Added one pin!")
             return annotationView
         }
     }
@@ -154,11 +177,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         return Int(priceUInt +   arc4random_uniform(rangeUInt) - rangeUInt/2 )
     }
     
-    func randomOffset() ->(Double,Double) {
-        let number1 = (0.02 - 0) * Double(Double(arc4random()) / Double(UInt32.max))
-        let number2 = (0.02 - 0) * Double(Double(arc4random()) / Double(UInt32.max))
-        return (number1,number2)
-    }
+//    func randomOffset() ->(Double,Double) {
+//        let number1 = (0.02 - 0) * Double(Double(arc4random()) / Double(UInt32.max))
+//        let number2 = (0.02 - 0) * Double(Double(arc4random()) / Double(UInt32.max))
+//        return (number1,number2)
+//    }
     
     @IBAction func addPopover(sender: UIBarButtonItem) {
         let profileOptions = UIAlertController()
@@ -181,7 +204,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             if (isFarmer == 0) {
                 profileOptions.addAction(UIAlertAction(title: "Switch to Farmer", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
                     let query = PFQuery(className: "_User")
-                    query.getObjectInBackgroundWithId(self.objectID) {
+                    query.getObjectInBackgroundWithId((self.objectID)!) {
                         (farmer: PFObject?, error: NSError?) -> Void in
                         if error == nil && farmer != nil {
                             self.isFarmer = (farmer?.objectForKey("farmer") as! Int)
@@ -367,22 +390,21 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
 
 class CustomPin: NSObject, MKAnnotation {
     let title: String?
-    let locationName: String?
-    let discipline: String?
+    let descr: String?
+    let price: String?
     let coordinate: CLLocationCoordinate2D
     
-    init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D) {
+    init(title: String, descr: String, price: String, coordinate: CLLocationCoordinate2D) {
         self.title = title
-        self.locationName = locationName
-        self.discipline = discipline
+        self.descr = descr
+        self.price = price
         self.coordinate = coordinate
-        
         super.init()
     }
-    
-    var subtitle: String? {
-        return locationName
-    }
+
+//    var subtitle: String? {
+//        return locationName
+//    }
 }
 //    extension FirstViewController: UITableViewDelegate,UITableViewDataSource
 //    {
