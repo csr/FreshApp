@@ -62,6 +62,16 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             ask()
         }
         signIn() // Try to authenticate the user
+        retrieveData()
+        status()
+    }
+    
+    // Check values in arrays of "Product" class
+    func status() {
+        print("I've found \(titles.count) titles.")
+        for title in titles {
+            print(title)
+        }
     }
     
     @IBAction func tapOnGetLocation(sender: AnyObject) {
@@ -297,9 +307,20 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         rightBarButton.customView = btnName
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
-    
+   
     func retrieveData() {
-        
+        let query = PFQuery(className: "Products")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            print("Successfully retrieved \(objects!.count) scores.")
+            // Do something with the found objects
+            if let objects = objects {
+                for object in objects {
+                    print("Dealing with object \(object.objectId) right now.")
+                    self.titles.append(object["Title"] as! String)
+                }
+            }
+        }
     }
     
     func goToAddProduct() {
