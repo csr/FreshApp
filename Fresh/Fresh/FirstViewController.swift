@@ -188,6 +188,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                             print("This user is a farmer? \(self.isFarmer)")
                             self.switchToFarmer()
                         } else {
+                            print("Something is not working with retrieving the farmer status.")
                             print(error)
                         }
                     }
@@ -306,7 +307,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                 print("Login failed!")
             }
         }
-        presentViewController(signupSheetController, animated: true, completion: nil)
+        
+        if (PFUser.currentUser() == nil) {
+            presentViewController(signupSheetController, animated: true, completion: nil)
+        }
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -321,7 +325,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         var btnName: UIButton = UIButton()
         btnName.frame = CGRectMake(0, 0, 22, 22)
         btnName.setImage(UIImage(named: "plus"), forState: .Normal)
-        btnName.addTarget(self, action: Selector("addProduct"), forControlEvents: .TouchUpInside)
+        btnName.addTarget(self, action: Selector("goToAddProduct"), forControlEvents: .TouchUpInside)
         
         //.... Set Right/Left Bar Button item
         var rightBarButton:UIBarButtonItem = UIBarButtonItem()
@@ -329,8 +333,14 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
-    func addProduct() {
+    func goToAddProduct() {
+        let storyboard : UIStoryboard = UIStoryboard(name: "New", bundle: nil)
+        let vc : ProductsTableViewController = storyboard.instantiateViewControllerWithIdentifier("products") as! ProductsTableViewController
         
+        let navigationController = UINavigationController(rootViewController: vc)
+        
+        self.presentViewController(navigationController, animated: true, completion: nil)
+
     }
 }
 
