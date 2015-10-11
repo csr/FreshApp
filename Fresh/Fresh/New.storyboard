@@ -292,7 +292,7 @@
             </objects>
             <point key="canvasLocation" x="2206" y="1972"/>
         </scene>
-        <!--Add your products-->
+        <!--Sell your products-->
         <scene sceneID="UpT-PV-vgA">
             <objects>
                 <tableViewController storyboardIdentifier="products" id="lkD-H8-9J0" customClass="ProductsTableViewController" customModule="Fresh" customModuleProvider="target" sceneMemberID="viewController">
@@ -407,6 +407,39 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="JDx-Wz-SD0">
+                                        <rect key="frame" x="0.0" y="294" width="600" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JDx-Wz-SD0" id="Pah-gJ-EPH">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="64.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Epg-tE-U7r" customClass="FloatLabelTextField" customModule="Fresh" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="-1" width="600" height="50.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Epg-tE-U7r" firstAttribute="leading" secondItem="Pah-gJ-EPH" secondAttribute="leading" id="283-w9-Pct"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Epg-tE-U7r" secondAttribute="bottom" constant="5.5" id="4GR-tL-ASa"/>
+                                                <constraint firstAttribute="bottom" secondItem="Epg-tE-U7r" secondAttribute="bottom" constant="7" id="7GY-l1-oUU"/>
+                                                <constraint firstItem="Epg-tE-U7r" firstAttribute="leading" secondItem="Pah-gJ-EPH" secondAttribute="leading" constant="20" id="Ctu-Ci-6e2"/>
+                                                <constraint firstItem="Epg-tE-U7r" firstAttribute="top" secondItem="Pah-gJ-EPH" secondAttribute="topMargin" constant="-8" id="IEK-Oi-YsE"/>
+                                                <constraint firstAttribute="trailing" secondItem="Epg-tE-U7r" secondAttribute="trailing" constant="20" id="JzS-hy-QGh"/>
+                                                <constraint firstItem="Epg-tE-U7r" firstAttribute="top" secondItem="Pah-gJ-EPH" secondAttribute="top" constant="7" id="gQ6-uZ-BMF"/>
+                                                <constraint firstAttribute="trailing" secondItem="Epg-tE-U7r" secondAttribute="trailing" constant="20" id="llu-du-gIa"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="4GR-tL-ASa"/>
+                                                    <exclude reference="IEK-Oi-YsE"/>
+                                                    <exclude reference="283-w9-Pct"/>
+                                                    <exclude reference="llu-du-gIa"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -415,8 +448,13 @@
                             <outlet property="delegate" destination="lkD-H8-9J0" id="riX-q0-Rex"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add your products" id="0DO-kr-FpX">
+                    <navigationItem key="navigationItem" title="Sell your products" id="0DO-kr-FpX">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="xgX-tH-A55">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="tapOnButtonDone:" destination="lkD-H8-9J0" id="T4j-ek-aza"/>
                             </connections>
