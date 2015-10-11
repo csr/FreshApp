@@ -14,13 +14,13 @@
 		1D7EFEC71BC846E30054FD50 /* FreshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFEC61BC846E30054FD50 /* FreshTests.swift */; };
 		1D7EFED21BC846E30054FD50 /* FreshUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFED11BC846E30054FD50 /* FreshUITests.swift */; };
 		1D7EFEE31BC848610054FD50 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7EFEE21BC848610054FD50 /* MapKit.framework */; };
-		1D9898BA1BC9C84B0096DD29 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D9898B91BC9C84B0096DD29 /* New.storyboard */; settings = {ASSET_TAGS = (); }; };
-		1D9898BF1BC9F7C90096DD29 /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9898BE1BC9F7C90096DD29 /* ProductsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		1D9898C41BC9FED80096DD29 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9898C21BC9FED80096DD29 /* FloatLabelTextField.swift */; settings = {ASSET_TAGS = (); }; };
-		1D9898C51BC9FED80096DD29 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9898C31BC9FED80096DD29 /* FloatLabelTextView.swift */; settings = {ASSET_TAGS = (); }; };
+		1D9898BA1BC9C84B0096DD29 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D9898B91BC9C84B0096DD29 /* New.storyboard */; };
+		1D9898BF1BC9F7C90096DD29 /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9898BE1BC9F7C90096DD29 /* ProductsTableViewController.swift */; };
+		1D9898C41BC9FED80096DD29 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9898C21BC9FED80096DD29 /* FloatLabelTextField.swift */; };
+		1D9898C51BC9FED80096DD29 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9898C31BC9FED80096DD29 /* FloatLabelTextView.swift */; };
 		2ED2BD4874E2C5245ABE21D5 /* Pods_Fresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FFB2CE38CC8E4164AD9AEC /* Pods_Fresh.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		EB44A6E11BC98A4E00077E52 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44A6E01BC98A4E00077E52 /* TabBarController.swift */; settings = {ASSET_TAGS = (); }; };
-		EB44A6E51BC9BC4300077E52 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44A6E41BC9BC4300077E52 /* TableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		EB44A6E11BC98A4E00077E52 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44A6E01BC98A4E00077E52 /* TabBarController.swift */; };
+		EB44A6E51BC9BC4300077E52 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44A6E41BC9BC4300077E52 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -257,12 +257,13 @@
 		1D7EFEA41BC846E20054FD50 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Chimica;
 				TargetAttributes = {
 					1D7EFEAB1BC846E20054FD50 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = WC2NUT8MA5;
+						DevelopmentTeam = H25988B6R2;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -524,7 +525,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = Fresh/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chimica.Fresh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -541,7 +542,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = Fresh/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chimica.Fresh;
 				PRODUCT_NAME = "$(TARGET_NAME)";

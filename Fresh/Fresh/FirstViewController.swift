@@ -42,8 +42,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         navigationController!.navigationBar.barTintColor = UIColor(red: 131/255, green: 192/255, blue: 101/255, alpha: 1)
         
         // Location
-        mapView.delegate = self
         mapView.showsUserLocation = true
+        mapView.delegate = self
         self.getUserLocation(self)
         viewGetLocation.alpha = 0.9
         viewGetLocation.layer.cornerRadius = 5
@@ -110,10 +110,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         manager.stopUpdatingLocation()
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 186, 40))
-        return annotationView
-    }
+//    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+//        let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 186, 40))
+//        annotationView.backgroundColor = UIColor.whiteColor()
+//        
+//        return annotationView
+//    }
     
     @IBAction func addPopover(sender: UIBarButtonItem) {
         let profileOptions = UIAlertController()
@@ -162,7 +164,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
 
     func ask() {
-        let askSheetController: UIAlertController = UIAlertController(title: "Welcome to Fresh!", message: "Create a Fresh account or log into an existing one connect with farmers around the world.", preferredStyle: .Alert)
+        let askSheetController: UIAlertController = UIAlertController(title: "Welcome to Fresh!", message: "Create a Fresh account or log into an existing one to connect with farmers around the world.", preferredStyle: .Alert)
         let signupAction: UIAlertAction = UIAlertAction(title: "Sign up", style: .Default) { action -> Void in
             self.signUp()
         }
@@ -173,9 +175,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
         askSheetController.addAction(loginAction)
 
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-            self.signIn()
-        }
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         askSheetController.addAction(cancelAction)
         
         presentViewController(askSheetController, animated: true, completion: nil)
@@ -236,7 +236,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         var emailTextField: UITextField?
         var passwordTextField: UITextField?
         
-        let signupSheetController: UIAlertController = UIAlertController(title: "Sign in to Fresh", message: "Log into your Fresh account and connect with farmers around the world.", preferredStyle: .Alert)
+        let signupSheetController: UIAlertController = UIAlertController(title: "Sign in to Fresh", message: "Log into your Fresh account to see what farmers are sellingr.", preferredStyle: .Alert)
         
         let signupAction: UIAlertAction = UIAlertAction(title: "Sign in", style: .Default) { action -> Void in
             self.userEmail = emailTextField!.text!
@@ -296,6 +296,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         var rightBarButton:UIBarButtonItem = UIBarButtonItem()
         rightBarButton.customView = btnName
         self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    func retrieveData() {
+        
     }
     
     func goToAddProduct() {
