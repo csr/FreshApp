@@ -24,5 +24,4 @@ class TableViewController: UITableViewController {
         cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         return UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
     }
-
 }

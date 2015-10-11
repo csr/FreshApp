@@ -12,9 +12,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     // Objects
     let locationManager: CLLocationManager = CLLocationManager() // the object that provides us the location qdata
     var userLocation: CLLocation!
+    var objectID: String!
     
     // Flag variables
-    var isFarmer = false
+    var isFarmer = 0
     
     // UI elements
     @IBOutlet weak var mapView: MKMapView!
@@ -34,6 +35,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         super.viewDidLoad()
         mapView.delegate = self
         mapView.showsUserLocation = true
+        signIn()
+        print("Object ID: \(objectID)")
         
         searchResultsTableViewController = UITableViewController()
         searchResultsTableViewController.view.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(1.0)
@@ -156,7 +159,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         let number2 = (0.02 - 0) * Double(Double(arc4random()) / Double(UInt32.max))
         return (number1,number2)
     }
-
+    
     @IBAction func addPopover(sender: UIBarButtonItem) {
         let profileOptions = UIAlertController()
         
@@ -175,10 +178,22 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                 PFUser.logOut()
             }))
             
-            profileOptions.addAction(UIAlertAction(title: "Switch to Farmer", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
-                let query = PFQuery(className: "User")
-                query
-            }))
+            if (isFarmer == 0) {
+                profileOptions.addAction(UIAlertAction(title: "Switch to Farmer", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
+                    let query = PFQuery(className: "_User")
+                    query.getObjectInBackgroundWithId(self.objectID) {
+                        (farmer: PFObject?, error: NSError?) -> Void in
+                        if error == nil && farmer != nil {
+                            self.isFarmer = (farmer?.objectForKey("farmer") as! Int)
+                            print("This user is a farmer? \(self.isFarmer)")
+                            self.switchToFarmer()
+                        } else {
+                            print(error)
+                        }
+                    }
+                    
+                }))
+            }
         }
         
         profileOptions.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler: nil))
@@ -237,7 +252,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             textField.secureTextEntry = true
             passwordTextField = textField
         })
-
+        
         presentViewController(signupSheetController, animated: true, completion: nil)
     }
     
@@ -279,15 +294,18 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         user.username = userEmail
         user.password = userPassword
         
+        let userLogin = PFUser.currentUser()
+        
         PFUser.logInWithUsernameInBackground(userEmail, password: userPassword) {
             (user: PFUser?, error: NSError?) -> Void in
-            if user != nil {
+            if userLogin != nil {
                 print("Successfully logged in!")
+                self.objectID = userLogin?.objectId
+                print("Your objectID is \(self.objectID)")
             } else {
                 print("Login failed!")
             }
         }
-        
         presentViewController(signupSheetController, animated: true, completion: nil)
     }
     
@@ -297,6 +315,18 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         //                self.images = images
         //                self.prices = prices
         //                self.searchResultsTableViewController.tableView.reloadData()
+    }
+    
+    func switchToFarmer() {
+        let buttonAdd = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: "addProduct")
+        buttonAdd.setBackgroundImage(UIImage(named: "plus"), forState: UIControlState.Normal, style: UIBarButtonItemStyle.Plain, barMetrics: UIBarMetrics.Compact)
+        self.navigationItem.rightBarButtonItem = buttonAdd
+        
+        buttonAdd.tintColor = UIColor.whiteColor()
+    }
+    
+    func addProduct() {
+        
     }
 }
 

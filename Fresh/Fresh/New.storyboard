@@ -286,13 +286,7 @@
                             <outlet property="delegate" destination="kd0-kC-Uqz" id="8Nx-9n-Oce"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Discover" id="h2s-KK-Ehb">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                <color key="value" red="0.51372549019607838" green="0.75294117647058822" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Discover" id="h2s-KK-Ehb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJq-rX-2GG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
