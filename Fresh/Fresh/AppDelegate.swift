@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             clientKey: "l7z2EhqOqSeRKnZir6o2yZ0lMiuXs8pvrufHuAUa")
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        
         return true
     }
 

@@ -16,6 +16,8 @@
 		1D7EFEE31BC848610054FD50 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7EFEE21BC848610054FD50 /* MapKit.framework */; };
 		1D9898BA1BC9C84B0096DD29 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D9898B91BC9C84B0096DD29 /* New.storyboard */; settings = {ASSET_TAGS = (); }; };
 		1D9898BF1BC9F7C90096DD29 /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9898BE1BC9F7C90096DD29 /* ProductsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		1D9898C41BC9FED80096DD29 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9898C21BC9FED80096DD29 /* FloatLabelTextField.swift */; settings = {ASSET_TAGS = (); }; };
+		1D9898C51BC9FED80096DD29 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9898C31BC9FED80096DD29 /* FloatLabelTextView.swift */; settings = {ASSET_TAGS = (); }; };
 		2ED2BD4874E2C5245ABE21D5 /* Pods_Fresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FFB2CE38CC8E4164AD9AEC /* Pods_Fresh.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EB44A6E11BC98A4E00077E52 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44A6E01BC98A4E00077E52 /* TabBarController.swift */; settings = {ASSET_TAGS = (); }; };
 		EB44A6E51BC9BC4300077E52 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44A6E41BC9BC4300077E52 /* TableViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -54,6 +56,8 @@
 		1D7EFEE21BC848610054FD50 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1D9898B91BC9C84B0096DD29 /* New.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = New.storyboard; sourceTree = "<group>"; };
 		1D9898BE1BC9F7C90096DD29 /* ProductsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
+		1D9898C21BC9FED80096DD29 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		1D9898C31BC9FED80096DD29 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		5B08BD25A03AE5E9F6B8BEF6 /* Pods-Fresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fresh/Pods-Fresh.release.xcconfig"; sourceTree = "<group>"; };
 		C8FFB2CE38CC8E4164AD9AEC /* Pods_Fresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA98F31751C21A69A6DCC0C /* Pods-Fresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fresh/Pods-Fresh.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				1D7EFEAF1BC846E20054FD50 /* AppDelegate.swift */,
+				1D9898C61BC9FEDC0096DD29 /* FloatLabelTextField */,
 				1D9898BB1BC9DA130096DD29 /* Controllers */,
 				1D7EFEDF1BC847370054FD50 /* Storyboards */,
 				1D7EFEB81BC846E20054FD50 /* Assets.xcassets */,
@@ -159,6 +164,15 @@
 				1D9898BE1BC9F7C90096DD29 /* ProductsTableViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1D9898C61BC9FEDC0096DD29 /* FloatLabelTextField */ = {
+			isa = PBXGroup;
+			children = (
+				1D9898C21BC9FED80096DD29 /* FloatLabelTextField.swift */,
+				1D9898C31BC9FED80096DD29 /* FloatLabelTextView.swift */,
+			);
+			name = FloatLabelTextField;
 			sourceTree = "<group>";
 		};
 		31694BF37E3269F569E7620E /* Frameworks */ = {
@@ -366,8 +380,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB44A6E11BC98A4E00077E52 /* TabBarController.swift in Sources */,
+				1D9898C51BC9FED80096DD29 /* FloatLabelTextView.swift in Sources */,
 				1D7EFEB01BC846E20054FD50 /* AppDelegate.swift in Sources */,
 				EB44A6E51BC9BC4300077E52 /* TableViewController.swift in Sources */,
+				1D9898C41BC9FED80096DD29 /* FloatLabelTextField.swift in Sources */,
 				1D7EFEB21BC846E20054FD50 /* FirstViewController.swift in Sources */,
 				1D9898BF1BC9F7C90096DD29 /* ProductsTableViewController.swift in Sources */,
 			);
