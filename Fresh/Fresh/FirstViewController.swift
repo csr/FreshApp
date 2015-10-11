@@ -10,9 +10,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     var userLocation: CLLocation!
     var mapChangedFromUserInteraction = false
     
-    // Flag variables
-    var isFarmer = 0
-    
     // UI elements
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var getLocationButton: UIButton!
@@ -27,12 +24,15 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     var storePins:[CustomPin] = []
     var currentSelection:Int!
     
-    // Parse columns
+    // Parse class: Products
     var titles = [String]()
     var descriptions = [String]()
     var prices = [String]()
     var latitudes = [Float]()
     var longitudes = [Float]()
+    
+    // Parse class: User
+    var isFarmer = 0
     var objectID: String! // ??
     
     override func viewDidLoad() {
@@ -56,6 +56,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.navigationItem.titleView = searchController.searchBar
         searchController.searchBar.placeholder = "Search for fresh products..."
         
+        let userLogin = PFUser.currentUser()
+        
+        if userLogin == nil {
+            ask()
+        }
         signIn() // Try to authenticate the user
     }
     
@@ -66,11 +71,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     private func mapViewRegionDidChangeFromUserInteraction() -> Bool {
         let view = self.mapView.subviews[0]
-        
         //  Look through gesture recognizers to determine whether this region change is from user interaction
         if let gestureRecognizers = view.gestureRecognizers {
             for recognizer in gestureRecognizers {
-                if( recognizer.state == UIGestureRecognizerState.Began || recognizer.state == UIGestureRecognizerState.Ended ) {
+                if (recognizer.state == UIGestureRecognizerState.Began || recognizer.state == UIGestureRecognizerState.Ended) {
                     return true
                 }
             }
@@ -83,20 +87,18 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         mapChangedFromUserInteraction = mapViewRegionDidChangeFromUserInteraction()
         if (mapChangedFromUserInteraction) {
             self.getLocationButton.setImage(UIImage(named: "request0"), forState: UIControlState.Normal)
-            print("Panning!")
         }
     }
     
     func getUserLocation(sender: AnyObject) {
         locationManager.delegate = self // instantiate the CLLocationManager object
-        
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             locationManager.requestAlwaysAuthorization()
         }
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = kCLDistanceFilterNone
-        self.locationManager.startUpdatingLocation()
-        // continuously send the application a stream of location data
+        
+        self.locationManager.startUpdatingLocation() // continuously send the application a stream of location data
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -108,92 +110,13 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         manager.stopUpdatingLocation()
     }
     
-    // Display the custom view
-    func addStore(coordinate: CLLocationCoordinate2D) {
-        print("addStore called!")
-
-        var i = 0
-        for title in titles {
-            let storePin = CustomPin(title: title, descr: "", price: "", coordinate: coordinate)
-            storePins.append(storePin)
-            mapView.addAnnotation(storePin)
-        }
-    }
-    
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 186, 40))
-        labelSmallPinPrice.text = "4.44/Kg"
-        
-        for title in titles {
-            labelSmallPinTitle.text = title
-        }
-        
-        for price in prices {
-            labelSmallPinPrice.text = price
-        }
-        
-        annotationView.addSubview(viewSmallPin)
-        annotationView.canShowCallout = true
-        annotationView.backgroundColor = UIColor.whiteColor()
-        annotationView.layer.cornerRadius = 7
-        
-        //            let myPinImage = UIImageView(image: UIImage(named: "pin"))
-        //            myPinImage.frame = CGRectMake(0, 0, 70, 70)
-        //            annotationView.addSubview(myPinImage)
-        //            let price = priceRandomizer(prices[currentSelection])
-        //
-        //            let label = UILabel(frame: CGRectMake(5, -5, 60, 60))
-        //            label.text = "$\(price).99"
-        //            if (price > 10 || price < 100) {
-        //                var _: CGFloat = 8
-        //            }
-        //
-        //            let button = UIButton(type: UIButtonType.RoundedRect)
-        //            button.frame = CGRectMake(0, 0, 60, 23)
-        //            button.setTitle("Reserve", forState: UIControlState.Normal)
-        //            annotationView.rightCalloutAccessoryView = button
-        //
-        //            let leftButton = UIButton(type: UIButtonType.DetailDisclosure)
-        //            leftButton.frame = CGRectMake(0, 0, 23, 23)
-        //            annotationView.leftCalloutAccessoryView = leftButton
-        //
-        //            annotationView.canShowCallout = true
-        //
-        //            label.textColor = UIColor.whiteColor()
-        //
-        //            annotationView.addSubview(label)
-        //            return annotationView
-        
-        var i = 0
-        for _ in titles {
-            var latitude: CLLocationDegrees!
-            var longitude: CLLocationDegrees!
-            latitude = CLLocationDegrees(latitudes[i])
-            longitude = CLLocationDegrees(longitudes[i])
-            var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-            addStore(coordinate)
-            i++
-        }
-        print("Added one pin!")
         return annotationView
     }
     
-    func priceRandomizer(price:Int) -> Int {
-        let range = Int(Double(price) * 0.20)
-        let rangeUInt = UInt32(range)
-        let priceUInt = UInt32(price)
-        return Int(priceUInt +   arc4random_uniform(rangeUInt) - rangeUInt/2 )
-    }
-    
-    //    func randomOffset() ->(Double,Double) {
-    //        let number1 = (0.02 - 0) * Double(Double(arc4random()) / Double(UInt32.max))
-    //        let number2 = (0.02 - 0) * Double(Double(arc4random()) / Double(UInt32.max))
-    //        return (number1,number2)
-    //    }
-    
     @IBAction func addPopover(sender: UIBarButtonItem) {
         let profileOptions = UIAlertController()
-        
         var currentUser = PFUser.currentUser()
         
         if (currentUser == nil) {
@@ -216,11 +139,14 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                         (farmer: PFObject?, error: NSError?) -> Void in
                         if error == nil && farmer != nil {
                             self.isFarmer = (farmer?.objectForKey("farmer") as! Int)
-                            print("This user is a farmer? \(self.isFarmer)")
-                            self.switchToFarmer()
+                            if (self.isFarmer == 1) {
+                                print("This user is a farmer!")
+                            } else {
+                                print("This user is not a farmer.")
+                                self.switchToFarmer()
+                            }
                         } else {
-                            print("Something is not working with retrieving the farmer status.")
-                            print(error)
+                            print("Something is not working with retrieving the farmer status: \(error)")
                         }
                     }
                     
@@ -234,11 +160,29 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         profileOptions.popoverPresentationController?.barButtonItem = profileNavBarButton
         presentViewController(profileOptions, animated: true, completion: nil)
     }
+
+    func ask() {
+        let askSheetController: UIAlertController = UIAlertController(title: "Welcome to Fresh!", message: "Create a Fresh account or log into an existing one connect with farmers around the world.", preferredStyle: .Alert)
+        let signupAction: UIAlertAction = UIAlertAction(title: "Sign up", style: .Default) { action -> Void in
+            self.signUp()
+        }
+        askSheetController.addAction(signupAction)
+        
+        let loginAction: UIAlertAction = UIAlertAction(title: "Log in", style: .Default) { action -> Void in
+            self.signIn()
+        }
+        askSheetController.addAction(loginAction)
+
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+            self.signIn()
+        }
+        askSheetController.addAction(cancelAction)
+        
+        presentViewController(askSheetController, animated: true, completion: nil)
+    }
     
-    // Signup credentials
     var userEmail = ""
     var userPassword = ""
-    
     func signUp() {
         var emailTextField: UITextField?
         var passwordTextField: UITextField?
