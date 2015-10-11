@@ -318,11 +318,15 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     func switchToFarmer() {
-        let buttonAdd = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: "addProduct")
-        buttonAdd.setBackgroundImage(UIImage(named: "plus"), forState: UIControlState.Normal, style: UIBarButtonItemStyle.Plain, barMetrics: UIBarMetrics.Compact)
-        self.navigationItem.rightBarButtonItem = buttonAdd
+        var btnName: UIButton = UIButton()
+        btnName.frame = CGRectMake(0, 0, 22, 22)
+        btnName.setImage(UIImage(named: "plus"), forState: .Normal)
+        btnName.addTarget(self, action: Selector("addProduct"), forControlEvents: .TouchUpInside)
         
-        buttonAdd.tintColor = UIColor.whiteColor()
+        //.... Set Right/Left Bar Button item
+        var rightBarButton:UIBarButtonItem = UIBarButtonItem()
+        rightBarButton.customView = btnName
+        self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
     func addProduct() {
