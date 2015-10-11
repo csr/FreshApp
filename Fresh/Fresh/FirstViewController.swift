@@ -8,6 +8,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     // Location Objects
     let locationManager: CLLocationManager = CLLocationManager()
     var userLocation: CLLocation!
+    var mapChangedFromUserInteraction = false
     
     // Flag variables
     var isFarmer = 0
@@ -59,10 +60,31 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     @IBAction func tapOnGetLocation(sender: AnyObject) {
-        UIView.animateWithDuration(0.4, animations: {
-            self.getLocationButton.setImage(UIImage(named: "request1"), forState: UIControlState.Normal)
-        })
+        self.getLocationButton.setImage(UIImage(named: "request1"), forState: UIControlState.Normal)
         getUserLocation(self)
+    }
+    
+    private func mapViewRegionDidChangeFromUserInteraction() -> Bool {
+        let view = self.mapView.subviews[0]
+        
+        //  Look through gesture recognizers to determine whether this region change is from user interaction
+        if let gestureRecognizers = view.gestureRecognizers {
+            for recognizer in gestureRecognizers {
+                if( recognizer.state == UIGestureRecognizerState.Began || recognizer.state == UIGestureRecognizerState.Ended ) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    // Detect panning on a map
+    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        mapChangedFromUserInteraction = mapViewRegionDidChangeFromUserInteraction()
+        if (mapChangedFromUserInteraction) {
+            self.getLocationButton.setImage(UIImage(named: "request0"), forState: UIControlState.Normal)
+            print("Panning!")
+        }
     }
     
     func getUserLocation(sender: AnyObject) {
@@ -297,21 +319,17 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         })
         
         // Create the user
-        userEmail = userEmail.lowercaseString
-        
         let user = PFUser()
         user.email = userEmail
+        userEmail = userEmail.lowercaseString // ensure the e-mail is lowercase
         user.username = userEmail
         user.password = userPassword
-        
         let userLogin = PFUser.currentUser()
         
         PFUser.logInWithUsernameInBackground(userEmail, password: userPassword) {
             (user: PFUser?, error: NSError?) -> Void in
             if userLogin != nil {
-                print("Successfully logged in!")
                 self.objectID = userLogin?.objectId
-                print("Your objectID is \(self.objectID)")
             } else {
                 print("Login failed!")
             }
@@ -319,15 +337,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         
         if (PFUser.currentUser() == nil) {
             presentViewController(signupSheetController, animated: true, completion: nil)
+        } else {
+            print("User successfully authenticated!")
         }
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        //            WalmartClient.search(searchController.searchBar.text!) { (names, images , prices) -> Void in
-        //                self.names = names
-        //                self.images = images
-        //                self.prices = prices
-        //                self.searchResultsTableViewController.tableView.reloadData()
     }
     
     func switchToFarmer() {
@@ -345,10 +357,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     func goToAddProduct() {
         let storyboard : UIStoryboard = UIStoryboard(name: "New", bundle: nil)
         let vc : ProductsTableViewController = storyboard.instantiateViewControllerWithIdentifier("products") as! ProductsTableViewController
-        
         let navigationController = UINavigationController(rootViewController: vc)
-        
         self.presentViewController(navigationController, animated: true, completion: nil)
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
     }
     
     override func didReceiveMemoryWarning() {
