@@ -114,7 +114,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let newLocation = locations.last!
         mapView.setCenterCoordinate(newLocation.coordinate, animated: true)
-        let viewRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 1300, 1300)
+        let viewRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 6000, 6000)
         mapView.setRegion(viewRegion, animated: true)
         
         manager.stopUpdatingLocation()
@@ -129,7 +129,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     @IBAction func addPopover(sender: UIBarButtonItem) {
         let profileOptions = UIAlertController()
-        var currentUser = PFUser.currentUser()
+        let currentUser = PFUser.currentUser()
         
         if (currentUser == nil) {
             profileOptions.addAction(UIAlertAction(title: "Sign up", style: UIAlertActionStyle.Default, handler: {(action: UIAlertAction!) -> Void in
@@ -335,15 +335,13 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     func convertLocationToCoordinates() {
-        var geocoder = CLGeocoder()
-        for location in locations {
-            geocoder.geocodeAddressString(location) {
-                if let placemarks = $0 {
-                    //rprint(placemarks)
-                } else {
-                    print($1)
+        for address in locations {
+            var geocoder = CLGeocoder()
+            geocoder.geocodeAddressString(address, completionHandler: { (placemarks, error) -> Void in
+                if let placemark = placemarks?[0] as CLPlacemark! {
+                    self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
                 }
-            }
+            })
         }
     }
     
