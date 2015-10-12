@@ -314,11 +314,13 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             (objects: [PFObject]?, error: NSError?) -> Void in
             print("Successfully retrieved \(objects!.count) scores.")
             // Do something with the found objects
-            if let objects = objects {
-                for object in objects {
+            if error == nil && objects != nil {
+                for object in objects! {
                     print("Dealing with object \(object.objectId) right now.")
                     self.titles.append(object["Title"] as! String)
                 }
+            } else {
+                print("I couldn't load your objects. Error: \(error)")
             }
         }
     }
