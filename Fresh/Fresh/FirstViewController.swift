@@ -28,6 +28,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     var titles = [String]()
     var descriptions = [String]()
     var prices = [String]()
+    var locations = [String]()
     var latitudes = [Float]()
     var longitudes = [Float]()
     
@@ -54,7 +55,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.delegate = self
         self.navigationItem.titleView = searchController.searchBar
-        searchController.searchBar.placeholder = "Search for fresh products..."
+        searchController.searchBar.placeholder = "Search for farmers or products..."
         
         let userLogin = PFUser.currentUser()
         
@@ -63,7 +64,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
         signIn() // Try to authenticate the user
         retrieveData()
-        status()
     }
     
     // Check values in arrays of "Product" class
@@ -120,12 +120,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         manager.stopUpdatingLocation()
     }
     
-//    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-//        let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 186, 40))
-//        annotationView.backgroundColor = UIColor.whiteColor()
-//        
-//        return annotationView
-//    }
+    //    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    //        let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 186, 40))
+    //        annotationView.backgroundColor = UIColor.whiteColor()
+    //
+    //        return annotationView
+    //    }
     
     @IBAction func addPopover(sender: UIBarButtonItem) {
         let profileOptions = UIAlertController()
@@ -172,7 +172,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         profileOptions.popoverPresentationController?.barButtonItem = profileNavBarButton
         presentViewController(profileOptions, animated: true, completion: nil)
     }
-
+    
     func ask() {
         let askSheetController: UIAlertController = UIAlertController(title: "Welcome to Fresh!", message: "Create a Fresh account or log into an existing one to connect with farmers around the world.", preferredStyle: .Alert)
         let signupAction: UIAlertAction = UIAlertAction(title: "Sign up", style: .Default) { action -> Void in
@@ -184,7 +184,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             self.signIn()
         }
         askSheetController.addAction(loginAction)
-
+        
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         askSheetController.addAction(cancelAction)
         
@@ -307,7 +307,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         rightBarButton.customView = btnName
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
-   
+    
     func retrieveData() {
         let query = PFQuery(className: "Products")
         query.findObjectsInBackgroundWithBlock {
@@ -315,12 +315,34 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             print("Successfully retrieved \(objects!.count) scores.")
             // Do something with the found objects
             if error == nil && objects != nil {
-                for object in objects! {
-                    print("Dealing with object \(object.objectId) right now.")
-                    self.titles.append(object["Title"] as! String)
+                for myObject in objects! {
+                    //print("Dealing with object \(myObject.objectId!) right now.")
+                    var title = myObject["Title"] as! String
+                    var desc = myObject["Description"] as! String
+                    var price = myObject["Price"] as! String
+                    var location = myObject["Location"] as! String
+                    self.titles.append(title)
+                    self.descriptions.append(desc)
+                    self.prices.append(price)
+                    self.locations.append(location)
                 }
+                self.status()
+                self.convertLocationToCoordinates()
             } else {
                 print("I couldn't load your objects. Error: \(error)")
+            }
+        }
+    }
+    
+    func convertLocationToCoordinates() {
+        var geocoder = CLGeocoder()
+        for location in locations {
+            geocoder.geocodeAddressString(location) {
+                if let placemarks = $0 {
+                    //rprint(placemarks)
+                } else {
+                    print($1)
+                }
             }
         }
     }
