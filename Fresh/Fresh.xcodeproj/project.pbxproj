@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D50A9BF1BCC0C5D00B7AA8A /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 1D50A9BD1BCC0C5D00B7AA8A /* default.gpx */; settings = {ASSET_TAGS = (); }; };
-		1D50A9C01BCC0C5D00B7AA8A /* route.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 1D50A9BE1BCC0C5D00B7AA8A /* route.gpx */; settings = {ASSET_TAGS = (); }; };
 		1D7EFEB01BC846E20054FD50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFEAF1BC846E20054FD50 /* AppDelegate.swift */; };
 		1D7EFEB21BC846E20054FD50 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFEB11BC846E20054FD50 /* FirstViewController.swift */; };
 		1D7EFEB91BC846E20054FD50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D7EFEB81BC846E20054FD50 /* Assets.xcassets */; };
@@ -44,8 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1D50A9BD1BCC0C5D00B7AA8A /* default.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
-		1D50A9BE1BCC0C5D00B7AA8A /* route.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = route.gpx; sourceTree = "<group>"; };
 		1D7EFEAC1BC846E20054FD50 /* Fresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7EFEAF1BC846E20054FD50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D7EFEB11BC846E20054FD50 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -125,8 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				1DA927A71BCC0CBE00ECFF0F /* default (1).gpx */,
-				1D50A9BD1BCC0C5D00B7AA8A /* default.gpx */,
-				1D50A9BE1BCC0C5D00B7AA8A /* route.gpx */,
 				1D7EFEAF1BC846E20054FD50 /* AppDelegate.swift */,
 				1D9898BB1BC9DA130096DD29 /* Controllers */,
 				1D7EFEDF1BC847370054FD50 /* Storyboards */,
@@ -314,10 +308,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D50A9C01BCC0C5D00B7AA8A /* route.gpx in Resources */,
 				1DA927A81BCC0CBE00ECFF0F /* default (1).gpx in Resources */,
 				1D7EFEBC1BC846E20054FD50 /* LaunchScreen.storyboard in Resources */,
-				1D50A9BF1BCC0C5D00B7AA8A /* default.gpx in Resources */,
 				1D7EFEB91BC846E20054FD50 /* Assets.xcassets in Resources */,
 				1D9898BA1BC9C84B0096DD29 /* New.storyboard in Resources */,
 			);
