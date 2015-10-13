@@ -29,8 +29,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     var descriptions = [String]()
     var prices = [String]()
     var locations = [String]()
-    var latitudes = [Float]()
-    var longitudes = [Float]()
+    var latitudes = [CLLocationDegrees]()
+    var longitudes = [CLLocationDegrees]()
     
     // Parse class: User
     var isFarmer = 0
@@ -69,8 +69,13 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     // Check values in arrays of "Product" class
     func status() {
         print("I've found \(titles.count) titles.")
+        print("I've found \(longitudes.count) longitudes.")
+        print("I've found \(allObjects.count) objects.")
         for title in titles {
             print(title)
+        }
+        for longitude in longitudes {
+            print(longitude)
         }
     }
     
@@ -120,12 +125,23 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         manager.stopUpdatingLocation()
     }
     
-    //    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-    //        let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 186, 40))
-    //        annotationView.backgroundColor = UIColor.whiteColor()
-    //
-    //        return annotationView
-    //    }
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return mapView.dequeueReusableAnnotationViewWithIdentifier("")
+        } else {
+            
+            let annotationView = MKAnnotationView()
+            annotationView.enabled = true
+            annotationView.canShowCallout = false
+            annotationView.addSubview(viewSmallPin)
+            let coordinates = CLLocationCoordinate2D(latitude: 45.4626482, longitude: 9.0376472)
+            let myAnnotation = CustomPin(title: "Hello", descr: "Hello", price: "Hello", coordinate: coordinates)
+            annotationView.annotation = myAnnotation
+            mapView.addAnnotation(myAnnotation)
+            
+            return annotationView
+        }
+    }
     
     @IBAction func addPopover(sender: UIBarButtonItem) {
         let profileOptions = UIAlertController()
@@ -297,13 +313,13 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     func switchToFarmer() {
-        var btnName: UIButton = UIButton()
+        let btnName: UIButton = UIButton()
         btnName.frame = CGRectMake(0, 0, 22, 22)
         btnName.setImage(UIImage(named: "plus"), forState: .Normal)
         btnName.addTarget(self, action: Selector("goToAddProduct"), forControlEvents: .TouchUpInside)
         
         //.... Set Right/Left Bar Button item
-        var rightBarButton:UIBarButtonItem = UIBarButtonItem()
+        let rightBarButton: UIBarButtonItem = UIBarButtonItem()
         rightBarButton.customView = btnName
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
@@ -317,14 +333,15 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             if error == nil && objects != nil {
                 for myObject in objects! {
                     //print("Dealing with object \(myObject.objectId!) right now.")
-                    var title = myObject["Title"] as! String
-                    var desc = myObject["Description"] as! String
-                    var price = myObject["Price"] as! String
-                    var location = myObject["Location"] as! String
+                    let title = myObject["Title"] as! String
+                    let desc = myObject["Description"] as! String
+                    let price = myObject["Price"] as! String
+                    let location = myObject["Location"] as! String
                     self.titles.append(title)
                     self.descriptions.append(desc)
                     self.prices.append(price)
                     self.locations.append(location)
+                    allObjects.append(myObject)
                 }
                 self.status()
                 self.convertLocationToCoordinates()
@@ -336,11 +353,28 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     func convertLocationToCoordinates() {
         for address in locations {
-            var geocoder = CLGeocoder()
+            let geocoder = CLGeocoder()
             geocoder.geocodeAddressString(address, completionHandler: { (placemarks, error) -> Void in
                 if let placemark = placemarks?[0] as CLPlacemark! {
-                    self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
+                    for myPlacemark in placemarks! {
+                        self.latitudes.append(myPlacemark.location!.coordinate.longitude)
+                        self.longitudes.append(myPlacemark.location!.coordinate.longitude)
+                    }
+                    var i = 0
+                    for latitude in self.latitudes {
+                        let query = PFQuery(className:"Products")
+                        print("Using \(allObjects[i])")
+                        query.getObjectInBackgroundWithId(String(allObjects[i])) {
+                            (latitudeObject: PFObject?, error: NSError?) -> Void in
+                            if error != nil {
+                                print(error)
+                            } else if let latitudeObject = latitudeObject {
+                                latitudeObject["Title"] = latitude
+                            }
+                        }
+                    }
                 }
+                self.status()
             })
         }
     }
@@ -352,6 +386,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
     
+    // MARK: Search bar stuff
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
     }
     

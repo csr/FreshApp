@@ -78,42 +78,6 @@
                                     <constraint firstAttribute="width" secondItem="kJ7-D5-pBF" secondAttribute="height" multiplier="30:29" id="qzk-B7-AWA"/>
                                 </constraints>
                             </mapView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfO-oz-f2g">
-                                <rect key="frame" x="156" y="236" width="186" height="40"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Mela Verde" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDe-lw-3LM">
-                                        <rect key="frame" x="8" y="10" width="86" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1€ al Kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNP-mV-Cee">
-                                        <rect key="frame" x="115" y="9" width="60" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.57062815659999999" green="0.57062815659999999" blue="0.57062815659999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="3jo-6O-U5K"/>
-                                    <constraint firstAttribute="height" constant="40" id="5Wf-9J-ptF"/>
-                                    <constraint firstItem="HDe-lw-3LM" firstAttribute="top" secondItem="nfO-oz-f2g" secondAttribute="top" constant="10" id="Af9-76-uZx"/>
-                                    <constraint firstItem="XNP-mV-Cee" firstAttribute="top" secondItem="HDe-lw-3LM" secondAttribute="bottom" constant="15" id="J1y-7b-Ldv"/>
-                                    <constraint firstAttribute="height" constant="137" id="RUi-hW-eUi"/>
-                                    <constraint firstItem="HDe-lw-3LM" firstAttribute="leading" secondItem="nfO-oz-f2g" secondAttribute="leading" constant="8" id="feb-vo-u1M"/>
-                                    <constraint firstAttribute="width" constant="186" id="gXW-00-1o3"/>
-                                    <constraint firstItem="XNP-mV-Cee" firstAttribute="top" secondItem="nfO-oz-f2g" secondAttribute="top" constant="9" id="llm-Jg-VgZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="XNP-mV-Cee" secondAttribute="trailing" constant="9" id="ndl-qh-qht"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="3jo-6O-U5K"/>
-                                        <exclude reference="RUi-hW-eUi"/>
-                                        <exclude reference="J1y-7b-Ldv"/>
-                                    </mask>
-                                </variation>
-                            </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vvU-ne-MeD">
                                 <rect key="frame" x="20" y="513" width="35" height="35"/>
                                 <subviews>
@@ -141,6 +105,42 @@
                                     <constraint firstItem="AUH-Es-ghJ" firstAttribute="centerX" secondItem="vvU-ne-MeD" secondAttribute="centerX" constant="-2" id="ito-GQ-zjj"/>
                                     <constraint firstItem="AUH-Es-ghJ" firstAttribute="centerY" secondItem="vvU-ne-MeD" secondAttribute="centerY" constant="2" id="xPH-tx-Qf9"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfO-oz-f2g">
+                                <rect key="frame" x="207" y="87" width="186" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Mela Verde" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDe-lw-3LM">
+                                        <rect key="frame" x="8" y="10" width="86" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1€ al Kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNP-mV-Cee">
+                                        <rect key="frame" x="115" y="9" width="60" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.57062815659999999" green="0.57062815659999999" blue="0.57062815659999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="3jo-6O-U5K"/>
+                                    <constraint firstAttribute="height" constant="40" id="5Wf-9J-ptF"/>
+                                    <constraint firstItem="HDe-lw-3LM" firstAttribute="top" secondItem="nfO-oz-f2g" secondAttribute="top" constant="10" id="Af9-76-uZx"/>
+                                    <constraint firstItem="XNP-mV-Cee" firstAttribute="top" secondItem="HDe-lw-3LM" secondAttribute="bottom" constant="15" id="J1y-7b-Ldv"/>
+                                    <constraint firstAttribute="height" constant="137" id="RUi-hW-eUi"/>
+                                    <constraint firstItem="HDe-lw-3LM" firstAttribute="leading" secondItem="nfO-oz-f2g" secondAttribute="leading" constant="8" id="feb-vo-u1M"/>
+                                    <constraint firstAttribute="width" constant="186" id="gXW-00-1o3"/>
+                                    <constraint firstItem="XNP-mV-Cee" firstAttribute="top" secondItem="nfO-oz-f2g" secondAttribute="top" constant="9" id="llm-Jg-VgZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="XNP-mV-Cee" secondAttribute="trailing" constant="9" id="ndl-qh-qht"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3jo-6O-U5K"/>
+                                        <exclude reference="RUi-hW-eUi"/>
+                                        <exclude reference="J1y-7b-Ldv"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <animations/>

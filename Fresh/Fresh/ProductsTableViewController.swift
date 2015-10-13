@@ -11,7 +11,7 @@ import Parse
 import Bolts
 
 var inserimentoObjectID: String!
-var allObjects: [String] = []
+var allObjects: [PFObject] = []
 
 class ProductsTableViewController: UITableViewController {
     
@@ -28,23 +28,21 @@ class ProductsTableViewController: UITableViewController {
     
     @IBAction func tapOnButtonDone(sender: AnyObject) {
         
-        var inserimento = PFObject(className: "Products")
+        let inserimento = PFObject(className: "Products")
         inserimento["Title"] = textFieldTitle.text
         inserimento["Description"] = textFieldDescription.text
         inserimento["Price"] = textFieldPrice.text
-        inserimento["Latitude"] = 45.439171
-        inserimento["Longitude"] = 9.258177
+        inserimento["Location"] = textFieldLocation.text
         inserimento.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
-                inserimentoObjectID = inserimento.objectId
-                allObjects.append(inserimentoObjectID)
+                //inserimentoObjectID = inserimento.objectId
+                //rallObjects.append(inserimentoObjectID)
                 print("The object ID of inserimento is \(inserimentoObjectID).")
             } else {
                 print("Error!")
             }
         }
-        
         dismissViewControllerAnimated(true, completion: nil)
     }
 }
@@ -56,5 +54,4 @@ class ProductsNavigationViewController: UINavigationController {
         navigationBar.barTintColor = UIColor.whiteColor()
         navigationBar
     }
-    
 }
