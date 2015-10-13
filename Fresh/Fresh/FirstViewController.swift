@@ -312,18 +312,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
     }
     
-    func switchToFarmer() {
-        let btnName: UIButton = UIButton()
-        btnName.frame = CGRectMake(0, 0, 22, 22)
-        btnName.setImage(UIImage(named: "plus"), forState: .Normal)
-        btnName.addTarget(self, action: Selector("goToAddProduct"), forControlEvents: .TouchUpInside)
-        
-        //.... Set Right/Left Bar Button item
-        let rightBarButton: UIBarButtonItem = UIBarButtonItem()
-        rightBarButton.customView = btnName
-        self.navigationItem.rightBarButtonItem = rightBarButton
-    }
-    
+    // MARK: Parse
     func retrieveData() {
         let query = PFQuery(className: "Products")
         query.findObjectsInBackgroundWithBlock {
@@ -342,6 +331,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                     self.prices.append(price)
                     self.locations.append(location)
                     allObjects.append(myObject)
+                    myObject.pinInBackground()
                 }
                 self.status()
                 self.convertLocationToCoordinates()
@@ -379,6 +369,23 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
     }
     
+    // MARK: Search bar stuff
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    }
+    
+    // MARK: Add Product page
+    func switchToFarmer() {
+        let btnName: UIButton = UIButton()
+        btnName.frame = CGRectMake(0, 0, 22, 22)
+        btnName.setImage(UIImage(named: "plus"), forState: .Normal)
+        btnName.addTarget(self, action: Selector("goToAddProduct"), forControlEvents: .TouchUpInside)
+        
+        //.... Set Right/Left Bar Button item
+        let rightBarButton: UIBarButtonItem = UIBarButtonItem()
+        rightBarButton.customView = btnName
+        self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
     func goToAddProduct() {
         let storyboard : UIStoryboard = UIStoryboard(name: "New", bundle: nil)
         let vc : ProductsTableViewController = storyboard.instantiateViewControllerWithIdentifier("products") as! ProductsTableViewController
@@ -386,10 +393,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
     
-    // MARK: Search bar stuff
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-    }
-    
+    // MARK: Other methods
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

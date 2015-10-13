@@ -17,13 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.enableLocalDatastore()
-        // Initialize Parse.
         Parse.setApplicationId("5wj4OsOVvGbDYwHs1cayb4Ewb8r6dAqKVc7HShKe",
             clientKey: "l7z2EhqOqSeRKnZir6o2yZ0lMiuXs8pvrufHuAUa")
-        // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
-        
         return true
     }
 
