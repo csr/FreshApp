@@ -24,14 +24,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     var storePins:[CustomPin] = []
     var currentSelection:Int!
     
-    // Parse class: Products
-    var titles = [String]()
-    var descriptions = [String]()
-    var prices = [String]()
-    var locations = [String]()
-    var latitudes = [CLLocationDegrees]()
-    var longitudes = [CLLocationDegrees]()
-    
     // Parse class: User
     var isFarmer = 0
     var objectID: String! // ??
@@ -62,23 +54,52 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         if userLogin == nil {
             ask()
         }
+        
         signIn() // Try to authenticate the user
         retrieveData()
     }
     
-    // Check values in arrays of "Product" class
-    func status() {
-        print("I've found \(titles.count) titles.")
-        print("I've found \(longitudes.count) longitudes.")
-        print("I've found \(allObjects.count) objects.")
-        for title in titles {
-            print(title)
-        }
-        for longitude in longitudes {
-            print(longitude)
+    /************************************ PARSE **********************************/
+    func retrieveData() {
+        let query = PFQuery(className: "Products")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            print("Successfully retrieved \(objects!.count) scores.")
+            // Do something with the found objects
+            if error == nil && objects != nil {
+                for myObject in objects! {
+                    print("Dealing with object \(myObject.objectId!) right now.")
+                    if myObject["Latitude"] == nil || myObject["Longitude"] == nil {
+                        print("Non ho trovato il valore latitude per l'oggetto \(myObject.objectId)")
+                        self.convertLocationToCoordinates(myObject)
+                    }
+                    myObject.pinInBackground()
+                }
+            } else {
+                print("I couldn't load your objects. Error: \(error)")
+            }
         }
     }
     
+    func convertLocationToCoordinates(myObject: PFObject) {
+        let address = myObject["Location"]
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address! as! String, completionHandler: { (placemarks, error) -> Void in
+            if let placemark = placemarks?[0] as CLPlacemark! {
+                myObject["Latitude"] = Float(placemark.location!.coordinate.latitude)
+                myObject["Longitude"] = Float(placemark.location!.coordinate.longitude)
+                myObject.saveInBackgroundWithBlock {
+                    (success: Bool, error: NSError?) -> Void in
+                    if (error == nil) {
+                        print(error)
+                    }
+                }
+            }
+        })
+    }
+    /*****************************************************************************/
+    
+    // Check values in arrays of "Product" class
     @IBAction func tapOnGetLocation(sender: AnyObject) {
         self.getLocationButton.setImage(UIImage(named: "request1"), forState: UIControlState.Normal)
         getUserLocation(self)
@@ -309,63 +330,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             presentViewController(signupSheetController, animated: true, completion: nil)
         } else {
             print("User successfully authenticated!")
-        }
-    }
-    
-    // MARK: Parse
-    func retrieveData() {
-        let query = PFQuery(className: "Products")
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            print("Successfully retrieved \(objects!.count) scores.")
-            // Do something with the found objects
-            if error == nil && objects != nil {
-                for myObject in objects! {
-                    //print("Dealing with object \(myObject.objectId!) right now.")
-                    let title = myObject["Title"] as! String
-                    let desc = myObject["Description"] as! String
-                    let price = myObject["Price"] as! String
-                    let location = myObject["Location"] as! String
-                    self.titles.append(title)
-                    self.descriptions.append(desc)
-                    self.prices.append(price)
-                    self.locations.append(location)
-                    allObjects.append(myObject)
-                    myObject.pinInBackground()
-                }
-                self.status()
-                self.convertLocationToCoordinates()
-            } else {
-                print("I couldn't load your objects. Error: \(error)")
-            }
-        }
-    }
-    
-    func convertLocationToCoordinates() {
-        for address in locations {
-            let geocoder = CLGeocoder()
-            geocoder.geocodeAddressString(address, completionHandler: { (placemarks, error) -> Void in
-                if let placemark = placemarks?[0] as CLPlacemark! {
-                    for myPlacemark in placemarks! {
-                        self.latitudes.append(myPlacemark.location!.coordinate.longitude)
-                        self.longitudes.append(myPlacemark.location!.coordinate.longitude)
-                    }
-                    var i = 0
-                    for latitude in self.latitudes {
-                        let query = PFQuery(className:"Products")
-                        print("Using \(allObjects[i])")
-                        query.getObjectInBackgroundWithId(String(allObjects[i])) {
-                            (latitudeObject: PFObject?, error: NSError?) -> Void in
-                            if error != nil {
-                                print(error)
-                            } else if let latitudeObject = latitudeObject {
-                                latitudeObject["Title"] = latitude
-                            }
-                        }
-                    }
-                }
-                self.status()
-            })
         }
     }
     
