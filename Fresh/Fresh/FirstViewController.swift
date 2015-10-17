@@ -19,28 +19,31 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     @IBOutlet weak var labelSmallPinTitle: UILabel!
     @IBOutlet weak var labelSmallPinPrice: UILabel!
     
-    var searchController:UISearchController!
-    var searchResultsTableViewController:UITableViewController!
+    var searchController: UISearchController!
+    var searchResultsTableViewController: UITableViewController!
     var storePins:[CustomPin] = []
-    var currentSelection:Int!
+    var currentSelection: Int!
     
     // Parse class: User
     var isFarmer = 0
-    var objectID: String! // ??
+    var objectID: String! // DELETE this later
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Change NavigationBar color
+        // Change the color of the navigation bar
         navigationController!.navigationBar.barTintColor = UIColor(red: 131/255, green: 192/255, blue: 101/255, alpha: 1)
         
         // Location
-        mapView.showsUserLocation = true
         mapView.delegate = self
+        mapView.showsUserLocation = true
         self.getUserLocation(self)
+        
+        // Set some properties of the viewGetLocation UIView
         viewGetLocation.alpha = 0.9
         viewGetLocation.layer.cornerRadius = 5
         
+        // Search bar controller
         searchResultsTableViewController = UITableViewController()
         searchResultsTableViewController.view.backgroundColor = UIColor.whiteColor()
         searchController = UISearchController(searchResultsController: searchResultsTableViewController)
@@ -49,30 +52,32 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.navigationItem.titleView = searchController.searchBar
         searchController.searchBar.placeholder = "Search for farmers or products..."
         
+        // Check if the users are logged in - if they aren't, then ask if they want to log in or sign up
         let userLogin = PFUser.currentUser()
-        
         if userLogin == nil {
             ask()
         }
-        
-        signIn() // Try to authenticate the user
         retrieveData()
+        addCustomPins()
     }
     
     /************************************ PARSE **********************************/
+
+    // Fetch the objects from the server, so we can later check if something has changed
     func retrieveData() {
         let query = PFQuery(className: "Products")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
-            print("Successfully retrieved \(objects!.count) scores.")
-            // Do something with the found objects
+            print("Successfully retrieved \(objects!.count) objects.")
             if error == nil && objects != nil {
                 for myObject in objects! {
                     print("Dealing with object \(myObject.objectId!) right now.")
+                    // If an object doesn't have the latitude and/or the longitude, then assign them to it
                     if myObject["Latitude"] == nil || myObject["Longitude"] == nil {
                         print("Non ho trovato il valore latitude per l'oggetto \(myObject.objectId)")
                         self.convertLocationToCoordinates(myObject)
                     }
+                    // Save the objects locally, so the app can show pins even if there is no data connection the next time the user opens the app
                     myObject.pinInBackground()
                 }
             } else {
@@ -81,6 +86,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
     }
     
+    // Converts the address given by the user to actual coordinates (latitude, longitude)
+    // Once the coordinates have been found, the objects is saved to the server
     func convertLocationToCoordinates(myObject: PFObject) {
         let address = myObject["Location"]
         let geocoder = CLGeocoder()
@@ -91,15 +98,31 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                 myObject.saveInBackgroundWithBlock {
                     (success: Bool, error: NSError?) -> Void in
                     if (error == nil) {
-                        print(error)
+                        print("Error while saving the object after converting the address to coordinates.")
                     }
                 }
             }
         })
     }
-    /*****************************************************************************/
     
-    // Check values in arrays of "Product" class
+    func showAllSavedObjectsLocalDatastore() {
+        let query = PFQuery(className:"Products")
+        query.fromLocalDatastore()
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            print("Successfully retrieved \(objects!.count) objects in the local datastore.")
+            if error == nil {
+                
+            } else {
+                print("Error while retrieving the objects saved locally.")
+            }
+        }
+
+    }
+    
+    /*********************************** LOCATION ********************************/
+    
+    // Change the image of the "getLocation" button when the user taps on it
     @IBAction func tapOnGetLocation(sender: AnyObject) {
         self.getLocationButton.setImage(UIImage(named: "request1"), forState: UIControlState.Normal)
         getUserLocation(self)
@@ -146,20 +169,25 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         manager.stopUpdatingLocation()
     }
     
+    /******************************* CUSTOM PINS *********************************/
+    
+    func addCustomPins() {
+        let myCustomPin = MKPointAnnotation()
+        myCustomPin.coordinate = CLLocationCoordinate2DMake(45.856614, 9.352222)
+        myCustomPin.title = "France"
+        myCustomPin.subtitle = "Paris, Nice, Nimes, Avignon"
+        mapView.addAnnotation(myCustomPin)
+    }
+    
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return mapView.dequeueReusableAnnotationViewWithIdentifier("")
         } else {
-            
             let annotationView = MKAnnotationView()
             annotationView.enabled = true
             annotationView.canShowCallout = false
+            annotationView.annotation = annotation
             annotationView.addSubview(viewSmallPin)
-            let coordinates = CLLocationCoordinate2D(latitude: 45.4626482, longitude: 9.0376472)
-            let myAnnotation = CustomPin(title: "Hello", descr: "Hello", price: "Hello", coordinate: coordinates)
-            annotationView.annotation = myAnnotation
-            mapView.addAnnotation(myAnnotation)
-            
             return annotationView
         }
     }
