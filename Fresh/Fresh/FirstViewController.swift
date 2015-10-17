@@ -18,10 +18,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     @IBOutlet weak var viewSmallPin: UIView!
     @IBOutlet weak var labelSmallPinTitle: UILabel!
     @IBOutlet weak var labelSmallPinPrice: UILabel!
+    var smallPinView: UIView!
     
     var searchController: UISearchController!
     var searchResultsTableViewController: UITableViewController!
-    var storePins:[CustomPin] = []
     var currentSelection: Int!
     
     // Parse class: User
@@ -38,6 +38,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         mapView.delegate = self
         mapView.showsUserLocation = true
         self.getUserLocation(self)
+        
+        // Custom pins
+        smallPinView = SmallPin.loadNib()
+        smallPinView.layer.cornerRadius = 7
         
         // Set some properties of the viewGetLocation UIView
         viewGetLocation.alpha = 0.9
@@ -172,10 +176,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     /******************************* CUSTOM PINS *********************************/
     
     func addCustomPins() {
+        let coordinates = CLLocationCoordinate2DMake(45.473993, 9.168081)
         let myCustomPin = MKPointAnnotation()
-        myCustomPin.coordinate = CLLocationCoordinate2DMake(45.856614, 9.352222)
-        myCustomPin.title = "France"
-        myCustomPin.subtitle = "Paris, Nice, Nimes, Avignon"
+        myCustomPin.coordinate = coordinates
         mapView.addAnnotation(myCustomPin)
     }
     
@@ -183,14 +186,21 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         if annotation is MKUserLocation {
             return mapView.dequeueReusableAnnotationViewWithIdentifier("")
         } else {
-            let annotationView = MKAnnotationView()
+            let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 100, 50))
+            
+            let myView = SmallPin()
+            myView.labelTitle?.text = "Eggs"
+            myView.labelPrice?.text = "5.5"
+            
+            annotationView.addSubview(smallPinView)
             annotationView.enabled = true
             annotationView.canShowCallout = false
             annotationView.annotation = annotation
-            annotationView.addSubview(viewSmallPin)
             return annotationView
         }
     }
+    
+    /*****************************************************************************/
     
     @IBAction func addPopover(sender: UIBarButtonItem) {
         let profileOptions = UIAlertController()
@@ -392,20 +402,5 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
-    }
-}
-
-class CustomPin: NSObject, MKAnnotation {
-    let title: String?
-    let descr: String?
-    let price: String?
-    let coordinate: CLLocationCoordinate2D
-    
-    init(title: String, descr: String, price: String, coordinate: CLLocationCoordinate2D) {
-        self.title = title
-        self.descr = descr
-        self.price = price
-        self.coordinate = coordinate
-        super.init()
     }
 }
