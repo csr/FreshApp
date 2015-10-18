@@ -198,7 +198,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         if annotation is MKUserLocation {
             return mapView.dequeueReusableAnnotationViewWithIdentifier("")
         } else {
-            let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 100, 50))
+            let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 50, 50))
             // scroll through objects saved locally
             
             let query = PFQuery(className:"Products")
@@ -218,6 +218,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             
             //myView.labelTitle.text = "Hello!"
             
+            annotationView.centerOffset = CGPointMake(0, -25)
             annotationView.addSubview(myView)
             annotationView.enabled = true
             annotationView.canShowCallout = false
