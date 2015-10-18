@@ -37,11 +37,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         mapView.delegate = self
         mapView.showsUserLocation = true
         self.getUserLocation(self)
-        
+
         // Custom pins
         myView = (NSBundle.mainBundle().loadNibNamed("SmallPin", owner: self, options: nil)[0] as? SmallPin)!
         myView.layer.cornerRadius = 6
-
+        
         // Set some properties of the viewGetLocation UIView
         viewGetLocation.alpha = 0.9
         viewGetLocation.layer.cornerRadius = 5
@@ -65,7 +65,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     /************************************ PARSE **********************************/
-
+    
     // Fetch the objects from the server, so we can later check if something has changed
     func retrieveData() {
         let query = PFQuery(className: "Products")
@@ -166,7 +166,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         let newLocation = locations.last!
         mapView.setCenterCoordinate(newLocation.coordinate, animated: true)
         let viewRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 6000, 6000)
-        mapView.setRegion(viewRegion, animated: true)
+        mapView.setRegion(viewRegion, animated: false)
         
         manager.stopUpdatingLocation()
     }
@@ -226,6 +226,47 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             return annotationView
         }
     }
+    
+//    func mapView(mapView: MKMapView, didAddAnnotationViews views: [MKAnnotationView]) {
+//        print("didAddAnnotationViews()")
+//        
+//        var i = -1;
+//        for view in views {
+//            i++;
+//            let mkView = view as! MKAnnotationView
+//            if view.annotation is MKUserLocation {
+//                continue;
+//            }
+//            
+//            // Check if current annotation is inside visible map rect, else go to next one
+//            let point:MKMapPoint  =  MKMapPointForCoordinate(mkView.annotation!.coordinate);
+//            if (!MKMapRectContainsPoint(self.mapView.visibleMapRect, point)) {
+//                continue;
+//            }
+//            
+//            let endFrame:CGRect = mkView.frame;
+//            
+//            // Move annotation out of view
+//            mkView.frame = CGRectMake(mkView.frame.origin.x, mkView.frame.origin.y - self.view.frame.size.height, mkView.frame.size.width, mkView.frame.size.height);
+//            
+//            // Animate drop
+//            let delay = 0.03 * Double(i)
+//            UIView.animateWithDuration(0.5, delay: delay, options: UIViewAnimationOptions.CurveEaseIn, animations:{() in
+//                mkView.frame = endFrame
+//                // Animate squash
+//                }, completion:{(Bool) in
+//                    UIView.animateWithDuration(0.05, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations:{() in
+//                        //mkView.transform = CGAffineTransformMakeScale(1.0, 0.6)
+//                        
+//                        }, completion: {(Bool) in
+//                            UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations:{() in
+//                                mkView.transform = CGAffineTransformIdentity
+//                                }, completion: nil)
+//                    })
+//                    
+//            })
+//        }
+//    }
     
     /*****************************************************************************/
     
