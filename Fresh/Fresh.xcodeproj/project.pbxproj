@@ -21,6 +21,7 @@
 		1D9FD6401BD282660028FEC1 /* SmallPin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9FD63F1BD282660028FEC1 /* SmallPin.xib */; settings = {ASSET_TAGS = (); }; };
 		1D9FD6421BD282DB0028FEC1 /* SmallPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9FD6411BD282DA0028FEC1 /* SmallPin.swift */; settings = {ASSET_TAGS = (); }; };
 		1DA927A81BCC0CBE00ECFF0F /* location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 1DA927A71BCC0CBE00ECFF0F /* location.gpx */; settings = {ASSET_TAGS = (); }; };
+		1DB953761BD37B86002A2745 /* BigPin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB953751BD37B86002A2745 /* BigPin.xib */; settings = {ASSET_TAGS = (); }; };
 		2ED2BD4874E2C5245ABE21D5 /* Pods_Fresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FFB2CE38CC8E4164AD9AEC /* Pods_Fresh.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EB44A6E11BC98A4E00077E52 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44A6E01BC98A4E00077E52 /* TabBarController.swift */; };
 		EB44A6E51BC9BC4300077E52 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44A6E41BC9BC4300077E52 /* TableViewController.swift */; };
@@ -64,6 +65,7 @@
 		1D9FD63F1BD282660028FEC1 /* SmallPin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallPin.xib; sourceTree = "<group>"; };
 		1D9FD6411BD282DA0028FEC1 /* SmallPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallPin.swift; sourceTree = "<group>"; };
 		1DA927A71BCC0CBE00ECFF0F /* location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = location.gpx; sourceTree = "<group>"; };
+		1DB953751BD37B86002A2745 /* BigPin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigPin.xib; sourceTree = "<group>"; };
 		5B08BD25A03AE5E9F6B8BEF6 /* Pods-Fresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fresh/Pods-Fresh.release.xcconfig"; sourceTree = "<group>"; };
 		C8FFB2CE38CC8E4164AD9AEC /* Pods_Fresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA98F31751C21A69A6DCC0C /* Pods-Fresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fresh/Pods-Fresh.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				1D9898B91BC9C84B0096DD29 /* Main.storyboard */,
 				1D7EFEBA1BC846E20054FD50 /* LaunchScreen.storyboard */,
 				1D9FD63F1BD282660028FEC1 /* SmallPin.xib */,
+				1DB953751BD37B86002A2745 /* BigPin.xib */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			files = (
 				1D9FD6401BD282660028FEC1 /* SmallPin.xib in Resources */,
 				1DA927A81BCC0CBE00ECFF0F /* location.gpx in Resources */,
+				1DB953761BD37B86002A2745 /* BigPin.xib in Resources */,
 				1D7EFEBC1BC846E20054FD50 /* LaunchScreen.storyboard in Resources */,
 				1D7EFEB91BC846E20054FD50 /* Assets.xcassets in Resources */,
 				1D9898BA1BC9C84B0096DD29 /* Main.storyboard in Resources */,

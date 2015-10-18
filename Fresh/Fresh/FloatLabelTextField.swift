@@ -164,7 +164,7 @@ import UIKit
 	}
 	
 	private func setTitlePositionForTextAlignment() {
-		var r = textRectForBounds(bounds)
+		let r = textRectForBounds(bounds)
 		var x = r.origin.x
 		if textAlignment == NSTextAlignment.Center {
 			x = r.origin.x + (r.size.width * 0.5) - title.frame.size.width
