@@ -47,8 +47,8 @@
                 </mask>
             </variation>
             <connections>
-                <outlet property="labelPrice" destination="nBN-7H-KyX" id="m0e-b8-Kwy"/>
-                <outlet property="labelTitle" destination="QpJ-2g-53p" id="LQC-SO-68G"/>
+                <outlet property="labelPrice" destination="nBN-7H-KyX" id="xOX-Tn-YlM"/>
+                <outlet property="labelTitle" destination="QpJ-2g-53p" id="5Hd-bI-UMV"/>
             </connections>
             <point key="canvasLocation" x="403" y="732.5"/>
         </view>

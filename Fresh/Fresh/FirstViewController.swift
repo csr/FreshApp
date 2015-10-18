@@ -18,15 +18,14 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     @IBOutlet weak var viewSmallPin: UIView!
     @IBOutlet weak var labelSmallPinTitle: UILabel!
     @IBOutlet weak var labelSmallPinPrice: UILabel!
-    var smallPinView: UIView!
     
     var searchController: UISearchController!
     var searchResultsTableViewController: UITableViewController!
-    var currentSelection: Int!
     
     // Parse class: User
     var isFarmer = 0
     var objectID: String! // DELETE this later
+    var myView = SmallPin()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +39,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.getUserLocation(self)
         
         // Custom pins
-        smallPinView = SmallPin.loadNib()
-        smallPinView.layer.cornerRadius = 7
+        myView = (NSBundle.mainBundle().loadNibNamed("SmallPin", owner: self, options: nil)[0] as? SmallPin)!
         
         // Set some properties of the viewGetLocation UIView
         viewGetLocation.alpha = 0.9
@@ -121,7 +119,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                 print("Error while retrieving the objects saved locally.")
             }
         }
-
     }
     
     /*********************************** LOCATION ********************************/
@@ -187,12 +184,26 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             return mapView.dequeueReusableAnnotationViewWithIdentifier("")
         } else {
             let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 100, 50))
+            // scroll through objects saved locally
             
-            let myView = SmallPin()
-            myView.labelTitle?.text = "Eggs"
-            myView.labelPrice?.text = "5.5"
+            let query = PFQuery(className:"Products")
+            query.fromLocalDatastore()
+            query.findObjectsInBackgroundWithBlock {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                print("Successfully retrieved \(objects!.count) objects in the local datastore.")
+                if error == nil {
+                    for object in objects! {
+                        self.myView.labelTitle.text = object["Title"] as? String
+                        self.myView.labelPrice.text = object["Price"] as? String
+                    }
+                } else {
+                    print("Error while retrieving the objects saved locally.")
+                }
+            }
             
-            annotationView.addSubview(smallPinView)
+            myView.labelTitle.text = "Hello!"
+            
+            annotationView.addSubview(myView)
             annotationView.enabled = true
             annotationView.canShowCallout = false
             annotationView.annotation = annotation
