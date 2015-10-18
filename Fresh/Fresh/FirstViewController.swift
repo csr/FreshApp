@@ -40,7 +40,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         
         // Custom pins
         myView = (NSBundle.mainBundle().loadNibNamed("SmallPin", owner: self, options: nil)[0] as? SmallPin)!
-        
+        myView.layer.cornerRadius = 6
+
         // Set some properties of the viewGetLocation UIView
         viewGetLocation.alpha = 0.9
         viewGetLocation.layer.cornerRadius = 5
