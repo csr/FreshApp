@@ -11,11 +11,11 @@ import UIKit
 class SmallPin: UIView {
     
     @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var labelPrice: UILabel!
+    @IBOutlet weak var labelPrice: UILabel?
     
     override func awakeFromNib() {
-        labelTitle.text = "Default"
-        labelPrice.text = "Default"
+        //labelTitle.text = "Default"
+        //abelPrice!.text = "Default"
     }
     
     class func loadNib() -> SmallPin {

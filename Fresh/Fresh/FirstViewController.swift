@@ -71,12 +71,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         let query = PFQuery(className: "Products")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
-            print("Successfully retrieved \(objects!.count) objects.")
+            print("Successfully retrieved \(objects!.count) objects in retrieveData().")
             if error == nil && objects != nil {
                 for myObject in objects! {
                     print("Dealing with object \(myObject.objectId!) right now.")
                     // If an object doesn't have the latitude and/or the longitude, then assign them to it
-                    if myObject["Latitude"] == nil || myObject["Longitude"] == nil {
+                    if myObject["Latitude"] == nil || myObject["Longitude"] == nil || myObject["Latitude"] as! Float == 0 || myObject["Longitude"] as! Float == 0 {
                         print("Non ho trovato il valore latitude per l'oggetto \(myObject.objectId)")
                         self.convertLocationToCoordinates(myObject)
                     }
@@ -113,7 +113,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         query.fromLocalDatastore()
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
-            print("Successfully retrieved \(objects!.count) objects in the local datastore.")
+            print("Successfully retrieved \(objects!.count) objects in the local datastore in showAllSavedObjectsLocalDatastore()")
             if error == nil {
                 
             } else {
@@ -174,10 +174,24 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     /******************************* CUSTOM PINS *********************************/
     
     func addCustomPins() {
-        let coordinates = CLLocationCoordinate2DMake(45.473993, 9.168081)
         let myCustomPin = MKPointAnnotation()
-        myCustomPin.coordinate = coordinates
-        mapView.addAnnotation(myCustomPin)
+        let query = PFQuery(className:"Products")
+        query.fromLocalDatastore()
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            print("Successfully retrieved \(objects!.count) objects in the local datastore in addCustomPins()")
+            if error == nil {
+                for object in objects! {
+                    let coordinates = CLLocationCoordinate2DMake(object["Latitude"] as! Double, object["Longitude"] as! Double)
+                    myCustomPin.coordinate = coordinates
+                    self.mapView.addAnnotation(myCustomPin)
+                }
+            } else {
+                print("Error while retrieving the objects saved locally.")
+                let coordinates = CLLocationCoordinate2DMake(0, 0)
+                myCustomPin.coordinate = coordinates
+            }
+        }
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -191,18 +205,18 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             query.fromLocalDatastore()
             query.findObjectsInBackgroundWithBlock {
                 (objects: [PFObject]?, error: NSError?) -> Void in
-                print("Successfully retrieved \(objects!.count) objects in the local datastore.")
+                print("Successfully retrieved \(objects!.count) objects in the local datastore in ViewForAnnotation()")
                 if error == nil {
                     for object in objects! {
-                        self.myView.labelTitle.text = object["Title"] as? String
-                        self.myView.labelPrice.text = object["Price"] as? String
+                        //self.myView.labelTitle.text = object["Title"] as? String
+                        //self.myView.labelPrice.text = object["Price"] as? String
                     }
                 } else {
                     print("Error while retrieving the objects saved locally.")
                 }
             }
             
-            myView.labelTitle.text = "Hello!"
+            //myView.labelTitle.text = "Hello!"
             
             annotationView.addSubview(myView)
             annotationView.enabled = true
