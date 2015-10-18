@@ -198,7 +198,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         if annotation is MKUserLocation {
             return mapView.dequeueReusableAnnotationViewWithIdentifier("")
         } else {
-            let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 50, 50))
+            let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 33, 36))
             // scroll through objects saved locally
             
             let query = PFQuery(className:"Products")
