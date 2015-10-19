@@ -14,5 +14,6 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().barTintColor = UIColor(red: 131/255, green: 192/255, blue: 101/255, alpha: 1)
+        UITabBar.appearance().hidden = true
     }
 }
