@@ -1,3 +1,6 @@
+//  FirstViewController.swift
+//  Fresh
+
 import UIKit
 import MapKit
 import Parse
@@ -5,27 +8,23 @@ import Bolts
 
 class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
-    // Location Objects
+    // Location
     let locationManager: CLLocationManager = CLLocationManager()
     var userLocation: CLLocation!
     var mapChangedFromUserInteraction = false
-    
-    // UI elements
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var getLocationButton: UIButton!
-    @IBOutlet weak var profileNavBarButton: UIBarButtonItem!
     @IBOutlet weak var viewGetLocation: UIView!
-    @IBOutlet weak var viewSmallPin: UIView!
-    @IBOutlet weak var labelSmallPinTitle: UILabel!
-    @IBOutlet weak var labelSmallPinPrice: UILabel!
+    @IBOutlet weak var getLocationButton: UIButton!
     
+    // Custom pins
+    var smallCustomPin = SmallPin()
+
+    // Profile
+    @IBOutlet weak var profileNavBarButton: UIBarButtonItem!
+    
+    // Search bar controller
     var searchController: UISearchController!
     var searchResultsTableViewController: UITableViewController!
-    
-    // Parse class: User
-    var isFarmer = 0
-    var objectID: String! // DELETE this later
-    var myView = SmallPin()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,39 +33,39 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         navigationController!.navigationBar.barTintColor = UIColor(red: 131/255, green: 192/255, blue: 101/255, alpha: 1)
         
         // Location
-        mapView.delegate = self
-        mapView.showsUserLocation = true
-        self.getUserLocation(self)
+        getUserLocation()
 
         // Custom pins
-        myView = (NSBundle.mainBundle().loadNibNamed("SmallPin", owner: self, options: nil)[0] as? SmallPin)!
-        myView.layer.cornerRadius = 6
+        smallCustomPin = NSBundle.mainBundle().loadNibNamed("SmallPin", owner: self, options: nil)[0] as! SmallPin
+        smallCustomPin.layer.cornerRadius = 6
         
-        // Set some properties of the viewGetLocation UIView
+        // Properties of the getLocation button view
         viewGetLocation.alpha = 0.9
         viewGetLocation.layer.cornerRadius = 5
         
         // Search bar controller
         searchResultsTableViewController = UITableViewController()
-        searchResultsTableViewController.view.backgroundColor = UIColor.whiteColor()
         searchController = UISearchController(searchResultsController: searchResultsTableViewController)
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.delegate = self
         self.navigationItem.titleView = searchController.searchBar
         searchController.searchBar.placeholder = "Search for farmers or products..."
         
-        // Check if the users are logged in - if they aren't, then ask if they want to log in or sign up
-        let userLogin = PFUser.currentUser()
-        if userLogin == nil {
+        // Check if the user is logged in - if s/he isn't, ask to log in or sign up
+        if PFUser.currentUser() == nil {
             ask()
         }
+        
+        // Check if thee are new custom pins or if some of them have been deleted
         retrieveData()
+        
+        // Display custom pins on the map
         addCustomPins()
     }
     
     /************************************ PARSE **********************************/
     
-    // Fetch the objects from the server, so we can later check if something has changed
+    // Fetch the objects from the server, so we can check if some objects have been deleted/newly added
     func retrieveData() {
         let query = PFQuery(className: "Products")
         query.findObjectsInBackgroundWithBlock {
@@ -127,31 +126,31 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     // Change the image of the "getLocation" button when the user taps on it
     @IBAction func tapOnGetLocation(sender: AnyObject) {
         self.getLocationButton.setImage(UIImage(named: "request1"), forState: UIControlState.Normal)
-        getUserLocation(self)
+        getUserLocation()
     }
     
-    private func mapViewRegionDidChangeFromUserInteraction() -> Bool {
-        let view = self.mapView.subviews[0]
-        //  Look through gesture recognizers to determine whether this region change is from user interaction
-        if let gestureRecognizers = view.gestureRecognizers {
-            for recognizer in gestureRecognizers {
-                if (recognizer.state == UIGestureRecognizerState.Began || recognizer.state == UIGestureRecognizerState.Ended) {
-                    return true
-                }
-            }
-        }
-        return false
-    }
+//    func mapViewRegionDidChangeFromUserInteraction() -> Bool {
+//        let view = self.mapView.subviews[0]
+//        //  Look through gesture recognizers to determine whether this region change is from user interaction
+//        if let gestureRecognizers = view.gestureRecognizers {
+//            for recognizer in gestureRecognizers {
+//                if (recognizer.state == UIGestureRecognizerState.Began || recognizer.state == UIGestureRecognizerState.Ended) {
+//                    return true
+//                }
+//            }
+//        }
+//        return false
+//    }
     
-    // Detect panning on a map
-    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        mapChangedFromUserInteraction = mapViewRegionDidChangeFromUserInteraction()
-        if (mapChangedFromUserInteraction) {
-            self.getLocationButton.setImage(UIImage(named: "request0"), forState: UIControlState.Normal)
-        }
-    }
+    //Detect panning on a map
+//    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+//        mapChangedFromUserInteraction = mapViewRegionDidChangeFromUserInteraction()
+//        if (mapChangedFromUserInteraction) {
+//            self.getLocationButton.setImage(UIImage(named: "request0"), forState: UIControlState.Normal)
+//        }
+//    }
     
-    func getUserLocation(sender: AnyObject) {
+    func getUserLocation() {
         locationManager.delegate = self // instantiate the CLLocationManager object
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             locationManager.requestAlwaysAuthorization()
@@ -207,10 +206,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                 (objects: [PFObject]?, error: NSError?) -> Void in
                 print("Successfully retrieved \(objects!.count) objects in the local datastore in ViewForAnnotation()")
                 if error == nil {
-                    for object in objects! {
+                    //for object in objects! {
                         //self.myView.labelTitle.text = object["Title"] as? String
                         //self.myView.labelPrice.text = object["Price"] as? String
-                    }
+                    //}
                 } else {
                     print("Error while retrieving the objects saved locally.")
                 }
@@ -219,7 +218,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             //myView.labelTitle.text = "Hello!"
             
             annotationView.centerOffset = CGPointMake(0, -25)
-            annotationView.addSubview(myView)
+            annotationView.addSubview(smallCustomPin)
             annotationView.enabled = true
             annotationView.canShowCallout = false
             annotationView.annotation = annotation
@@ -271,67 +270,67 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     /*****************************************************************************/
     
     @IBAction func addPopover(sender: UIBarButtonItem) {
-        let profileOptions = UIAlertController()
-        let currentUser = PFUser.currentUser()
-        
-        if (currentUser == nil) {
-            profileOptions.addAction(UIAlertAction(title: "Sign up", style: UIAlertActionStyle.Default, handler: {(action: UIAlertAction!) -> Void in
-                self.signUp()
-            }))
-            
-            profileOptions.addAction(UIAlertAction(title: "Log in", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
-                self.signIn()
-            }))
-        } else {
-            profileOptions.addAction(UIAlertAction(title: "Sign out", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
-                PFUser.logOut()
-            }))
-            
-            if (isFarmer == 0) {
-                profileOptions.addAction(UIAlertAction(title: "Switch to Farmer", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
-                    let query = PFQuery(className: "_User")
-                    query.getObjectInBackgroundWithId((self.objectID)!) {
-                        (farmer: PFObject?, error: NSError?) -> Void in
-                        if error == nil && farmer != nil {
-                            self.isFarmer = (farmer?.objectForKey("farmer") as! Int)
-                            if (self.isFarmer == 1) {
-                                print("This user is a farmer!")
-                            } else {
-                                print("This user is not a farmer.")
-                                self.switchToFarmer()
-                            }
-                        } else {
-                            print("Something is not working with retrieving the farmer status: \(error)")
-                        }
-                    }
-                    
-                }))
-            }
-        }
-        
-        profileOptions.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler: nil))
-        
-        // Display the action sheet
-        profileOptions.popoverPresentationController?.barButtonItem = profileNavBarButton
-        presentViewController(profileOptions, animated: true, completion: nil)
+//        let profileOptions = UIAlertController()
+//        let currentUser = PFUser.currentUser()
+//        
+//        if (currentUser == nil) {
+//            profileOptions.addAction(UIAlertAction(title: "Sign up", style: UIAlertActionStyle.Default, handler: {(action: UIAlertAction!) -> Void in
+//                self.signUp()
+//            }))
+//            
+//            profileOptions.addAction(UIAlertAction(title: "Log in", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
+//                self.signIn()
+//            }))
+//        } else {
+//            profileOptions.addAction(UIAlertAction(title: "Sign out", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
+//                PFUser.logOut()
+//            }))
+//            
+//            if (isFarmer == 0) {
+//                profileOptions.addAction(UIAlertAction(title: "Switch to Farmer", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
+//                    let query = PFQuery(className: "_User")
+//                    query.getObjectInBackgroundWithId((self.objectID)!) {
+//                        (farmer: PFObject?, error: NSError?) -> Void in
+//                        if error == nil && farmer != nil {
+//                            self.isFarmer = (farmer?.objectForKey("farmer") as! Int)
+//                            if (self.isFarmer == 1) {
+//                                print("This user is a farmer!")
+//                            } else {
+//                                print("This user is not a farmer.")
+//                                self.switchToFarmer()
+//                            }
+//                        } else {
+//                            print("Something is not working with retrieving the farmer status: \(error)")
+//                        }
+//                    }
+//                    
+//                }))
+//            }
+//        }
+//        
+//        profileOptions.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler: nil))
+//        
+//        // Display the action sheet
+//        profileOptions.popoverPresentationController?.barButtonItem = profileNavBarButton
+//        presentViewController(profileOptions, animated: true, completion: nil)
     }
     
     func ask() {
-        let askSheetController: UIAlertController = UIAlertController(title: "Welcome to Fresh!", message: "Create a Fresh account or log into an existing one to connect with farmers around the world.", preferredStyle: .Alert)
-        let signupAction: UIAlertAction = UIAlertAction(title: "Sign up", style: .Default) { action -> Void in
-            self.signUp()
-        }
-        askSheetController.addAction(signupAction)
-        
-        let loginAction: UIAlertAction = UIAlertAction(title: "Log in", style: .Default) { action -> Void in
-            self.signIn()
-        }
-        askSheetController.addAction(loginAction)
-        
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        askSheetController.addAction(cancelAction)
-        
-        presentViewController(askSheetController, animated: true, completion: nil)
+//        let askSheetController: UIAlertController = UIAlertController(title: "Welcome to Fresh!", message: "Create a Fresh account or log into an existing one to connect with farmers around the world.", preferredStyle: .Alert)
+//        let signupAction: UIAlertAction = UIAlertAction(title: "Sign up", style: .Default) { action -> Void in
+//            self.signUp()
+//        }
+//        askSheetController.addAction(signupAction)
+//        
+//        let loginAction: UIAlertAction = UIAlertAction(title: "Log in", style: .Default) { action -> Void in
+//            self.signIn()
+//        }
+//        askSheetController.addAction(loginAction)
+//        
+//        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+//        askSheetController.addAction(cancelAction)
+//        
+//        presentViewController(askSheetController, animated: true, completion: nil)
     }
     
     var userEmail = ""
@@ -385,63 +384,60 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         presentViewController(signupSheetController, animated: true, completion: nil)
     }
     
-    func signIn() {
-        var emailTextField: UITextField?
-        var passwordTextField: UITextField?
-        
-        let signupSheetController: UIAlertController = UIAlertController(title: "Sign in to Fresh", message: "Log into your Fresh account to see what farmers are sellingr.", preferredStyle: .Alert)
-        
-        let signupAction: UIAlertAction = UIAlertAction(title: "Sign in", style: .Default) { action -> Void in
-            self.userEmail = emailTextField!.text!
-            self.userPassword = passwordTextField!.text!
-            print(self.userEmail)
-            print(self.userPassword)
-        }
-        signupSheetController.addAction(signupAction)
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in }
-        signupSheetController.addAction(cancelAction)
-        
-        signupSheetController.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
-            textField.textColor = UIColor.blackColor()
-            textField.placeholder = "Email"
-            textField.secureTextEntry = false
-            emailTextField = textField
-        })
-        
-        signupSheetController.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
-            textField.textColor = UIColor.blackColor()
-            textField.placeholder = "Password"
-            textField.secureTextEntry = true
-            passwordTextField = textField
-        })
-        
-        // Create the user
-        let user = PFUser()
-        user.email = userEmail
-        userEmail = userEmail.lowercaseString // ensure the e-mail is lowercase
-        user.username = userEmail
-        user.password = userPassword
-        let userLogin = PFUser.currentUser()
-        
-        PFUser.logInWithUsernameInBackground(userEmail, password: userPassword) {
-            (user: PFUser?, error: NSError?) -> Void in
-            if userLogin != nil {
-                self.objectID = userLogin?.objectId
-            } else {
-                print("Login failed!")
-            }
-        }
-        
-        if (PFUser.currentUser() == nil) {
-            presentViewController(signupSheetController, animated: true, completion: nil)
-        } else {
-            print("User successfully authenticated!")
-        }
-    }
-    
-    // MARK: Search bar stuff
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-    }
+//    func signIn() {
+//        var emailTextField: UITextField?
+//        var passwordTextField: UITextField?
+//        
+//        let signupSheetController: UIAlertController = UIAlertController(title: "Sign in to Fresh", message: "Log into your Fresh account to see what farmers are sellingr.", preferredStyle: .Alert)
+//        
+//        let signupAction: UIAlertAction = UIAlertAction(title: "Sign in", style: .Default) { action -> Void in
+//            self.userEmail = emailTextField!.text!
+//            self.userPassword = passwordTextField!.text!
+//            print(self.userEmail)
+//            print(self.userPassword)
+//        }
+//        signupSheetController.addAction(signupAction)
+//        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in }
+//        signupSheetController.addAction(cancelAction)
+//        
+//        signupSheetController.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+//            textField.textColor = UIColor.blackColor()
+//            textField.placeholder = "Email"
+//            textField.secureTextEntry = false
+//            emailTextField = textField
+//        })
+//        
+//        signupSheetController.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+//            textField.textColor = UIColor.blackColor()
+//            textField.placeholder = "Password"
+//            textField.secureTextEntry = true
+//            passwordTextField = textField
+//        })
+//        
+//        // Create the user
+//        let user = PFUser()
+//        user.email = userEmail
+//        userEmail = userEmail.lowercaseString // ensure the e-mail is lowercase
+//        user.username = userEmail
+//        user.password = userPassword
+//        let userLogin = PFUser.currentUser()
+//        
+//        // TODO: FIX THIS
+//        PFUser.logInWithUsernameInBackground(userEmail, password: userPassword) {
+//            (user: PFUser?, error: NSError?) -> Void in
+//            if userLogin != nil {
+//                self.objectID = userLogin?.objectId
+//            } else {
+//                print("Login failed!")
+//            }
+//        }
+//        
+//        if (PFUser.currentUser() == nil) {
+//            presentViewController(signupSheetController, animated: true, completion: nil)
+//        } else {
+//            print("User successfully authenticated!")
+//        }
+//    }
     
     // MARK: Add Product page
     func switchToFarmer() {
@@ -461,6 +457,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         let vc : ProductsTableViewController = storyboard.instantiateViewControllerWithIdentifier("products") as! ProductsTableViewController
         let navigationController = UINavigationController(rootViewController: vc)
         self.presentViewController(navigationController, animated: true, completion: nil)
+    }
+    
+    // MARK: Search bar stuff
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
     }
     
     // MARK: Other methods
