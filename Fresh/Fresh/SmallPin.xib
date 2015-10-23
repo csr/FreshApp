@@ -8,45 +8,30 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SmallPin" customModule="Fresh" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="41" height="45"/>
+            <rect key="frame" x="0.0" y="0.0" width="68" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgSmall" translatesAutoresizingMaskIntoConstraints="NO" id="gOq-cJ-y1e">
-                    <rect key="frame" x="0.0" y="0.0" width="41" height="45"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="smallPin" translatesAutoresizingMaskIntoConstraints="NO" id="0UM-wV-DaS">
+                    <rect key="frame" x="0.0" y="0.0" width="68" height="50"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="41" id="6Iu-mr-kl0"/>
-                        <constraint firstAttribute="height" constant="45" id="gqb-M1-tLf"/>
-                    </constraints>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wheat" translatesAutoresizingMaskIntoConstraints="NO" id="aoQ-oX-UMS">
-                    <rect key="frame" x="9" y="4" width="24" height="33"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="24" id="Nfd-od-dIy"/>
-                        <constraint firstAttribute="height" constant="33" id="vvm-5B-9Xi"/>
+                        <constraint firstAttribute="height" constant="50" id="6Xd-Nt-IQg"/>
+                        <constraint firstAttribute="width" constant="68" id="VLK-QZ-f7G"/>
                     </constraints>
                 </imageView>
             </subviews>
             <animations/>
-            <constraints>
-                <constraint firstItem="gOq-cJ-y1e" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="M7o-Dj-RgM"/>
-                <constraint firstItem="aoQ-oX-UMS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Z26-Ia-qse"/>
-                <constraint firstItem="aoQ-oX-UMS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="fMi-it-Lyk"/>
-                <constraint firstItem="gOq-cJ-y1e" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="k8m-n9-yCe"/>
-            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="imageBgSmall" destination="gOq-cJ-y1e" id="Erx-bC-ZDd"/>
+                <outlet property="smallPingBg" destination="0UM-wV-DaS" id="cox-0v-cjH"/>
             </connections>
-            <point key="canvasLocation" x="762" y="139.5"/>
+            <point key="canvasLocation" x="769" y="139.5"/>
         </view>
     </objects>
     <resources>
-        <image name="bgSmall" width="50" height="50"/>
-        <image name="wheat" width="24" height="34"/>
+        <image name="smallPin" width="68" height="49"/>
     </resources>
 </document>

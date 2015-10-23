@@ -43,7 +43,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         viewGetLocation.alpha = 0.9
         viewGetLocation.layer.cornerRadius = 5
         
-        // Search bar controller
+        // Search bar controllerr
         searchResultsTableViewController = UITableViewController()
         searchController = UISearchController(searchResultsController: searchResultsTableViewController)
         searchController.hidesNavigationBarDuringPresentation = false
@@ -51,11 +51,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.navigationItem.titleView = searchController.searchBar
         searchController.searchBar.placeholder = "Search for farmers or products..."
         
-        // Check if the user is logged in - if s/he isn't, ask to log in or sign up
+        // Check if the user is logged in - if they aren't, prompt to log in or sign up
         if PFUser.currentUser() == nil {
             ask()
         }
-        
+                
         // Check if thee are new custom pins or if some of them have been deleted
         retrieveData()
         
@@ -161,12 +161,13 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.locationManager.startUpdatingLocation() // continuously send the application a stream of location data
     }
     
+    var p = false // the first zoom in should NOT be animated, while all the others should
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let newLocation = locations.last!
         mapView.setCenterCoordinate(newLocation.coordinate, animated: true)
         let viewRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 6000, 6000)
-        mapView.setRegion(viewRegion, animated: false)
-        
+        mapView.setRegion(viewRegion, animated: p)
+        p = true
         manager.stopUpdatingLocation()
     }
     
@@ -197,7 +198,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         if annotation is MKUserLocation {
             return mapView.dequeueReusableAnnotationViewWithIdentifier("")
         } else {
-            let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 33, 36))
+            let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 41, 45))
             // scroll through objects saved locally
             
             let query = PFQuery(className:"Products")
@@ -217,7 +218,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             
             //myView.labelTitle.text = "Hello!"
             
-            annotationView.centerOffset = CGPointMake(0, -25)
+            annotationView.centerOffset = CGPointMake(0, -20)
             annotationView.addSubview(smallCustomPin)
             annotationView.enabled = true
             annotationView.canShowCallout = false
