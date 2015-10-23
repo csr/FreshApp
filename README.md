@@ -4,4 +4,4 @@ Fresh is an app that makes it easy to connect people with farmers around the wor
 
 # Everyone is encouraged to collaborate
 
-Let's make this app something that matters. Let's help people who deserve attention.
+Let's make this app something that matters. Let's help people who deserve attention. If you want to push a lot of code, please do! If you have an idea that could improve Fresh, please tell everyone about it!
