@@ -7,7 +7,7 @@
 
 This is a non-profit app that hasn't launched to the App Store yet. Everyone is encouraged to collaborate.
 
-TODO list:
+#### TODO list:
 * <strike>Add small custom pins to the map</strike>
 * Make small pins display the title of the products farmers are selling
 * When those small custom pins are tapped, a bigger view pops up
