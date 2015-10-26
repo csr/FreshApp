@@ -1,7 +1,7 @@
 # Welcome to Fresh
 
 * Fresh is an iOS app that makes it easy to connect people with farmers around the world.
-* People can connect with producers and buy high quality food.
+* People see where producers are located on a map and buy high quality food.
 * Consumers can have great experiences by visiting farmhouses and doing activities.
 * Producers can form small markets in just a few taps, and you can join them!
 
