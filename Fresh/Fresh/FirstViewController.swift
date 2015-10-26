@@ -19,7 +19,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     // Custom pins
     var smallCustomPin = SmallPin()
 
-    // Profile
+    // Navigation bar
     @IBOutlet weak var profileNavBarButton: UIBarButtonItem!
     
     // Search bar controller
@@ -37,7 +37,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
 
         // Custom pins
         smallCustomPin = NSBundle.mainBundle().loadNibNamed("SmallPin", owner: self, options: nil)[0] as! SmallPin
-        smallCustomPin.layer.cornerRadius = 6
         
         // Properties of the getLocation button view
         viewGetLocation.alpha = 0.9
@@ -107,6 +106,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         })
     }
     
+    // Fetch all the PFObjects saved locally - this will come in handy when there is no Internet connection
     func showAllSavedObjectsLocalDatastore() {
         let query = PFQuery(className:"Products")
         query.fromLocalDatastore()
@@ -129,26 +129,26 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         getUserLocation()
     }
     
-//    func mapViewRegionDidChangeFromUserInteraction() -> Bool {
-//        let view = self.mapView.subviews[0]
-//        //  Look through gesture recognizers to determine whether this region change is from user interaction
-//        if let gestureRecognizers = view.gestureRecognizers {
-//            for recognizer in gestureRecognizers {
-//                if (recognizer.state == UIGestureRecognizerState.Began || recognizer.state == UIGestureRecognizerState.Ended) {
-//                    return true
-//                }
-//            }
-//        }
-//        return false
-//    }
+    func mapViewRegionDidChangeFromUserInteraction() -> Bool {
+        let view = self.mapView.subviews[0]
+        // Look through gesture recognizers to determine whether this region change is from user interaction
+        if let gestureRecognizers = view.gestureRecognizers {
+            for recognizer in gestureRecognizers {
+                if (recognizer.state == UIGestureRecognizerState.Began || recognizer.state == UIGestureRecognizerState.Ended) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
     
-    //Detect panning on a map
-//    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-//        mapChangedFromUserInteraction = mapViewRegionDidChangeFromUserInteraction()
-//        if (mapChangedFromUserInteraction) {
-//            self.getLocationButton.setImage(UIImage(named: "request0"), forState: UIControlState.Normal)
-//        }
-//    }
+    // Detect panning on a map
+    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        mapChangedFromUserInteraction = mapViewRegionDidChangeFromUserInteraction()
+        if (mapChangedFromUserInteraction) {
+            self.getLocationButton.setImage(UIImage(named: "request0"), forState: UIControlState.Normal)
+        }
+    }
     
     func getUserLocation() {
         locationManager.delegate = self // instantiate the CLLocationManager object
