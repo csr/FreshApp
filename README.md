@@ -5,4 +5,4 @@
 * Consumers can have great experiences by visiting farmhouses and doing activities.
 * Producers can form small markets in just a few taps, and you can join them!
 
-This is a non-profit app and it hasn't yet launched to the App Store. Everyone is encourages to collaborate.
+This is a non-profit app and it hasn't launched to the App Store yet. Everyone is encourages to collaborate.
