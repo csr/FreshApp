@@ -5,4 +5,9 @@
 * Consumers can have great experiences by visiting farmhouses and doing activities.
 * Producers can form small markets in just a few taps, and you can join them!
 
-This is a non-profit app and it hasn't launched to the App Store yet. Everyone is encourages to collaborate.
+This is a non-profit app that hasn't launched to the App Store yet. Everyone is encouraged to collaborate.
+
+TODO list:
+* <strike>Add small custom pins to the map</strike>
+* Make small pins display the title of the products farmers are selling
+* When those small custom pins are tapped, a bigger view pops up
