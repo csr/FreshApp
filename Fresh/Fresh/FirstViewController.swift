@@ -198,27 +198,26 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         if annotation is MKUserLocation {
             return mapView.dequeueReusableAnnotationViewWithIdentifier("")
         } else {
-            let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 41, 45))
-            // scroll through objects saved locally
             
+            let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 100, 45))
             let query = PFQuery(className:"Products")
             query.fromLocalDatastore()
             query.findObjectsInBackgroundWithBlock {
                 (objects: [PFObject]?, error: NSError?) -> Void in
                 print("Successfully retrieved \(objects!.count) objects in the local datastore in ViewForAnnotation()")
                 if error == nil {
-                    //for object in objects! {
-                        //self.myView.labelTitle.text = object["Title"] as? String
+                    for object in objects! {
+                        self.smallCustomPin.labelTitle.text = object["Title"] as? String
                         //self.myView.labelPrice.text = object["Price"] as? String
-                    //}
+                    }
                 } else {
                     print("Error while retrieving the objects saved locally.")
                 }
             }
             
-            //myView.labelTitle.text = "Hello!"
-            
-            annotationView.centerOffset = CGPointMake(0, -20)
+            annotationView.centerOffset = CGPointMake(0, -50)
+            annotationView.backgroundColor = UIColor.whiteColor()
+            annotationView.layer.cornerRadius = 6
             annotationView.addSubview(smallCustomPin)
             annotationView.enabled = true
             annotationView.canShowCallout = false
