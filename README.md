@@ -5,6 +5,8 @@
 * Consumers can have great experiences by visiting farmhouses and doing activities.
 * Producers can form and join small markets in just a few taps, and you can join them!
 
+<img align="middle" src="http://i.imgur.com/3NO0SjR.png" alt="Screen image" width="300">
+
 Fresh is a non-profit app that hasn't launched to the App Store yet. Everyone is encouraged to collaborate.
 
 #### TODO list:
