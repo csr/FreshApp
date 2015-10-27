@@ -121,7 +121,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
     }
     
-    /*********************************** LOCATION ********************************/
+    /******************************** LOCATION ********************************/
     
     // Change the image of the "getLocation" button when the user taps on it
     @IBAction func tapOnGetLocation(sender: AnyObject) {

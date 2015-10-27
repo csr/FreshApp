@@ -9,11 +9,14 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-    let color = UIColor(red: 1, green: 1, blue: 39, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Change the color of the tab bar
         UITabBar.appearance().barTintColor = UIColor(red: 131/255, green: 192/255, blue: 101/255, alpha: 1)
+        
+        // Since we only have one tab, let's keep the tab bar hidden for now
         UITabBar.appearance().hidden = true
     }
 }
