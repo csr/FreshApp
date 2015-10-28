@@ -35,12 +35,14 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         // Location
         getUserLocation()
 
-        // Custom pins
+        // Custom pins: load the nib and detect a tap
         smallCustomPin = NSBundle.mainBundle().loadNibNamed("SmallPin", owner: self, options: nil)[0] as! SmallPin
         
         // Properties of the getLocation button view
         viewGetLocation.alpha = 0.9
         viewGetLocation.layer.cornerRadius = 5
+        //let gestureRecognizer = UITapGestureRecognizer(target: smallCustomPin, action: "tapOnSmallCustomPin")
+        //view.addGestureRecognizer(gestureRecognizer)
         
         // Search bar controllerr
         searchResultsTableViewController = UITableViewController()
@@ -226,6 +228,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
     }
     
+    func tapOnSmallCustomPin() {
+        print("Tap on small custom pin!")
+    }
+    
+// This code animates the custom pin drop
 //    func mapView(mapView: MKMapView, didAddAnnotationViews views: [MKAnnotationView]) {
 //        print("didAddAnnotationViews()")
 //        
