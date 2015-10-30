@@ -21,13 +21,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController!.navigationBar.barTintColor = UIColor(red: 131/255, green: 192/255, blue: 101/255, alpha: 1)
-        
-        getLocationView.alpha = 0.9
-        
-        let searchController = UISearchBar()
-        self.navigationItem.titleView = searchController
-        searchController.placeholder = "Search for farmers or products..."
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "Search for farmers or products..."
+        self.navigationItem.titleView = searchBar
         
         if PFUser.currentUser() == nil {
             askLogInOrSignUp()
@@ -47,7 +43,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             if error == nil && objects != nil {
                 for myObject in objects! {
                     print("Dealing with object \(myObject.objectId!) right now.")
-                    // If an object doesn't have the latitude and/or the longitude, then assign them to it
+
                     if myObject["Latitude"] == nil || myObject["Longitude"] == nil || myObject["Latitude"] as! Float == 0 || myObject["Longitude"] as! Float == 0 {
                         print("Non ho trovato il valore latitude per l'oggetto \(myObject.objectId)")
                         self.convertLocationToCoordinates(myObject)
@@ -94,8 +90,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             }
         }
     }
-    
-    /******************************** LOCATION ********************************/
     
     // Change the image of the "getLocation" button when the user taps on it
     @IBAction func tapOnGetLocation(sender: AnyObject) {
@@ -145,8 +139,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         p = true
         manager.stopUpdatingLocation()
     }
-    
-    /******************************* CUSTOM PINS *********************************/
     
     func addCustomPinsToMap() {
         let myCustomPin = MKPointAnnotation()
@@ -204,50 +196,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     func tapOnSmallCustomPin() {
         print("Tap on small custom pin!")
     }
-    
-// This code animates the custom pin drop
-//    func mapView(mapView: MKMapView, didAddAnnotationViews views: [MKAnnotationView]) {
-//        print("didAddAnnotationViews()")
-//        
-//        var i = -1;
-//        for view in views {
-//            i++;
-//            let mkView = view as! MKAnnotationView
-//            if view.annotation is MKUserLocation {
-//                continue;
-//            }
-//            
-//            // Check if current annotation is inside visible map rect, else go to next one
-//            let point:MKMapPoint  =  MKMapPointForCoordinate(mkView.annotation!.coordinate);
-//            if (!MKMapRectContainsPoint(self.mapView.visibleMapRect, point)) {
-//                continue;
-//            }
-//            
-//            let endFrame:CGRect = mkView.frame;
-//            
-//            // Move annotation out of view
-//            mkView.frame = CGRectMake(mkView.frame.origin.x, mkView.frame.origin.y - self.view.frame.size.height, mkView.frame.size.width, mkView.frame.size.height);
-//            
-//            // Animate drop
-//            let delay = 0.03 * Double(i)
-//            UIView.animateWithDuration(0.5, delay: delay, options: UIViewAnimationOptions.CurveEaseIn, animations:{() in
-//                mkView.frame = endFrame
-//                // Animate squash
-//                }, completion:{(Bool) in
-//                    UIView.animateWithDuration(0.05, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations:{() in
-//                        //mkView.transform = CGAffineTransformMakeScale(1.0, 0.6)
-//                        
-//                        }, completion: {(Bool) in
-//                            UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations:{() in
-//                                mkView.transform = CGAffineTransformIdentity
-//                                }, completion: nil)
-//                    })
-//                    
-//            })
-//        }
-//    }
-    
-    /*****************************************************************************/
     
     @IBAction func addPopover(sender: UIBarButtonItem) {
         let profileOptions = UIAlertController()
@@ -343,58 +291,58 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     func signIn() {
-//        var emailTextField: UITextField?
-//        var passwordTextField: UITextField?
-//        
-//        let signupSheetController: UIAlertController = UIAlertController(title: "Sign in to Fresh", message: "Log into your Fresh account to see what farmers are sellingr.", preferredStyle: .Alert)
-//        
-//        let signupAction: UIAlertAction = UIAlertAction(title: "Sign in", style: .Default) { action -> Void in
-//            self.userEmail = emailTextField!.text!
-//            self.userPassword = passwordTextField!.text!
-//            print(self.userEmail)
-//            print(self.userPassword)
-//        }
-//        signupSheetController.addAction(signupAction)
-//        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in }
-//        signupSheetController.addAction(cancelAction)
-//        
-//        signupSheetController.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
-//            textField.textColor = UIColor.blackColor()
-//            textField.placeholder = "Email"
-//            textField.secureTextEntry = false
-//            emailTextField = textField
-//        })
-//        
-//        signupSheetController.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
-//            textField.textColor = UIColor.blackColor()
-//            textField.placeholder = "Password"
-//            textField.secureTextEntry = true
-//            passwordTextField = textField
-//        })
-//        
-//        // Create the user
-//        let user = PFUser()
-//        user.email = userEmail
-//        userEmail = userEmail.lowercaseString // ensure the e-mail is lowercase
-//        user.username = userEmail
-//        user.password = userPassword
-//        let userLogin = PFUser.currentUser()
-//        
-//        // TODO: FIX THIS
-//        PFUser.logInWithUsernameInBackground(userEmail, password: userPassword) {
-//            (user: PFUser?, error: NSError?) -> Void in
-//            if userLogin != nil {
-//                self.objectID = userLogin?.objectId
-//            } else {
-//                print("Login failed!")
-//            }
-//        }
-//        
-//        if (PFUser.currentUser() == nil) {
-//            presentViewController(signupSheetController, animated: true, completion: nil)
-//        } else {
-//            print("User successfully authenticated!")
-//        }
+        var emailTextField: UITextField?
+        var passwordTextField: UITextField?
+        
+        let signupSheetController: UIAlertController = UIAlertController(title: "Sign in to Fresh", message: "Log into your Fresh account to see what farmers are sellingr.", preferredStyle: .Alert)
+        
+        let signupAction: UIAlertAction = UIAlertAction(title: "Sign in", style: .Default) { action -> Void in
+            self.userEmail = emailTextField!.text!
+            self.userPassword = passwordTextField!.text!
+            print(self.userEmail)
+            print(self.userPassword)
+        }
+        signupSheetController.addAction(signupAction)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in }
+        signupSheetController.addAction(cancelAction)
+        
+        signupSheetController.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.textColor = UIColor.blackColor()
+            textField.placeholder = "Email"
+            textField.secureTextEntry = false
+            emailTextField = textField
+        })
+        
+        signupSheetController.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.textColor = UIColor.blackColor()
+            textField.placeholder = "Password"
+            textField.secureTextEntry = true
+            passwordTextField = textField
+        })
+        
+        // Create the user
+        let user = PFUser()
+        user.email = userEmail
+        userEmail = userEmail.lowercaseString // ensure the e-mail is lowercase
+        user.username = userEmail
+        user.password = userPassword
+        let userLogin = PFUser.currentUser()
+        
+        // TODO: FIX THIS
+        PFUser.logInWithUsernameInBackground(userEmail, password: userPassword) {
+            (user: PFUser?, error: NSError?) -> Void in
+            if userLogin != nil {
+                //objectID = userLogin?.objectId
+            } else {
+                print("Login failed!")
+            }
+        }
+        
+        if (PFUser.currentUser() == nil) {
+            presentViewController(signupSheetController, animated: true, completion: nil)
+        } else {
+            print("User successfully authenticated!")
+        }
     }
     
     // MARK: Add Product page
@@ -404,7 +352,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         btnName.setImage(UIImage(named: "plus"), forState: .Normal)
         btnName.addTarget(self, action: Selector("goToAddProduct"), forControlEvents: .TouchUpInside)
         
-        //.... Set Right/Left Bar Button item
         let rightBarButton: UIBarButtonItem = UIBarButtonItem()
         rightBarButton.customView = btnName
         self.navigationItem.rightBarButtonItem = rightBarButton
@@ -417,11 +364,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
     
-    // MARK: Search bar stuff
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-    }
-    
-    // MARK: Other methods
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
