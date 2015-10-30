@@ -58,6 +58,11 @@
                                     <constraint firstItem="AUH-Es-ghJ" firstAttribute="centerX" secondItem="vvU-ne-MeD" secondAttribute="centerX" constant="-2" id="ito-GQ-zjj"/>
                                     <constraint firstItem="AUH-Es-ghJ" firstAttribute="centerY" secondItem="vvU-ne-MeD" secondAttribute="centerY" constant="2" id="xPH-tx-Qf9"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <animations/>
@@ -92,9 +97,9 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="getLocationButton" destination="AUH-Es-ghJ" id="T5w-kQ-Q5w"/>
+                        <outlet property="getLocationView" destination="vvU-ne-MeD" id="GAb-9M-6Se"/>
                         <outlet property="mapView" destination="kJ7-D5-pBF" id="cQS-Kg-RFH"/>
                         <outlet property="profileNavigationBarButton" destination="wvz-fF-5Tx" id="4GS-Yx-NpQ"/>
-                        <outlet property="viewGetLocation" destination="vvU-ne-MeD" id="4p2-P8-erQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SH7-8B-Oyt" userLabel="First Responder" sceneMemberID="firstResponder"/>

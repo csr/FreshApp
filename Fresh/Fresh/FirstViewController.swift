@@ -1,5 +1,5 @@
-//  FirstViewController.swift
 //  Fresh
+//  FirstViewController.swift
 
 import UIKit
 import MapKit
@@ -10,9 +10,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     let locationManager = CLLocationManager()
     var userLocation = CLLocation()
-    var mapChangedFromUserInteraction = false
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var viewGetLocation: UIView!
+    @IBOutlet weak var getLocationView: UIView!
     @IBOutlet weak var getLocationButton: UIButton!
     
     var smallCustomPin = SmallPin()
@@ -24,8 +23,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         
         navigationController!.navigationBar.barTintColor = UIColor(red: 131/255, green: 192/255, blue: 101/255, alpha: 1)
         
-        viewGetLocation.alpha = 0.9
-        viewGetLocation.layer.cornerRadius = 5
+        getLocationView.alpha = 0.9
         
         let searchController = UISearchBar()
         self.navigationItem.titleView = searchController
@@ -41,9 +39,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         addCustomPinsToMap()
     }
     
-    /************************************ PARSE **********************************/
-    
-    // Fetch the objects from the server, so we can check if some objects have been deleted/newly added
     func checkForNewCustomPins() {
         let query = PFQuery(className: "Products")
         query.findObjectsInBackgroundWithBlock {
@@ -122,6 +117,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     // Detect panning on a map
+    var mapChangedFromUserInteraction = false
     func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         mapChangedFromUserInteraction = mapViewRegionDidChangeFromUserInteraction()
         if (mapChangedFromUserInteraction) {
@@ -254,67 +250,45 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     /*****************************************************************************/
     
     @IBAction func addPopover(sender: UIBarButtonItem) {
-//        let profileOptions = UIAlertController()
-//        let currentUser = PFUser.currentUser()
-//        
-//        if (currentUser == nil) {
-//            profileOptions.addAction(UIAlertAction(title: "Sign up", style: UIAlertActionStyle.Default, handler: {(action: UIAlertAction!) -> Void in
-//                self.signUp()
-//            }))
-//            
-//            profileOptions.addAction(UIAlertAction(title: "Log in", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
-//                self.signIn()
-//            }))
-//        } else {
-//            profileOptions.addAction(UIAlertAction(title: "Sign out", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
-//                PFUser.logOut()
-//            }))
-//            
-//            if (isFarmer == 0) {
-//                profileOptions.addAction(UIAlertAction(title: "Switch to Farmer", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
-//                    let query = PFQuery(className: "_User")
-//                    query.getObjectInBackgroundWithId((self.objectID)!) {
-//                        (farmer: PFObject?, error: NSError?) -> Void in
-//                        if error == nil && farmer != nil {
-//                            self.isFarmer = (farmer?.objectForKey("farmer") as! Int)
-//                            if (self.isFarmer == 1) {
-//                                print("This user is a farmer!")
-//                            } else {
-//                                print("This user is not a farmer.")
-//                                self.switchToFarmer()
-//                            }
-//                        } else {
-//                            print("Something is not working with retrieving the farmer status: \(error)")
-//                        }
-//                    }
-//                    
-//                }))
-//            }
-//        }
-//        
-//        profileOptions.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler: nil))
-//        
-//        // Display the action sheet
-//        profileOptions.popoverPresentationController?.barButtonItem = profileNavBarButton
-//        presentViewController(profileOptions, animated: true, completion: nil)
+        let profileOptions = UIAlertController()
+        let currentUser = PFUser.currentUser()
+        
+        if (currentUser == nil) {
+            profileOptions.addAction(UIAlertAction(title: "Sign up", style: UIAlertActionStyle.Default, handler: {(action: UIAlertAction!) -> Void in
+                self.signUp()
+            }))
+            
+            profileOptions.addAction(UIAlertAction(title: "Log in", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
+                self.signIn()
+            }))
+        } else {
+            profileOptions.addAction(UIAlertAction(title: "Sign out", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
+                PFUser.logOut()
+            }))
+        }
+        profileOptions.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler: nil))
+        
+        // Display the action sheet
+        profileOptions.popoverPresentationController?.barButtonItem = profileNavigationBarButton
+        presentViewController(profileOptions, animated: true, completion: nil)
     }
     
     func askLogInOrSignUp() {
-//        let askSheetController: UIAlertController = UIAlertController(title: "Welcome to Fresh!", message: "Create a Fresh account or log into an existing one to connect with farmers around the world.", preferredStyle: .Alert)
-//        let signupAction: UIAlertAction = UIAlertAction(title: "Sign up", style: .Default) { action -> Void in
-//            self.signUp()
-//        }
-//        askSheetController.addAction(signupAction)
-//        
-//        let loginAction: UIAlertAction = UIAlertAction(title: "Log in", style: .Default) { action -> Void in
-//            self.signIn()
-//        }
-//        askSheetController.addAction(loginAction)
-//        
-//        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-//        askSheetController.addAction(cancelAction)
-//        
-//        presentViewController(askSheetController, animated: true, completion: nil)
+        let askSheetController: UIAlertController = UIAlertController(title: "Welcome to Fresh!", message: "Create a Fresh account or log into an existing one to connect with farmers around the world.", preferredStyle: .Alert)
+        let signupAction: UIAlertAction = UIAlertAction(title: "Sign up", style: .Default) { action -> Void in
+            self.signUp()
+        }
+        askSheetController.addAction(signupAction)
+        
+        let loginAction: UIAlertAction = UIAlertAction(title: "Log in", style: .Default) { action -> Void in
+            self.signIn()
+        }
+        askSheetController.addAction(loginAction)
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        askSheetController.addAction(cancelAction)
+        
+        presentViewController(askSheetController, animated: true, completion: nil)
     }
     
     var userEmail = ""
@@ -368,7 +342,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         presentViewController(signupSheetController, animated: true, completion: nil)
     }
     
-//    func signIn() {
+    func signIn() {
 //        var emailTextField: UITextField?
 //        var passwordTextField: UITextField?
 //        
@@ -421,7 +395,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
 //        } else {
 //            print("User successfully authenticated!")
 //        }
-//    }
+    }
     
     // MARK: Add Product page
     func switchToFarmer() {
