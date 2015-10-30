@@ -8,66 +8,43 @@ import Bolts
 
 class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
-    // Location
-    let locationManager: CLLocationManager = CLLocationManager()
-    var userLocation: CLLocation!
+    let locationManager = CLLocationManager()
+    var userLocation = CLLocation()
     var mapChangedFromUserInteraction = false
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var viewGetLocation: UIView!
     @IBOutlet weak var getLocationButton: UIButton!
     
-    // Custom pins
     var smallCustomPin = SmallPin()
 
-    // Navigation bar
-    @IBOutlet weak var profileNavBarButton: UIBarButtonItem!
-    
-    // Search bar controller
-    var searchController: UISearchController!
-    var searchResultsTableViewController: UITableViewController!
+    @IBOutlet weak var profileNavigationBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Change the color of the navigation bar
         navigationController!.navigationBar.barTintColor = UIColor(red: 131/255, green: 192/255, blue: 101/255, alpha: 1)
         
-        // Location
-        getUserLocation()
-
-        // Custom pins: load the nib and detect a tap
-        smallCustomPin = NSBundle.mainBundle().loadNibNamed("SmallPin", owner: self, options: nil)[0] as! SmallPin
-        
-        // Properties of the getLocation button view
         viewGetLocation.alpha = 0.9
         viewGetLocation.layer.cornerRadius = 5
-        //let gestureRecognizer = UITapGestureRecognizer(target: smallCustomPin, action: "tapOnSmallCustomPin")
-        //view.addGestureRecognizer(gestureRecognizer)
         
-        // Search bar controllerr
-        searchResultsTableViewController = UITableViewController()
-        searchController = UISearchController(searchResultsController: searchResultsTableViewController)
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.searchBar.delegate = self
-        self.navigationItem.titleView = searchController.searchBar
-        searchController.searchBar.placeholder = "Search for farmers or products..."
+        let searchController = UISearchBar()
+        self.navigationItem.titleView = searchController
+        searchController.placeholder = "Search for farmers or products..."
         
-        // Check if the user is logged in - if they aren't, prompt to log in or sign up
         if PFUser.currentUser() == nil {
-            ask()
+            askLogInOrSignUp()
         }
-                
-        // Check if thee are new custom pins or if some of them have been deleted
-        retrieveData()
         
-        // Display custom pins on the map
-        addCustomPins()
+        smallCustomPin = SmallPin.loadNib()
+        getUserLocation()
+        checkForNewCustomPins()
+        addCustomPinsToMap()
     }
     
     /************************************ PARSE **********************************/
     
     // Fetch the objects from the server, so we can check if some objects have been deleted/newly added
-    func retrieveData() {
+    func checkForNewCustomPins() {
         let query = PFQuery(className: "Products")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
@@ -175,7 +152,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     /******************************* CUSTOM PINS *********************************/
     
-    func addCustomPins() {
+    func addCustomPinsToMap() {
         let myCustomPin = MKPointAnnotation()
         let query = PFQuery(className:"Products")
         query.fromLocalDatastore()
@@ -322,7 +299,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
 //        presentViewController(profileOptions, animated: true, completion: nil)
     }
     
-    func ask() {
+    func askLogInOrSignUp() {
 //        let askSheetController: UIAlertController = UIAlertController(title: "Welcome to Fresh!", message: "Create a Fresh account or log into an existing one to connect with farmers around the world.", preferredStyle: .Alert)
 //        let signupAction: UIAlertAction = UIAlertAction(title: "Sign up", style: .Default) { action -> Void in
 //            self.signUp()
