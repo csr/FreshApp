@@ -101,6 +101,7 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="getLocationButton" destination="AUH-Es-ghJ" id="bfs-6F-5RM"/>
                         <outlet property="getLocationView" destination="vvU-ne-MeD" id="GAb-9M-6Se"/>
                         <outlet property="mapView" destination="kJ7-D5-pBF" id="cQS-Kg-RFH"/>
                         <outlet property="profileNavigationBarButton" destination="wvz-fF-5Tx" id="4GS-Yx-NpQ"/>
