@@ -46,7 +46,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="tapOnGetLocation:" destination="esr-F2-uer" eventType="touchUpInside" id="fny-rO-KBO"/>
+                                            <action selector="changeStateImageOfGetLocationButton:" destination="esr-F2-uer" eventType="touchUpInside" id="6vq-tO-60b"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -101,7 +101,6 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="getLocationButton" destination="AUH-Es-ghJ" id="T5w-kQ-Q5w"/>
                         <outlet property="getLocationView" destination="vvU-ne-MeD" id="GAb-9M-6Se"/>
                         <outlet property="mapView" destination="kJ7-D5-pBF" id="cQS-Kg-RFH"/>
                         <outlet property="profileNavigationBarButton" destination="wvz-fF-5Tx" id="4GS-Yx-NpQ"/>

@@ -15,7 +15,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     @IBOutlet weak var getLocationButton: UIButton!
     
     var smallCustomPin = SmallPin()
-
+    
     @IBOutlet weak var profileNavigationBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -31,24 +31,31 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         
         smallCustomPin = SmallPin.loadNib()
         getUserLocation()
-        checkForNewCustomPins()
+        checkIfObjectsHaveLatitudeLongitude()
         addCustomPinsToMap()
     }
     
-    func checkForNewCustomPins() {
+    func getUserLocation() {
+        locationManager.delegate = self
+        if CLLocationManager.authorizationStatus() == .NotDetermined {
+            locationManager.requestAlwaysAuthorization()
+        }
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = kCLDistanceFilterNone
+        self.locationManager.startUpdatingLocation() // continuously send the application a stream of location data
+    }
+    
+    func checkIfObjectsHaveLatitudeLongitude() {
         let query = PFQuery(className: "Products")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
-            print("Successfully retrieved \(objects!.count) objects in retrieveData().")
             if error == nil && objects != nil {
                 for myObject in objects! {
-                    print("Dealing with object \(myObject.objectId!) right now.")
-
                     if myObject["Latitude"] == nil || myObject["Longitude"] == nil || myObject["Latitude"] as! Float == 0 || myObject["Longitude"] as! Float == 0 {
-                        print("Non ho trovato il valore latitude per l'oggetto \(myObject.objectId)")
-                        self.convertLocationToCoordinates(myObject)
+                        print("I couldn't find the latitude value for the object \(myObject.objectId).")
+                        self.convertObjectLocationToCoordinates(myObject)
                     }
-                    // Save the objects locally, so the app can show pins even if there is no data connection the next time the user opens the app
+                    // Save the object locally
                     myObject.pinInBackground()
                 }
             } else {
@@ -57,12 +64,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
     }
     
-    // Converts the address given by the user to actual coordinates (latitude, longitude)
-    // Once the coordinates have been found, the objects is saved to the server
-    func convertLocationToCoordinates(myObject: PFObject) {
-        let address = myObject["Location"]
+    func convertObjectLocationToCoordinates(myObject: PFObject) {
         let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(address! as! String, completionHandler: { (placemarks, error) -> Void in
+        geocoder.geocodeAddressString(myObject["Location"] as! String, completionHandler: { (placemarks, error) -> Void in
             if let placemark = placemarks?[0] as CLPlacemark! {
                 myObject["Latitude"] = Float(placemark.location!.coordinate.latitude)
                 myObject["Longitude"] = Float(placemark.location!.coordinate.longitude)
@@ -76,23 +80,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         })
     }
     
-    // Fetch all the PFObjects saved locally - this will come in handy when there is no Internet connection
-    func showAllSavedObjectsLocalDatastore() {
-        let query = PFQuery(className:"Products")
-        query.fromLocalDatastore()
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            print("Successfully retrieved \(objects!.count) objects in the local datastore in showAllSavedObjectsLocalDatastore()")
-            if error == nil {
-                
-            } else {
-                print("Error while retrieving the objects saved locally.")
-            }
-        }
-    }
-    
-    // Change the image of the "getLocation" button when the user taps on it
-    @IBAction func tapOnGetLocation(sender: AnyObject) {
+    @IBAction func changeStateImageOfGetLocationButton(sender: AnyObject) {
         self.getLocationButton.setImage(UIImage(named: "request1"), forState: UIControlState.Normal)
         getUserLocation()
     }
@@ -110,24 +98,13 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         return false
     }
     
-    // Detect panning on a map
+    // Detect user panning on the mapView
     var mapChangedFromUserInteraction = false
     func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         mapChangedFromUserInteraction = mapViewRegionDidChangeFromUserInteraction()
         if (mapChangedFromUserInteraction) {
             self.getLocationButton.setImage(UIImage(named: "request0"), forState: UIControlState.Normal)
         }
-    }
-    
-    func getUserLocation() {
-        locationManager.delegate = self // instantiate the CLLocationManager object
-        if CLLocationManager.authorizationStatus() == .NotDetermined {
-            locationManager.requestAlwaysAuthorization()
-        }
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = kCLDistanceFilterNone
-        
-        self.locationManager.startUpdatingLocation() // continuously send the application a stream of location data
     }
     
     var p = false // the first zoom in should NOT be animated, while all the others should
