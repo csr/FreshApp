@@ -46,8 +46,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     func checkIfObjectsHaveLatitudeLongitude() {
-        let query = PFQuery(className: "Products")
-        query.findObjectsInBackgroundWithBlock {
+        PFQuery(className: "Products").findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil && objects != nil {
                 for myObject in objects! {
