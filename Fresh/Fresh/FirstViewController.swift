@@ -21,18 +21,21 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for farmers or products..."
-        self.navigationItem.titleView = searchBar
-        
         if PFUser.currentUser() == nil {
             askLogInOrSignUp()
         }
         
         smallCustomPin = SmallPin.loadNib()
+        addSearchBarToNavigationBar()
         updateUserLocation()
         checkIfObjectsHaveCoordinates()
         addCustomPinsToMap()
+    }
+    
+    func addSearchBarToNavigationBar() {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "Search for farmers or products..."
+        self.navigationItem.titleView = searchBar
     }
     
     func updateUserLocation() {
@@ -47,18 +50,16 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     func checkIfObjectsHaveCoordinates() {
         PFQuery(className: "Products").findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
+            (objects: [PFObject]?, error: NSError?) in
             if error == nil && objects != nil {
-                for myObject in objects! {
-                    if myObject["Latitude"] == nil || myObject["Longitude"] == nil || myObject["Latitude"] as! Float == 0 || myObject["Longitude"] as! Float == 0 {
-                        print("I couldn't find the latitude value for the object \(myObject.objectId).")
-                        self.convertObjectLocationToCoordinates(myObject)
+                for object in objects! {
+                    if object["Latitude"] == nil || object["Longitude"] == nil || object["Latitude"] as! Float == 0 || object["Longitude"] as! Float == 0 {
+                        self.convertObjectLocationToCoordinates(object)
                     }
-                    // Save the object locally
-                    myObject.pinInBackground()
+                    object.pinInBackground()
                 }
             } else {
-                print("I couldn't load your objects. Error: \(error)")
+                print(error)
             }
         }
     }
