@@ -31,7 +31,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         
         smallCustomPin = SmallPin.loadNib()
         updateUserLocation()
-        checkIfObjectsHaveLatitudeLongitude()
+        checkIfObjectsHaveCoordinates()
         addCustomPinsToMap()
     }
     
@@ -45,7 +45,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.locationManager.startUpdatingLocation() // continuously send the application a stream of location data
     }
     
-    func checkIfObjectsHaveLatitudeLongitude() {
+    func checkIfObjectsHaveCoordinates() {
         PFQuery(className: "Products").findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil && objects != nil {
@@ -97,7 +97,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         return false
     }
     
-    // Detect user panning on the mapView
     var mapChangedFromUserInteraction = false
     func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         mapChangedFromUserInteraction = mapViewRegionDidChangeFromUserInteraction()
@@ -270,7 +269,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         var emailTextField: UITextField?
         var passwordTextField: UITextField?
         
-        let signupSheetController: UIAlertController = UIAlertController(title: "Sign in to Fresh", message: "Log into your Fresh account to see what farmers are sellingr.", preferredStyle: .Alert)
+        let signupSheetController: UIAlertController = UIAlertController(title: "Sign in to Fresh", message: "Log into your Fresh account to see what farmers are selling.", preferredStyle: .Alert)
         
         let signupAction: UIAlertAction = UIAlertAction(title: "Sign in", style: .Default) { action -> Void in
             self.userEmail = emailTextField!.text!
@@ -299,18 +298,15 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         // Create the user
         let user = PFUser()
         user.email = userEmail
-        userEmail = userEmail.lowercaseString // ensure the e-mail is lowercase
+        userEmail = userEmail.lowercaseString // ensure the email is lowercase
         user.username = userEmail
         user.password = userPassword
         let userLogin = PFUser.currentUser()
         
-        // TODO: FIX THIS
         PFUser.logInWithUsernameInBackground(userEmail, password: userPassword) {
             (user: PFUser?, error: NSError?) -> Void in
             if userLogin != nil {
-                //objectID = userLogin?.objectId
             } else {
-                print("Login failed!")
             }
         }
         
@@ -331,13 +327,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         let rightBarButton: UIBarButtonItem = UIBarButtonItem()
         rightBarButton.customView = btnName
         self.navigationItem.rightBarButtonItem = rightBarButton
-    }
-    
-    func goToAddProduct() {
-        let storyboard : UIStoryboard = UIStoryboard(name: "New", bundle: nil)
-        let vc : ProductsTableViewController = storyboard.instantiateViewControllerWithIdentifier("products") as! ProductsTableViewController
-        let navigationController = UINavigationController(rootViewController: vc)
-        self.presentViewController(navigationController, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
