@@ -30,12 +30,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
         
         smallCustomPin = SmallPin.loadNib()
-        getUserLocation()
+        updateUserLocation()
         checkIfObjectsHaveLatitudeLongitude()
         addCustomPinsToMap()
     }
     
-    func getUserLocation() {
+    func updateUserLocation() {
         locationManager.delegate = self
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             locationManager.requestAlwaysAuthorization()
@@ -81,7 +81,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     @IBAction func changeStateImageOfGetLocationButton(sender: AnyObject) {
         self.getLocationButton.setImage(UIImage(named: "request1"), forState: UIControlState.Normal)
-        getUserLocation()
+        updateUserLocation()
     }
     
     func mapViewRegionDidChangeFromUserInteraction() -> Bool {
