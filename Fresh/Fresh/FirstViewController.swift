@@ -32,19 +32,16 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         addCustomPinsToMap()
     }
     
-    func addSearchBarToNavigationBar() {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for farmers or products..."
-        self.navigationItem.titleView = searchBar
-    }
-    
-    @IBAction func updateUserLocation() {
+    func setUpLocatinManager() {
         locationManager.delegate = self
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             locationManager.requestAlwaysAuthorization()
         }
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = kCLDistanceFilterNone
+    }
+    
+    @IBAction func updateUserLocation() {
         self.locationManager.startUpdatingLocation()
     }
     
@@ -62,6 +59,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                 print(error)
             }
         }
+    }
+    
+    func addSearchBarToNavigationBar() {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "Search for farmers or products..."
+        self.navigationItem.titleView = searchBar
     }
     
     func convertObjectLocationToCoordinates(myObject: PFObject) {
