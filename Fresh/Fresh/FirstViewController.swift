@@ -9,28 +9,29 @@ import Bolts
 class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
     let locationManager = CLLocationManager()
-    var userLocation = CLLocation()
+    let userLocation = CLLocation()
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var getLocationView: UIView!
     @IBOutlet weak var getLocationButton: UIButton!
     
-    var smallCustomPin = SmallPin()
+    let smallCustomPin = SmallPin()
     
     @IBOutlet weak var profileNavigationBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpLocationManager()
+        updateUserLocation()
+
+        addSearchBarToNavigationBar()
+        smallCustomPin.loadNib()
+        checkIfObjectsHaveCoordinates()
+        addCustomPinsToMap()
+        
         if PFUser.currentUser() == nil {
             askLogInOrSignUp()
         }
-        
-        setUpLocationManager()
-        smallCustomPin = SmallPin.loadNib()
-        addSearchBarToNavigationBar()
-        updateUserLocation()
-        checkIfObjectsHaveCoordinates()
-        addCustomPinsToMap()
     }
     
     func setUpLocationManager() {
@@ -43,7 +44,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     @IBAction func updateUserLocation() {
-        self.locationManager.startUpdatingLocation()
+        locationManager.startUpdatingLocation()
     }
     
     func checkIfObjectsHaveCoordinates() {

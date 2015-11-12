@@ -21,7 +21,7 @@ class SmallPin: UIView {
         //abelPrice!.text = "Default"
     }
     
-    class func loadNib() -> SmallPin {
+    func loadNib() -> SmallPin {
         return UINib(nibName: "SmallPin", bundle: NSBundle.mainBundle()).instantiateWithOwner(self, options: nil).first as! SmallPin
     }
 }
