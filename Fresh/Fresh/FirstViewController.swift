@@ -144,7 +144,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         if annotation is MKUserLocation {
             return mapView.dequeueReusableAnnotationViewWithIdentifier("")
         } else {
-            
             let annotationView = MKAnnotationView(frame: CGRectMake(0, 0, 100, 45))
             let query = PFQuery(className:"Products")
             query.fromLocalDatastore()
@@ -318,17 +317,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         } else {
             print("User successfully authenticated!")
         }
-    }
-    
-    func switchToFarmer() {
-        let btnName: UIButton = UIButton()
-        btnName.frame = CGRectMake(0, 0, 22, 22)
-        btnName.setImage(UIImage(named: "plus"), forState: .Normal)
-        btnName.addTarget(self, action: Selector("goToAddProduct"), forControlEvents: .TouchUpInside)
-        
-        let rightBarButton: UIBarButtonItem = UIBarButtonItem()
-        rightBarButton.customView = btnName
-        self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
     override func didReceiveMemoryWarning() {

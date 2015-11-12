@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CIDR_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/AppDelegate.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/Assets.xcassets" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/Base.lproj/LaunchScreen.storyboard" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/BigPin.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/FirstViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/FloatLabelTextField.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/FloatLabelTextView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/location.gpx" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/Main.storyboard" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/ProductsTableViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/SmallPin.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/SmallPin.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/TabBarController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Fresh/TableViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FreshTests/FreshTests.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FreshTests/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FreshUITests/FreshUITests.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FreshUITests/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/BFCancellationToken.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/BFCancellationToken.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/BFCancellationTokenRegistration.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/BFCancellationTokenRegistration.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/BFCancellationTokenSource.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/BFCancellationTokenSource.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/BFDefines.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/BFExecutor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/BFExecutor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/BFTask.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/BFTask.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/BFTaskCompletionSource.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/BFTaskCompletionSource.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/Bolts.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/Bolts.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Bolts/Bolts/Common/BoltsVersion.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ACL/DefaultACLController/PFDefaultACLController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ACL/DefaultACLController/PFDefaultACLController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ACL/PFACLPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ACL/State/PFACLState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ACL/State/PFACLState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ACL/State/PFACLState_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ACL/State/PFMutableACLState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ACL/State/PFMutableACLState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Analytics/Controller/PFAnalyticsController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Analytics/Controller/PFAnalyticsController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Analytics/PFAnalytics_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Analytics/Utilities/PFAnalyticsUtilities.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Analytics/Utilities/PFAnalyticsUtilities.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/BFTask+Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/BFTask+Private.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/CloudCode/PFCloudCodeController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/CloudCode/PFCloudCodeController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/PFCommandRunning.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/PFCommandRunning.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/PFCommandRunningConstants.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/PFCommandRunningConstants.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLRequestConstructor/PFCommandURLRequestConstructor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLRequestConstructor/PFCommandURLRequestConstructor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/PFURLSessionCommandRunner.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/PFURLSessionCommandRunner.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/PFURLSessionCommandRunner_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/PFURLSession.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/PFURLSession.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/PFURLSession_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionDataTaskDelegate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionDataTaskDelegate.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionDataTaskDelegate_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionFileDownloadTaskDelegate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionFileDownloadTaskDelegate.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionJSONDataTaskDelegate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionJSONDataTaskDelegate.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionUploadTaskDelegate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionUploadTaskDelegate.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTAnalyticsCommand.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTAnalyticsCommand.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTCloudCommand.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTCloudCommand.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTCommand.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTCommand.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTCommand_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTConfigCommand.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTConfigCommand.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTFileCommand.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTFileCommand.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTObjectBatchCommand.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTObjectBatchCommand.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTObjectCommand.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTObjectCommand.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTPushCommand.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTPushCommand.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTQueryCommand.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTQueryCommand.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTSessionCommand.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTSessionCommand.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTUserCommand.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Commands/PFRESTUserCommand.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Config/Controller/PFConfigController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Config/Controller/PFConfigController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Config/Controller/PFCurrentConfigController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Config/Controller/PFCurrentConfigController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Config/PFConfig_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/FieldOperation/PFFieldOperation.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/FieldOperation/PFFieldOperation.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/FieldOperation/PFFieldOperationDecoder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/FieldOperation/PFFieldOperationDecoder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/File/Controller/PFFileController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/File/Controller/PFFileController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/File/Controller/PFFileStagingController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/File/Controller/PFFileStagingController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/File/FileDataStream/PFFileDataStream.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/File/FileDataStream/PFFileDataStream.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/File/PFFile_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/File/State/PFFileState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/File/State/PFFileState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/File/State/PFFileState_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/File/State/PFMutableFileState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/File/State/PFMutableFileState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/HTTPRequest/PFHTTPRequest.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/HTTPRequest/PFHTTPURLRequestConstructor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/HTTPRequest/PFHTTPURLRequestConstructor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/HTTPRequest/PFURLConstructor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/HTTPRequest/PFURLConstructor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Installation/Constants/PFInstallationConstants.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Installation/Constants/PFInstallationConstants.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Installation/Controller/PFInstallationController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Installation/Controller/PFInstallationController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Installation/CurrentInstallationController/PFCurrentInstallationController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Installation/CurrentInstallationController/PFCurrentInstallationController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Installation/InstallationIdentifierStore/PFInstallationIdentifierStore.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Installation/InstallationIdentifierStore/PFInstallationIdentifierStore.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Installation/InstallationIdentifierStore/PFInstallationIdentifierStore_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Installation/PFInstallationPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/KeyValueCache/PFKeyValueCache.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/KeyValueCache/PFKeyValueCache.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/KeyValueCache/PFKeyValueCache_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/OfflineQueryLogic/PFOfflineQueryLogic.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/OfflineQueryLogic/PFOfflineQueryLogic.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/OfflineStore/PFOfflineStore.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/OfflineStore/PFOfflineStore.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/Pin/PFPin.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/Pin/PFPin.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabase.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabase.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabase_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabaseController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabaseController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabaseResult.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabaseResult.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/SQLite/PFSQLiteStatement.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/LocalDataStore/SQLite/PFSQLiteStatement.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/MultiProcessLock/PFMultiProcessFileLock.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/MultiProcessLock/PFMultiProcessFileLock.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/MultiProcessLock/PFMultiProcessFileLockController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/MultiProcessLock/PFMultiProcessFileLockController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/BatchController/PFObjectBatchController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/BatchController/PFObjectBatchController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Coder/File/PFObjectFileCoder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Coder/File/PFObjectFileCoder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Coder/File/PFObjectFileCodingLogic.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Coder/File/PFObjectFileCodingLogic.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Constants/PFObjectConstants.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Constants/PFObjectConstants.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Controller/OfflineController/PFOfflineObjectController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Controller/OfflineController/PFOfflineObjectController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Controller/PFObjectController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Controller/PFObjectController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Controller/PFObjectController_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Controller/PFObjectControlling.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/CurrentController/PFCurrentObjectControlling.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/EstimatedData/PFObjectEstimatedData.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/EstimatedData/PFObjectEstimatedData.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/FilePersistence/PFObjectFilePersistenceController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/FilePersistence/PFObjectFilePersistenceController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/LocalIdStore/PFObjectLocalIdStore.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/LocalIdStore/PFObjectLocalIdStore.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/OperationSet/PFOperationSet.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/OperationSet/PFOperationSet.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/PFObjectPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/PinningStore/PFPinningObjectStore.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/PinningStore/PFPinningObjectStore.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/State/PFMutableObjectState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/State/PFMutableObjectState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/State/PFObjectState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/State/PFObjectState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/State/PFObjectState_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Subclassing/PFObjectSubclassInfo.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Subclassing/PFObjectSubclassInfo.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Subclassing/PFObjectSubclassingController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Subclassing/PFObjectSubclassingController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Utilities/PFObjectUtilities.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Object/Utilities/PFObjectUtilities.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Parse_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ParseInternal.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ParseManager.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ParseManager.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ParseModule.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ParseModule.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFAlertView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFAlertView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFApplication.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFApplication.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFAssert.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFAsyncTaskQueue.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFAsyncTaskQueue.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFBase64Encoder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFBase64Encoder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFBaseState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFBaseState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFCategoryLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFCategoryLoader.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFCommandCache.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFCommandCache.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFCommandCache_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFCommandResult.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFCommandResult.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFCoreDataProvider.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFCoreManager.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFCoreManager.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFDataProvider.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFDateFormatter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFDateFormatter.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFDecoder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFDecoder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFDevice.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFDevice.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFEncoder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFEncoder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFErrorUtilities.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFErrorUtilities.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFEventuallyPin.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFEventuallyPin.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFEventuallyQueue.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFEventuallyQueue.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFEventuallyQueue_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFFileManager.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFFileManager.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFGeoPointPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFHash.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFHash.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFInternalUtils.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFInternalUtils.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFJSONSerialization.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFJSONSerialization.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFKeychainStore.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFKeychainStore.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFLocationManager.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFLocationManager.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFLogger.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFLogger.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFLogging.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFMacros.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFMulticastDelegate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFMulticastDelegate.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFNetworkCommand.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFPinningEventuallyQueue.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFPinningEventuallyQueue.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFReachability.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFReachability.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFTaskQueue.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFTaskQueue.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFWeakValue.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PFWeakValue.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Product/PFProduct+Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Product/ProductsRequestHandler/PFProductsRequestHandler.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Product/ProductsRequestHandler/PFProductsRequestHandler.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PropertyInfo/PFPropertyInfo.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PropertyInfo/PFPropertyInfo.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PropertyInfo/PFPropertyInfo_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PropertyInfo/PFPropertyInfo_Runtime.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/PropertyInfo/PFPropertyInfo_Runtime.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Purchase/Controller/PFPurchaseController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Purchase/Controller/PFPurchaseController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Purchase/PaymentTransactionObserver/PFPaymentTransactionObserver.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Purchase/PaymentTransactionObserver/PFPaymentTransactionObserver.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Purchase/PaymentTransactionObserver/PFPaymentTransactionObserver_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Push/ChannelsController/PFPushChannelsController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Push/ChannelsController/PFPushChannelsController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Push/Controller/PFPushController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Push/Controller/PFPushController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Push/Manager/PFPushManager.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Push/Manager/PFPushManager.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Push/PFPushPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Push/State/PFMutablePushState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Push/State/PFMutablePushState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Push/State/PFPushState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Push/State/PFPushState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Push/State/PFPushState_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Push/Utilites/PFPushUtilities.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Push/Utilites/PFPushUtilities.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Query/Controller/PFCachedQueryController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Query/Controller/PFCachedQueryController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Query/Controller/PFOfflineQueryController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Query/Controller/PFOfflineQueryController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Query/Controller/PFQueryController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Query/Controller/PFQueryController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Query/PFQueryPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Query/State/PFMutableQueryState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Query/State/PFMutableQueryState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Query/State/PFQueryState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Query/State/PFQueryState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Query/State/PFQueryState_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Query/Utilities/PFQueryUtilities.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Query/Utilities/PFQueryUtilities.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Relation/PFRelationPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Relation/State/PFMutableRelationState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Relation/State/PFMutableRelationState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Relation/State/PFRelationState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Relation/State/PFRelationState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Relation/State/PFRelationState_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Session/Controller/PFSessionController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Session/Controller/PFSessionController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Session/PFSession_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Session/Utilities/PFSessionUtilities.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/Session/Utilities/PFSessionUtilities.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ThreadSafety/PFThreadsafety.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/ThreadSafety/PFThreadsafety.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/AuthenticationProviders/Controller/PFUserAuthenticationController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/AuthenticationProviders/Controller/PFUserAuthenticationController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/AuthenticationProviders/Providers/Anonymous/PFAnonymousAuthenticationProvider.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/AuthenticationProviders/Providers/Anonymous/PFAnonymousAuthenticationProvider.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/AuthenticationProviders/Providers/Anonymous/PFAnonymousUtils_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/Coder/File/PFUserFileCodingLogic.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/Coder/File/PFUserFileCodingLogic.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/Constants/PFUserConstants.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/Constants/PFUserConstants.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/Controller/PFUserController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/Controller/PFUserController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/CurrentUserController/PFCurrentUserController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/CurrentUserController/PFCurrentUserController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/PFUserPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/State/PFMutableUserState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/State/PFMutableUserState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/State/PFUserState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/State/PFUserState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Internal/User/State/PFUserState_Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Parse.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/Parse.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFACL.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFACL.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFAnalytics.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFAnalytics.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFAnonymousUtils.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFAnonymousUtils.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFCloud.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFCloud.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFConfig.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFConfig.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFConstants.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFConstants.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFFile.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFFile.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFGeoPoint.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFGeoPoint.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFInstallation.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFInstallation.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFNetworkActivityIndicatorManager.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFNetworkActivityIndicatorManager.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFNullability.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFObject+Subclass.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFObject.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFObject.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFProduct.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFProduct.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFPurchase.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFPurchase.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFPush.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFPush.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFQuery.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFQuery.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFRelation.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFRelation.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFRole.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFRole.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFSession.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFSession.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFSubclassing.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFUser.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFUser.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Parse/Parse/PFUserAuthenticationDelegate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Bolts/Bolts-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Bolts/Bolts-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Bolts/Bolts-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Bolts/Bolts.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Bolts/Bolts.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Bolts/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Parse/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Parse/Parse-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Parse/Parse-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Parse/Parse-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Parse/Parse.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Parse/Parse.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Fresh/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Fresh/Pods-Fresh-acknowledgements.markdown" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Fresh/Pods-Fresh-acknowledgements.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Fresh/Pods-Fresh-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Fresh/Pods-Fresh-frameworks.sh" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Fresh/Pods-Fresh-resources.sh" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Fresh/Pods-Fresh-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Fresh/Pods-Fresh.debug.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Fresh/Pods-Fresh.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Fresh/Pods-Fresh.release.xcconfig" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Header Search Paths">
+        <CLASSES>
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework/Frameworks/vImage.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accounts.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AddressBook.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AddressBookUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AdSupport.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AssetsLibrary.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AudioUnit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVFoundation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CFNetwork.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CloudKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Contacts.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ContactsUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreAudio.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreAudioKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreBluetooth.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreData.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreImage.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreLocation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMIDI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreSpotlight.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreTelephony.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreText.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreVideo.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/EventKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/EventKitUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ExternalAccessory.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Foundation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameController.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameplayKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GLKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GSS.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/HealthKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/HomeKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/iAd.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ImageIO.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/JavaScriptCore.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/LocalAuthentication.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MapKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaAccessibility.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaPlayer.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MessageUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Metal.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MetalKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MetalPerformanceShaders.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MobileCoreServices.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ModelIO.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MultipeerConnectivity.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/NetworkExtension.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/NewsstandKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/NotificationCenter.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/OpenAL.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/OpenGLES.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/PassKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Photos.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/PhotosUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/PushKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/QuartzCore.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/QuickLook.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ReplayKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SafariServices.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SceneKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Security.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Social.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SpriteKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/StoreKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Twitter.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/VideoToolbox.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/WatchConnectivity.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/WatchKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/WebKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/7.0.0/include" />
+          <root url="file:///Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library/Frameworks/DTPerformanceSession.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library/Frameworks/InterfaceBuilderKit.framework/Headers" />
+          <root url="file://$MODULE_DIR$/Pods/Headers/Private" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework/Frameworks/vImage.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accounts.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AddressBook.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AddressBookUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AdSupport.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AssetsLibrary.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AudioUnit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVFoundation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CFNetwork.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CloudKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Contacts.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ContactsUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreAudio.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreAudioKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreBluetooth.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreData.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreImage.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreLocation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMIDI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreSpotlight.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreTelephony.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreText.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreVideo.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/EventKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/EventKitUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ExternalAccessory.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Foundation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameController.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameplayKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GLKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GSS.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/HealthKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/HomeKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/iAd.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ImageIO.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/JavaScriptCore.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/LocalAuthentication.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MapKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaAccessibility.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaPlayer.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MessageUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Metal.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MetalKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MetalPerformanceShaders.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MobileCoreServices.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ModelIO.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MultipeerConnectivity.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/NetworkExtension.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/NewsstandKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/NotificationCenter.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/OpenAL.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/OpenGLES.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/PassKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Photos.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/PhotosUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/PushKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/QuartzCore.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/QuickLook.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ReplayKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SafariServices.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SceneKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Security.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Social.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SpriteKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/StoreKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Twitter.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/VideoToolbox.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/WatchConnectivity.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/WatchKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/WebKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/7.0.0/include" />
+          <root url="file:///Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library/Frameworks/DTPerformanceSession.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library/Frameworks/InterfaceBuilderKit.framework/Headers" />
+          <root url="file://$MODULE_DIR$/Pods/Headers/Private" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>
