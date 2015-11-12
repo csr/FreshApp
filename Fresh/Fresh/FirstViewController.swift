@@ -14,7 +14,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     @IBOutlet weak var getLocationView: UIView!
     @IBOutlet weak var getLocationButton: UIButton!
     
-    let smallCustomPin = SmallPin()
+    var smallCustomPin = SmallPin()
     
     @IBOutlet weak var profileNavigationBarButton: UIBarButtonItem!
     
@@ -25,7 +25,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         updateUserLocation()
 
         addSearchBarToNavigationBar()
-        smallCustomPin.loadNib()
+        smallCustomPin = SmallPin.loadNib()
         checkIfObjectsHaveCoordinates()
         addCustomPinsToMap()
         
@@ -91,7 +91,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     func mapViewRegionDidChangeFromUserInteraction() -> Bool {
         let view = self.mapView.subviews[0]
-        // Look through gesture recognizers to determine whether this region change is from user interaction
         if let gestureRecognizers = view.gestureRecognizers {
             for recognizer in gestureRecognizers {
                 if (recognizer.state == UIGestureRecognizerState.Began || recognizer.state == UIGestureRecognizerState.Ended) {
@@ -110,13 +109,13 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
     }
     
-    var p = false // the first zoom in should NOT be animated, while all the others should
+    var notFirstZoom = false
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let newLocation = locations.last!
         mapView.setCenterCoordinate(newLocation.coordinate, animated: true)
         let viewRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 6000, 6000)
-        mapView.setRegion(viewRegion, animated: p)
-        p = true
+        mapView.setRegion(viewRegion, animated: notFirstZoom)
+        notFirstZoom = true
         manager.stopUpdatingLocation()
     }
     
@@ -300,7 +299,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             passwordTextField = textField
         })
         
-        // Create the user
         let user = PFUser()
         user.email = userEmail
         userEmail = userEmail.lowercaseString // ensure the email is lowercase
@@ -322,7 +320,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
     }
     
-    // MARK: Add Product page
     func switchToFarmer() {
         let btnName: UIButton = UIButton()
         btnName.frame = CGRectMake(0, 0, 22, 22)
