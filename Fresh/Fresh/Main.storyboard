@@ -47,6 +47,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="changeStateImageOfGetLocationButton:" destination="esr-F2-uer" eventType="touchUpInside" id="6vq-tO-60b"/>
+                                            <action selector="updateUserLocation" destination="esr-F2-uer" eventType="touchUpInside" id="jyk-RT-Ste"/>
                                         </connections>
                                     </button>
                                 </subviews>

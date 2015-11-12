@@ -38,14 +38,14 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.navigationItem.titleView = searchBar
     }
     
-    func updateUserLocation() {
+    @IBAction func updateUserLocation() {
         locationManager.delegate = self
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             locationManager.requestAlwaysAuthorization()
         }
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = kCLDistanceFilterNone
-        self.locationManager.startUpdatingLocation() // continuously send the application a stream of location data
+        self.locationManager.startUpdatingLocation()
     }
     
     func checkIfObjectsHaveCoordinates() {
@@ -82,7 +82,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     @IBAction func changeStateImageOfGetLocationButton(sender: AnyObject) {
         self.getLocationButton.setImage(UIImage(named: "request1"), forState: UIControlState.Normal)
-        updateUserLocation()
     }
     
     func mapViewRegionDidChangeFromUserInteraction() -> Bool {
