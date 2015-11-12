@@ -25,6 +25,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             askLogInOrSignUp()
         }
         
+        setUpLocationManager()
         smallCustomPin = SmallPin.loadNib()
         addSearchBarToNavigationBar()
         updateUserLocation()
@@ -32,7 +33,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         addCustomPinsToMap()
     }
     
-    func setUpLocatinManager() {
+    func setUpLocationManager() {
         locationManager.delegate = self
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             locationManager.requestAlwaysAuthorization()
