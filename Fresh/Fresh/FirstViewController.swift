@@ -50,14 +50,14 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     func checkIfObjectsHaveCoordinates() {
         PFQuery(className: "Products").findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) in
-            if error == nil && objects != nil {
+            if objects != nil {
                 for object in objects! {
                     if object["Latitude"] == nil || object["Longitude"] == nil || object["Latitude"] as! Float == 0 || object["Longitude"] as! Float == 0 {
                         self.convertObjectLocationToCoordinates(object)
                     }
                     object.pinInBackground()
                 }
-            } else {
+            } else if error == nil {
                 print(error)
             }
         }
