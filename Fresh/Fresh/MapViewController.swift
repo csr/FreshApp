@@ -76,7 +76,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 myObject.saveInBackgroundWithBlock {
                     (success: Bool, error: NSError?) -> Void in
                     if (error != nil) {
-                        print("Error while saving the object after converting the address to coordinates.")
+                        print(error)
                     }
                 }
             }
@@ -124,16 +124,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             print("Successfully retrieved \(objects!.count) objects in the local datastore in addCustomPins()")
-            if error == nil {
+            if objects != nil {
                 for object in objects! {
                     let coordinates = CLLocationCoordinate2DMake(object["Latitude"] as! Double, object["Longitude"] as! Double)
                     myCustomPin.coordinate = coordinates
                     self.mapView.addAnnotation(myCustomPin)
                 }
-            } else {
-                print("Error while retrieving the objects saved locally.")
-                let coordinates = CLLocationCoordinate2DMake(0, 0)
-                myCustomPin.coordinate = coordinates
+            } else if error != nil {
+                print(error)
+                myCustomPin.coordinate = CLLocationCoordinate2DMake(0, 0)
             }
         }
     }
