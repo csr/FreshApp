@@ -15,10 +15,7 @@ class SmallPin: UIView {
     @IBOutlet weak var smallPingBg: UIImageView!
     
     override func awakeFromNib() {
-        //smallPingBg.image = UIImage(named: "smallPin")
-        //smallPingBg.layer.borderWidth = 1
         labelTitle.text = "Default"
-        //abelPrice!.text = "Default"
     }
     
     class func loadNib() -> SmallPin {

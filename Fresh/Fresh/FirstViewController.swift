@@ -13,10 +13,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var getLocationView: UIView!
     @IBOutlet weak var getLocationButton: UIButton!
-    
-    var smallCustomPin = SmallPin()
-    
     @IBOutlet weak var profileNavigationBarButton: UIBarButtonItem!
+
+    var smallCustomPin = SmallPin()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +51,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             (objects: [PFObject]?, error: NSError?) in
             if objects != nil {
                 for object in objects! {
-                    if object["Latitude"] == nil || object["Longitude"] == nil || object["Latitude"] as! Float == 0 || object["Longitude"] as! Float == 0 {
+                    if object["Latitude"] == nil || object["Longitude"] == nil {
                         self.convertObjectLocationToCoordinates(object)
                     }
-                    object.pinInBackground()
                 }
-            } else if error == nil {
+            } else if error != nil {
                 print(error)
             }
         }
@@ -77,7 +75,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                 myObject["Longitude"] = Float(placemark.location!.coordinate.longitude)
                 myObject.saveInBackgroundWithBlock {
                     (success: Bool, error: NSError?) -> Void in
-                    if (error == nil) {
+                    if (error != nil) {
                         print("Error while saving the object after converting the address to coordinates.")
                     }
                 }

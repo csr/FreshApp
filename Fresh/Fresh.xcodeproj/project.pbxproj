@@ -23,7 +23,6 @@
 		1DA927A81BCC0CBE00ECFF0F /* location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 1DA927A71BCC0CBE00ECFF0F /* location.gpx */; };
 		1DB953761BD37B86002A2745 /* BigPin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB953751BD37B86002A2745 /* BigPin.xib */; };
 		2ED2BD4874E2C5245ABE21D5 /* Pods_Fresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FFB2CE38CC8E4164AD9AEC /* Pods_Fresh.framework */; };
-		EB44A6E11BC98A4E00077E52 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44A6E01BC98A4E00077E52 /* TabBarController.swift */; };
 		EB44A6E51BC9BC4300077E52 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44A6E41BC9BC4300077E52 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +68,6 @@
 		5B08BD25A03AE5E9F6B8BEF6 /* Pods-Fresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fresh/Pods-Fresh.release.xcconfig"; sourceTree = "<group>"; };
 		C8FFB2CE38CC8E4164AD9AEC /* Pods_Fresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA98F31751C21A69A6DCC0C /* Pods-Fresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fresh/Pods-Fresh.debug.xcconfig"; sourceTree = "<group>"; };
-		EB44A6E01BC98A4E00077E52 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		EB44A6E41BC9BC4300077E52 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				1D7EFEB11BC846E20054FD50 /* FirstViewController.swift */,
-				EB44A6E01BC98A4E00077E52 /* TabBarController.swift */,
 				1D9898BE1BC9F7C90096DD29 /* ProductsTableViewController.swift */,
 				EB44A6E41BC9BC4300077E52 /* TableViewController.swift */,
 				1D9FD6411BD282DA0028FEC1 /* SmallPin.swift */,
@@ -395,7 +392,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB44A6E11BC98A4E00077E52 /* TabBarController.swift in Sources */,
 				1D9FD6421BD282DB0028FEC1 /* SmallPin.swift in Sources */,
 				1D9898C51BC9FED80096DD29 /* FloatLabelTextView.swift in Sources */,
 				1D7EFEB01BC846E20054FD50 /* AppDelegate.swift in Sources */,
