@@ -10,7 +10,7 @@
         <!--Explore-->
         <scene sceneID="q7s-dT-bIN">
             <objects>
-                <viewController id="esr-F2-uer" customClass="FirstViewController" customModule="Fresh" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="esr-F2-uer" customClass="MapViewController" customModule="Fresh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9WQ-K8-MuZ"/>
                         <viewControllerLayoutGuide type="bottom" id="qdr-Kn-uNR"/>
@@ -91,7 +91,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="addPopover:" destination="esr-F2-uer" id="oGN-By-HzN"/>
+                                <action selector="showProfileSettings:" destination="esr-F2-uer" id="9CW-Cz-3Ku"/>
                             </connections>
                         </barButtonItem>
                         <userDefinedRuntimeAttributes>
@@ -105,7 +105,7 @@
                         <outlet property="getLocationButton" destination="AUH-Es-ghJ" id="bfs-6F-5RM"/>
                         <outlet property="getLocationView" destination="vvU-ne-MeD" id="GAb-9M-6Se"/>
                         <outlet property="mapView" destination="kJ7-D5-pBF" id="cQS-Kg-RFH"/>
-                        <outlet property="profileNavigationBarButton" destination="wvz-fF-5Tx" id="4GS-Yx-NpQ"/>
+                        <outlet property="profileNavigationBarButton" destination="wvz-fF-5Tx" id="QUk-FD-yxX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SH7-8B-Oyt" userLabel="First Responder" sceneMemberID="firstResponder"/>

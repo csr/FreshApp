@@ -6,7 +6,7 @@ import MapKit
 import Parse
 import Bolts
 
-class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
     let locationManager = CLLocationManager()
     let userLocation = CLLocation()
@@ -148,13 +148,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             query.findObjectsInBackgroundWithBlock {
                 (objects: [PFObject]?, error: NSError?) -> Void in
                 print("Successfully retrieved \(objects!.count) objects in the local datastore in ViewForAnnotation()")
-                if error == nil {
+                if objects != nil {
                     for object in objects! {
                         self.smallCustomPin.labelTitle.text = object["Title"] as? String
-                        //self.myView.labelPrice.text = object["Price"] as? String
                     }
-                } else {
-                    print("Error while retrieving the objects saved locally.")
+                } else if error != nil {
+                    print(error)
                 }
             }
             
@@ -173,7 +172,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         print("Tap on small custom pin!")
     }
     
-    @IBAction func addPopover(sender: UIBarButtonItem) {
+    @IBAction func showProfileSettings (sender: UIBarButtonItem) {
         let profileOptions = UIAlertController()
         let currentUser = PFUser.currentUser()
         

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D712ADA1BD38E1F001619C5 /* SmallPin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D712AD91BD38E1F001619C5 /* SmallPin.xib */; };
 		1D7EFEB01BC846E20054FD50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFEAF1BC846E20054FD50 /* AppDelegate.swift */; };
-		1D7EFEB21BC846E20054FD50 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFEB11BC846E20054FD50 /* FirstViewController.swift */; };
+		1D7EFEB21BC846E20054FD50 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFEB11BC846E20054FD50 /* MapViewController.swift */; };
 		1D7EFEB91BC846E20054FD50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D7EFEB81BC846E20054FD50 /* Assets.xcassets */; };
 		1D7EFEBC1BC846E20054FD50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D7EFEBA1BC846E20054FD50 /* LaunchScreen.storyboard */; };
 		1D7EFEC71BC846E30054FD50 /* FreshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EFEC61BC846E30054FD50 /* FreshTests.swift */; };
@@ -47,7 +47,7 @@
 		1D712AD91BD38E1F001619C5 /* SmallPin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallPin.xib; sourceTree = "<group>"; };
 		1D7EFEAC1BC846E20054FD50 /* Fresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7EFEAF1BC846E20054FD50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1D7EFEB11BC846E20054FD50 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		1D7EFEB11BC846E20054FD50 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		1D7EFEB81BC846E20054FD50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D7EFEBB1BC846E20054FD50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D7EFEBD1BC846E20054FD50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		1D9898BB1BC9DA130096DD29 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1D7EFEB11BC846E20054FD50 /* FirstViewController.swift */,
+				1D7EFEB11BC846E20054FD50 /* MapViewController.swift */,
 				1D9898BE1BC9F7C90096DD29 /* ProductsTableViewController.swift */,
 				EB44A6E41BC9BC4300077E52 /* TableViewController.swift */,
 				1D9FD6411BD282DA0028FEC1 /* SmallPin.swift */,
@@ -397,7 +397,7 @@
 				1D7EFEB01BC846E20054FD50 /* AppDelegate.swift in Sources */,
 				EB44A6E51BC9BC4300077E52 /* TableViewController.swift in Sources */,
 				1D9898C41BC9FED80096DD29 /* FloatLabelTextField.swift in Sources */,
-				1D7EFEB21BC846E20054FD50 /* FirstViewController.swift in Sources */,
+				1D7EFEB21BC846E20054FD50 /* MapViewController.swift in Sources */,
 				1D9898BF1BC9F7C90096DD29 /* ProductsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
