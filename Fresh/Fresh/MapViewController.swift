@@ -151,7 +151,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                     for object in objects! {
                         self.smallCustomPin.labelTitle.text = object["Title"] as? String
                     }
-                } else if error != nil {
+                } else {
                     print(error)
                 }
             }
