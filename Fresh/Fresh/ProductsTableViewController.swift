@@ -27,7 +27,6 @@ class ProductsTableViewController: UITableViewController {
     }
     
     @IBAction func tapOnButtonDone(sender: AnyObject) {
-        
         let inserimento = PFObject(className: "Products")
         inserimento["Title"] = textFieldTitle.text
         inserimento["Description"] = textFieldDescription.text
@@ -36,11 +35,9 @@ class ProductsTableViewController: UITableViewController {
         inserimento.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
-                //inserimentoObjectID = inserimento.objectId
-                //rallObjects.append(inserimentoObjectID)
                 print("The object ID of inserimento is \(inserimentoObjectID).")
             } else {
-                print("Error!")
+                print(error)
             }
         }
         dismissViewControllerAnimated(true, completion: nil)
