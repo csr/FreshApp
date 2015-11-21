@@ -19,7 +19,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpLocationManager()
         updateUserLocation()
 
@@ -55,7 +54,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                         self.convertObjectLocationToCoordinates(object)
                     }
                 }
-            } else if error != nil {
+            } else {
                 print(error)
             }
         }
