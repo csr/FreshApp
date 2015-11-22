@@ -302,8 +302,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         PFUser.logInWithUsernameInBackground(userEmail, password: userPassword) {
             (user: PFUser?, error: NSError?) -> Void in
-            if userLogin != nil {
-            } else {
+            if userLogin == nil {
+                print(error)
             }
         }
         
