@@ -301,12 +301,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         user.password = userPassword
         let userLogin = PFUser.currentUser()
         
-        PFUser.logInWithUsernameInBackground(userEmail, password: userPassword) {
-            (user: PFUser?, error: NSError?) -> Void in
-            if userLogin != nil {
-            } else {
-            }
-        }
+//        PFUser.logInWithUsernameInBackground(userEmail, password: userPassword) {
+//            (user: PFUser?, error: NSError?) -> Void in
+//        }
         
         if (PFUser.currentUser() == nil) {
             presentViewController(signupSheetController, animated: true, completion: nil)
