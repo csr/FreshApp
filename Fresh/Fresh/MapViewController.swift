@@ -10,6 +10,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     let locationManager = CLLocationManager()
     let userLocation = CLLocation()
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var getLocationView: UIView!
     @IBOutlet weak var getLocationButton: UIButton!
@@ -300,10 +301,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         user.username = userEmail
         user.password = userPassword
         let userLogin = PFUser.currentUser()
-        
-//        PFUser.logInWithUsernameInBackground(userEmail, password: userPassword) {
-//            (user: PFUser?, error: NSError?) -> Void in
-//        }
         
         if (PFUser.currentUser() == nil) {
             presentViewController(signupSheetController, animated: true, completion: nil)
