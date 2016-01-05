@@ -64,7 +64,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     func addSearchBarToNavigationBar() {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for farmers or products..."
+        searchBar.placeholder = "Search for local markets, farmers or products..."
         self.navigationItem.titleView = searchBar
     }
     
