@@ -80,7 +80,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     func addCustomPinsToMap() {
         let myCustomPin = MKPointAnnotation()
-        let query = PFQuery(className:"Products")
+        let query = PFQuery(className:"Markets")
         query.fromLocalDatastore()
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
