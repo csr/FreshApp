@@ -13,7 +13,7 @@ creator="gpx-poi.com">
       <extensions>
          <gpxx:WaypointExtension>
             <gpxx:Address>
-               <gpxx:StreetAddress>Via Pietro Maroncelli 17</gpxx:StreetAddress>
+               <gpxx:StreetAddress>Via Pietro Maroncelli 14</gpxx:StreetAddress>
                <gpxx:City>Milano</gpxx:City>
                <gpxx:State>Lombardia</gpxx:State>
                <gpxx:Country>IT</gpxx:Country>

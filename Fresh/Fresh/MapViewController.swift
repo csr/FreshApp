@@ -79,23 +79,40 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     func addCustomPinsToMap() {
-        let myCustomPin = MKPointAnnotation()
         let query = PFQuery(className:"Markets")
-        query.fromLocalDatastore()
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             print("Successfully retrieved \(objects!.count) objects in the local datastore in addCustomPins()")
             if objects != nil {
                 for object in objects! {
+                    let myCustomPin = MKPointAnnotation()
                     let coordinates = CLLocationCoordinate2DMake(object["Latitude"] as! Double, object["Longitude"] as! Double)
+                    myCustomPin.title = object["Name"] as? String
                     myCustomPin.coordinate = coordinates
                     self.mapView.addAnnotation(myCustomPin)
                 }
             } else if error != nil {
                 print(error)
-                myCustomPin.coordinate = CLLocationCoordinate2DMake(0, 0)
             }
         }
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        var v: MKAnnotationView! = nil
+        let ident = "greenPin"
+        v = mapView.dequeueReusableAnnotationViewWithIdentifier(ident)
+        if v == nil {
+            v = MKPinAnnotationView(annotation: annotation, reuseIdentifier: ident)
+            (v as! MKPinAnnotationView).animatesDrop = true
+            if #available(iOS 9.0, *) {
+                (v as! MKPinAnnotationView).pinTintColor = MKPinAnnotationView.greenPinColor()
+            } else {
+                // Fallback on earlier versions
+            }
+            v.canShowCallout = true
+        }
+        v.annotation = annotation
+        return v
     }
     
     override func didReceiveMemoryWarning() {
