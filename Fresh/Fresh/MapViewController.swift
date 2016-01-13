@@ -98,21 +98,25 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        var v: MKAnnotationView! = nil
-        let ident = "greenPin"
-        v = mapView.dequeueReusableAnnotationViewWithIdentifier(ident)
-        if v == nil {
-            v = MKPinAnnotationView(annotation: annotation, reuseIdentifier: ident)
-            (v as! MKPinAnnotationView).animatesDrop = true
-            if #available(iOS 9.0, *) {
-                (v as! MKPinAnnotationView).pinTintColor = MKPinAnnotationView.greenPinColor()
-            } else {
-                // Fallback on earlier versions
+        if annotation is MKUserLocation {
+            return mapView.dequeueReusableAnnotationViewWithIdentifier("")
+        } else {
+            var v: MKAnnotationView! = nil
+            let ident = "greenPin"
+            v = mapView.dequeueReusableAnnotationViewWithIdentifier(ident)
+            if v == nil {
+                v = MKPinAnnotationView(annotation: annotation, reuseIdentifier: ident)
+                (v as! MKPinAnnotationView).animatesDrop = true
+                if #available(iOS 9.0, *) {
+                    (v as! MKPinAnnotationView).pinTintColor = MKPinAnnotationView.greenPinColor()
+                } else {
+                    // Fallback on earlier versions
+                }
+                v.canShowCallout = true
             }
-            v.canShowCallout = true
+            v.annotation = annotation
+            return v
         }
-        v.annotation = annotation
-        return v
     }
     
     override func didReceiveMemoryWarning() {
