@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Parse
-import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,10 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        Parse.enableLocalDatastore()
-        Parse.setApplicationId("5wj4OsOVvGbDYwHs1cayb4Ewb8r6dAqKVc7HShKe",
-            clientKey: "l7z2EhqOqSeRKnZir6o2yZ0lMiuXs8pvrufHuAUa")
-        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         return true
     }

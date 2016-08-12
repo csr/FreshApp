@@ -3,8 +3,6 @@
 
 import UIKit
 import MapKit
-import Parse
-import Bolts
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
@@ -22,7 +20,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         setUpLocationManager()
         updateUserLocation()
         addSearchBarToNavigationBar()
-        addCustomPinsToMap()
     }
     
     func setUpLocationManager() {
@@ -76,25 +73,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.setRegion(viewRegion, animated: notFirstZoom)
         notFirstZoom = true
         manager.stopUpdatingLocation()
-    }
-    
-    func addCustomPinsToMap() {
-        let query = PFQuery(className:"Markets")
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            print("Successfully retrieved \(objects!.count) objects in the local datastore in addCustomPins()")
-            if objects != nil {
-                for object in objects! {
-                    let myCustomPin = MKPointAnnotation()
-                    let coordinates = CLLocationCoordinate2DMake(object["Latitude"] as! Double, object["Longitude"] as! Double)
-                    myCustomPin.title = object["Name"] as? String
-                    myCustomPin.coordinate = coordinates
-                    self.mapView.addAnnotation(myCustomPin)
-                }
-            } else if error != nil {
-                print(error)
-            }
-        }
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
